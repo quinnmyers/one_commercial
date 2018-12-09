@@ -14,13 +14,14 @@ module.exports = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: `pk87rm0x7o2i`,
+        spaceId: `yi2r8oscz3t0`,
         // Learn about environment variables: https://gatsby.app/env-vars
         accessToken:
-          'fb7134ad5faa2f2da2dffe16b069249a7769a7cea8154ba5c3c41a6e4ae142b1',
+          '243def89d1b2ffc6cc6eee58fd28fb0ad9a06de5eb2dc2e710be8bd0429110c0',
       },
     },
     'gatsby-plugin-sass',
+    'gatsby-image',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-styled-components',
