@@ -1,130 +1,56 @@
-
-*
-    padding: 0
-    margin: 0 
-    box-sizing: border-box
-
-#app
+@import './base.sass'
+  
+.page__container 
   display: flex
-  flex-direction: column
-
-
-h1, h2, h3, h4, h5, h6 
-    margin: 0
-    padding: 0
-
-button, input[type="submit"], input[type="reset"] 
-    background: none
-    color: inherit
-    border: none
-    padding: 0
-    font: inherit
-    cursor: pointer
-    outline: inherit
-
-
-//VARIABLES
-
-//general 
-$mobilenav-height: 28px 
-$nav-height: 60px
-
-//colors
-$blue-grey: #102B3F
-$dark-purple: #522E60
-$light-grey: #EFEDEE
-$grey: #A3A3A3
-$medium-grey: #919191
-$accent: rgb(240,129,148)
-$orange: #F7BA60
-$pink: #ff6797
-
-//fonts 
-$mainfont: "Rubik", "Avenir", sans-serif
-$subfont: 'Avenir', sans-serif
-
-//font-weights
-$light: 300
-$normal: 400
-$bold: 700
-
-// MIXINS
-
-
-$phone-small: 330px
-$phone-normal: 375px
-$phone-max-width: 440px
-$phone-large: 414px
-$tablet-phone: 650px
-$tablet-width: 768px
-$desktop-width: 992px
-$edgesnap-width: 1100px
-$tablet-landscape-width: 1024px
-$nav-snap: 700px
-$testimonial-snap: 900px
-
-
-=testimonial-snap 
-  @media (max-width: #{$testimonial-snap})
-    @content
-
-=edgesnap
-  @media (max-width: #{$edgesnap-width})
-    @content
-
-=tabletlandscape
-  @media (max-width: #{$tablet-landscape-width})
-    @content
-
-=navsnap
-  @media (max-width: #{$nav-snap})
-    @content
-
-=tablet-phone
-  @media (max-width: #{$tablet-phone})
-    @content
-
-=phone
-  @media (max-width: #{$phone-normal})
-    @content
-
-=tablet-landscape
-  @media (max-width: #{$tablet-width})
-    @content
-
-=tablet-portrait
-  @media (max-width: #{$tablet-width})
-    @content
-
-=phone-large
-  @media (max-width: #{$phone-large})
-    @content
-
-// =phone
-//   @media (max-width: unquote("#{$phone-max-width} - 1"))
-//     @content
-
-=phone-small
-  @media (max-width: #{$phone-small})
-    @content
-
-
-
-.section--header 
-  font-family: $mainfont
-  color: $blue-grey 
-  font-size: 2.25em
-  font-weight: $normal
-  margin: 40px 0px
-  align-self: flex-start
-  @include edgesnap 
-    padding-left: 20px
-  @include tablet-portrait
-    margin: 30px 0px
-  @include phone-large 
-    margin: 20px 0px
-    font-size: 2em
-
-
-//removed medium google font and changed section--header to use normal 
-//if we want to make it bolder again we will need to add it back in
+  justify-content: center
+  &__content 
+    width: 1200px 
+    background: coral
+    @include edgesnap
+      width: 100% 
+      padding: 0px 15px
+  
+  
+.header 
+  display: flex
+  align-items: center
+  --height: 140px
+  height: var(--height)
+  padding: 0px 20px
+  background: tomato
+  position: sticky 
+  top: 0
+  &__container
+    display: flex
+    justify-content: space-between 
+    align-items: flex-end
+    width: 100%
+    background: lightskyblue
+    &__brand
+      background: khaki
+      .company--logo
+        width: calc(var(--height)*1.4)
+        height: auto
+    &__nav
+      display: flex
+      font-size: 12pt
+      nav
+        line-height: 1rem
+        a, a:visited 
+          font-size: 1rem
+          font-weight: $medium
+          text-decoration: none 
+          color: black
+          margin: 0px 10px
+          &:hover 
+            color: $gradientmid 
+            border-bottom: 2px solid $gradientmid
+          &:nth-child(1)
+            //first nav item here
+          &:nth-last-child(1)
+            //second item here 
+            margin-right: 0px
+        a.active 
+          color: $gradientmid
+          border-bottom: 2px solid $gradientmid
+        

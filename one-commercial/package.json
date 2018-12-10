@@ -13,14 +13,15 @@
     "gatsby-plugin-sass": "^2.0.7",
     "gatsby-plugin-sharp": "^2.0.15",
     "gatsby-plugin-styled-components": "^3.0.4",
-    "gatsby-source-contentful": "^2.0.18",
+    "gatsby-source-contentful": "^2.0.19",
     "gatsby-source-filesystem": "^2.0.8",
     "gatsby-transformer-sharp": "^2.1.8",
     "node-sass": "^4.11.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-helmet": "^5.2.0",
-    "styled-components": "^4.1.2"
+    "styled-components": "^4.1.2",
+    "typeface-fira-sans": "0.0.54"
   },
   "keywords": [
     "gatsby"
