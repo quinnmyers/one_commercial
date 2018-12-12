@@ -61,7 +61,7 @@ class Layout extends React.Component {
             className="page__container"
             ref={div => (this.pageContainer = div)}
           >
-            <div className="page__container__content">{children}</div>
+            {children}
           </div>
           <div className="footer">
             <p>this is where your footer goes</p>
