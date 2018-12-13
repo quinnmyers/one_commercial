@@ -1,44 +1,57 @@
 import React, { Component } from 'react'
-import { Link } from 'gatsby'
+// import { Link } from 'gatsby'
 // import { graphql } from 'gatsby'
 import Layout from '../components/layout'
-import Propertyid from '../components/PropertyId'
+// import Propertyid from '../components/PropertyId'
 import { graphql } from 'gatsby'
+// import Img from 'gatsby-image'
 // import Image from '../components/image'
-import heroImg from '../images/hero-image.jpg'
+// import heroImg from '../images/hero-image.jpg'
 // import Content from '../components/content'
 
+//components
+import Hero from '../components/home/hero'
+
 //stles
-import '../components/styles/home.sass'
+// import '../components/styles/home.sass'
 
 class IndexPage extends Component {
-  constructor(props) {
-    super(props)
-    this.IndexPage = this.IndexPage.bind(this)
-    // homeContentful = HomePageQuery.contentfulHomePage
-  }
   render() {
     const { data } = this.props
+    const indexAssets = data.contentfulHomePage
     return (
       <Layout>
-        <section className="hero">
+        <Hero
+          heroBackgroundImage={indexAssets.heroImage.fluid}
+          heroTextTop={indexAssets.heroTextTop}
+          heroTextBottom={indexAssets.heroTextBottom}
+        />
+        {/* <section className="hero">
           <div className="hero__container">
             <div className="hero__container__img">
+              <Img
+                fluid={data.contentfulHomePage.heroImage.fluid}
+                className="company--logo"
+                alt=""
+              />
               <img src={heroImg} alt="" />
             </div>
             <div className="hero__container__content">
               <div className="hero__container__content__top">
-                <p>this is some test content</p>
-              </div>
-              <div className="hero__container__content__bottom">
                 <h2>{data.contentfulHomePage.heroTextTop}</h2>
               </div>
               <div className="hero__container__content__bottom">
                 <h2>{data.contentfulHomePage.heroTextBottom}</h2>
               </div>
+
+              <div className="hero__container__content__button">
+                <Link to="/listings/">
+                  <button type="button">See All Listings</button>
+                </Link>
+              </div>
             </div>
           </div>
-        </section>
+        </section> */}
       </Layout>
     )
   }

@@ -1,0 +1,49 @@
+@import '../main.sass'
+  
+.hero 
+  max-height: 520px
+  width: 100%
+  overflow: hidden
+  &__container
+    display: flex
+    justify-content: center
+    position: relative
+    max-height: 520px
+    width: 100%
+    &__img
+      height: auto
+      overflow: hidden
+      // background: black
+      width: 100%
+      img 
+        //margin-top: -50px
+        display: inline-block
+        // @media (min-width: 1800px)
+    &__content
+      display: flex 
+      flex-direction: column 
+      justify-content: space-between
+      align-self: center
+      height: 49%
+      width: 1200px 
+      margin: 0 auto
+      color: white
+      position: absolute
+      background: rgba(40,30,80,0.5)
+      @include edgesnap
+        width: 100% 
+        padding: 0px 15px
+      &__top, &__bottom 
+        max-width: 48%
+        h2 
+          font-weight: $normal
+          letter-spacing: .045rem
+      &__button 
+        a, a:hover, a:visited 
+          color: white
+          text-decoration: none
+          font-weight: $light
+        button
+          border: 1px solid white
+          padding: 4px 40px
+          border-radius: 100px
