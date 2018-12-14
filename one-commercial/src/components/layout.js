@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql, Link } from 'gatsby'
+// import HamburgerMenu from 'react-hamburger-menu'
 
 import Img from 'gatsby-image'
 
@@ -14,6 +15,27 @@ class Layout extends React.Component {
     super(props)
     this.state = {
       navItems: ['Home', 'Listings', 'Services', 'About', 'Contact'],
+      open: false,
+    }
+    this.mobileNav = React.createRef()
+  }
+  //handles clicks on the hamburger button
+  handleClick() {
+    console.log('WHADDUP')
+    this.setState({
+      open: !this.state.open,
+    })
+    this.expandMobileNav()
+  }
+  //sets styling of the &__mobilenav div
+  expandMobileNav() {
+    const el = this.mobileNav.current
+    if (!this.state.open) {
+      console.log('mobile nav is open!')
+      el.style.transform = `translateY(0)`
+    } else {
+      console.log('mobile nav is closed')
+      el.style.transform = `translateY(-100%)`
     }
   }
   render() {
@@ -54,8 +76,28 @@ class Layout extends React.Component {
                     </Link>
                   ))}
                 </nav>
+                <div className="mobile__hamburger">
+                  <div
+                    className="mobile__hamburger__hamburger"
+                    onClick={this.handleClick.bind(this)}
+                  />
+                </div>
               </div>
             </div>
+          </div>
+          <div className="header__container__mobilenav" ref={this.mobileNav}>
+            <nav>
+              {this.state.navItems.map((navitem, index) => (
+                <Link
+                  to={navitem === 'Home' ? `/` : `/${navitem.toLowerCase()}/`}
+                  key={index}
+                  activeClassName="active"
+                  onClick={this.handleClick.bind(this)}
+                >
+                  {navitem}
+                </Link>
+              ))}
+            </nav>
           </div>
           <div
             className="page__container"
@@ -72,7 +114,7 @@ class Layout extends React.Component {
   }
   componentDidMount() {
     this.stylePageContainer()
-    console.log(this.state)
+    // console.log(this.state)
     console.log('hi, the layout just mounted')
   }
   stylePageContainer() {
@@ -85,7 +127,7 @@ class Layout extends React.Component {
     //sets the page container to have minHeight equal to the remaining
     //height of the page
     this.pageContainer.style.minHeight = `${windowHeight - headerHeight}px`
-    console.log(`height of header is: ${headerHeight}`)
+    // console.log(`height of header is: ${headerHeight}`)
   }
 }
 

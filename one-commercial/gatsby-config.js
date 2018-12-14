@@ -21,6 +21,7 @@ module.exports = {
       },
     },
     'gatsby-plugin-sass',
+    // 'react-hamburger-menu',
     'gatsby-image',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',

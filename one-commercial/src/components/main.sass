@@ -11,7 +11,7 @@
       padding: 0px 15px
 
 
-  
+ 
 .header 
   display: flex
   align-items: center
@@ -22,37 +22,89 @@
   position: sticky 
   top: 0
   z-index: 999
+  @include edgesnap
+    --height: 120px
+  @include tablet 
+    --height: 100px
   &__container
     display: flex
     justify-content: space-between 
     align-items: flex-end
     width: 100%
     background: lightskyblue
+    @include navsnap 
+      align-items: center
     &__brand
       background: khaki
       .company--logo
         width: calc(var(--height)*1.4)
         height: auto
+    &__nav, &__mobilenav 
+      nav 
+        display: flex
+        a, a:visited 
+          color: black 
+          text-decoration: none
     &__nav
-      display: flex
+      height: 100%
       font-size: 12pt
+      .mobile__hamburger
+        display: flex
+        align-self: center 
+        justify-self: center
+        background: red
+        @include navsnap 
+          display: flex
+        &__hamburger
+          width: 50px 
+          height: 50px
+          background: lightpink
+        .test-button 
+          height: 40px 
+          width: 40px
+          background: coral
       nav
         line-height: 1rem
+        @include navsnap
+          display: none
         a, a:visited 
           font-size: 1rem
           font-weight: $medium
-          text-decoration: none 
-          color: black
           margin: 0px 10px
+          @include edgesnap 
+            font-size: 0.9rem
+          @include tablet 
+            font-size: 0.8rem
+            margin: 0px 8px
           &:hover 
             color: $gradientmid 
             border-bottom: 2px solid $gradientmid
           &:nth-child(1)
             //first nav item here
           &:nth-last-child(1)
-            //second item here 
             margin-right: 0px
         a.active 
           color: $gradientmid
           border-bottom: 2px solid $gradientmid
+    &__mobilenav 
+      display: flex
+      position: absolute
+      z-index: 998 
+      width: 100vw
+      height: 100vh
+      color: white
+      background: rgba(55,15,145,0.8)
+      transition: transform 0.5s ease-in-out
+      transform: translateY(-100%)
+      nav 
+        display: flex 
+        width: 100%
+        flex-direction: column 
+        align-items: flex-end
+        padding-right: 20px
+        a 
+          margin: 10px 0px
+          &:nth-child(1)
+            margin-top: 20px
+  
         
