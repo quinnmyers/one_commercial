@@ -11,6 +11,8 @@ import { graphql } from 'gatsby'
 
 //components
 import Hero from '../components/home/hero'
+import ServicesCta from '../components/home/servicescta'
+import ServiceCards from '../components/home/servicecards'
 
 //stles
 // import '../components/styles/home.sass'
@@ -26,6 +28,8 @@ class IndexPage extends Component {
           heroTextTop={indexAssets.heroTextTop}
           heroTextBottom={indexAssets.heroTextBottom}
         />
+        <ServicesCta />
+        <ServiceCards />
         {/* <section className="hero">
           <div className="hero__container">
             <div className="hero__container__img">

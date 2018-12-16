@@ -1,8 +1,18 @@
 import React from 'react'
 
+import Content from '../content.js'
+
 class ServiceCards extends React.Component {
   render() {
-    return <p>this is a test</p>
+    return (
+      <Content>
+        <div className="service__cards">
+          <div className="service__cards__container">
+            <p>this is a test</p>
+          </div>
+        </div>
+      </Content>
+    )
   }
 }
 
