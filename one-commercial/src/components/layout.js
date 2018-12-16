@@ -33,9 +33,11 @@ class Layout extends React.Component {
     if (!this.state.open) {
       console.log('mobile nav is open!')
       el.style.transform = `translateY(0)`
+      this.hamburgerMenu.classList.add('expanded')
     } else {
       console.log('mobile nav is closed')
       el.style.transform = `translateY(-100%)`
+      this.hamburgerMenu.classList.remove('expanded')
     }
   }
   render() {
@@ -80,7 +82,21 @@ class Layout extends React.Component {
                   <div
                     className="mobile__hamburger__hamburger"
                     onClick={this.handleClick.bind(this)}
-                  />
+                    ref={div => (this.hamburgerMenu = div)}
+                  >
+                    <span
+                      className="line lineOne"
+                      ref={span => (this.hamburgerLine = span)}
+                    />
+                    <span
+                      className="line lineTwo"
+                      ref={span => (this.hamburgerLine = span)}
+                    />
+                    <span
+                      className="line lineThree"
+                      ref={span => (this.hamburgerLine = span)}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -128,6 +144,12 @@ class Layout extends React.Component {
     //height of the page
     this.pageContainer.style.minHeight = `${windowHeight - headerHeight}px`
     // console.log(`height of header is: ${headerHeight}`)
+    //calls the function styling the hamburger lines after expand
+    this.styleHamburgerLines()
+  }
+  styleHamburgerLines() {
+    console.log(this.hamburgerLine)
+    this.hamburgerLine.classList.add('hamburgerexpanded')
   }
 }
 
