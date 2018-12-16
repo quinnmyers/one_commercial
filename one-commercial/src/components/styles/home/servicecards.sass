@@ -2,7 +2,23 @@
 
 .service__cards
   background: grey
-  height: 400px
+  height: auto
+  margin-bottom: 70px 
+  @include navsnap 
+    margin-bottom: 60px
+  @include phone-large 
+    margin-bottom: 50px 
+  @include phone-small 
+    margin-bottom: 40px
   p 
     margin: 0 
     padding: 0
+
+
+
+// @include navsnap 
+//   margin-bottom: 60px
+// @include phone-large 
+//   margin-bottom: 50px 
+// @include phone-small 
+//   margin-bottom: 40px
