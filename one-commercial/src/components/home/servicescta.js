@@ -1,21 +1,26 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
-import '../styles/home/servicescta.sass'
+import Content from '../content.js'
+
+// import '../styles/home/servicescta.sass'
 
 class ServicesCta extends Component {
   render() {
     return (
-      <div>
-        <h3>We're Very Interested In What We Can Do For You</h3>
-        <p>
-          At One Commercial, we don’t just want to be your agents, we want to
-          become your trusted advisors, helping with everything you or your
-          business needs in order to succeed in the Las Vegas real estate
-          market.
-        </p>
-      </div>
+      <Content>
+        <div className="home__text__block">
+          <h3>{this.props.underHeroHeader}</h3>
+          <p>{this.props.underHeroBody}</p>
+        </div>
+      </Content>
     )
   }
+}
+
+ServicesCta.propTypes = {
+  underHeroHeader: PropTypes.string,
+  underHeroBody: PropTypes.string,
 }
 
 export default ServicesCta

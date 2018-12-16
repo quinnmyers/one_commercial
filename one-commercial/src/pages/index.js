@@ -13,6 +13,7 @@ import { graphql } from 'gatsby'
 import Hero from '../components/home/hero'
 import ServicesCta from '../components/home/servicescta'
 import ServiceCards from '../components/home/servicecards'
+import HomeTextBlock from '../components/home/hometextblock'
 
 //stles
 // import '../components/styles/home.sass'
@@ -28,9 +29,42 @@ class IndexPage extends Component {
           heroTextTop={indexAssets.heroTextTop}
           heroTextBottom={indexAssets.heroTextBottom}
         />
-        <ServicesCta />
+        {/* <ServicesCta
+          underHeroHeader={indexAssets.underHeroTextBlockBold}
+          underHeroBody={indexAssets.underHeroTextParagraph.internal.content}
+        /> */}
+        <HomeTextBlock
+          header={indexAssets.underHeroTextBlockBold}
+          paragraph={indexAssets.underHeroTextParagraph.internal.content}
+        />
         <ServiceCards />
-        {/* <section className="hero">
+      </Layout>
+    )
+  }
+}
+
+export const query = graphql`
+  query IndexPageQuery {
+    contentfulHomePage {
+      heroTextTop
+      heroTextBottom
+      heroImage {
+        fluid(maxWidth: 2000) {
+          ...GatsbyContentfulFluid_noBase64
+        }
+      }
+      underHeroTextBlockBold
+      underHeroTextParagraph {
+        id
+        internal {
+          content
+        }
+      }
+    }
+  }
+`
+
+/* <section className="hero">
           <div className="hero__container">
             <div className="hero__container__img">
               <Img
@@ -55,25 +89,7 @@ class IndexPage extends Component {
               </div>
             </div>
           </div>
-        </section> */}
-      </Layout>
-    )
-  }
-}
-
-export const query = graphql`
-  query IndexPageQuery {
-    contentfulHomePage {
-      heroTextTop
-      heroTextBottom
-      heroImage {
-        fluid(maxWidth: 2000) {
-          ...GatsbyContentfulFluid_noBase64
-        }
-      }
-    }
-  }
-`
+        </section> */
 
 // const IndexPage = ({ data }) => (
 //   <Layout>
