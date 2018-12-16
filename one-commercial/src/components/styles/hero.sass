@@ -24,7 +24,7 @@
       flex-direction: column 
       justify-content: space-between
       align-self: center
-      height: 49%
+      height: 46%
       width: 1200px 
       margin: 0 auto
       color: white
@@ -33,17 +33,47 @@
       @include edgesnap
         width: 100% 
         padding: 0px 15px
+      @include tablet-large 
+        height: 46% 
+      @include phone-large 
+        height: 70%
       &__top, &__bottom 
-        max-width: 48%
+        max-width: 46%
+        @include tablet 
+          max-width: 58%
+        @include phone-large 
+          max-width: 80%
         h2 
           font-weight: $normal
-          letter-spacing: .045rem
+          letter-spacing: .025rem
+          @include tablet-large 
+            font-size: 1.4rem
+          @include tablet
+            font-size: 1.2rem
+          @include phone-large 
+            font-size: 0.9rem
+            letter-spacing: 0.025rem
       &__button 
         a, a:hover, a:visited 
           color: white
           text-decoration: none
           font-weight: $light
+          @include tablet-large 
+            font-size: 0.85rem
+          @include tablet 
+            font-size: 0.7rem
+          @include phone-large 
+            font-size: 0.6rem
         button
           border: 1px solid white
-          padding: 4px 40px
+          padding: 3px 40px
           border-radius: 100px
+          transition: all 0.3s 
+          line-height: 1.2rem
+          &:hover 
+            background: white 
+            color: black
+          @include tablet-large 
+            padding: 2px 30px
+          @include tablet 
+            padding: 0px 25px
