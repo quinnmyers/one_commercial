@@ -10,8 +10,10 @@ class HomeTextBlock extends Component {
     return (
       <Content>
         <div className="home__text__block">
-          <h3>{this.props.header}</h3>
-          <p>{this.props.paragraph}</p>
+          <div className="home__text__block__content">
+            <h3>{this.props.header}</h3>
+            <p>{this.props.paragraph}</p>
+          </div>
         </div>
       </Content>
     )

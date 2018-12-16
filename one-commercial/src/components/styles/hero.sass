@@ -43,6 +43,8 @@
           max-width: 58%
         @include phone-large 
           max-width: 80%
+        @include phone-small 
+          max-width: 100%
         h2 
           font-weight: $normal
           letter-spacing: .025rem
@@ -64,6 +66,8 @@
             font-size: 0.7rem
           @include phone-large 
             font-size: 0.6rem
+          @include phone-small 
+            font-size: 0.5rem
         button
           border: 1px solid white
           padding: 3px 40px
@@ -77,3 +81,5 @@
             padding: 2px 30px
           @include tablet 
             padding: 0px 25px
+          @include phone 
+            padding: 0px 20px

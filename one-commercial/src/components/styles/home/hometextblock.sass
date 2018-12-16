@@ -3,7 +3,49 @@
 .home__text__block
   display: flex 
   flex-direction: column
+  align-items: center
   width: 100%
-  h3, p 
-    max-width: 75%
-  h3 
+  &__content
+    display: flex 
+    flex-direction: column
+    align-items: center
+    margin: 70px 0px
+    max-width: 55%
+    @include edgesnap 
+      max-width: 75%
+    @include navsnap 
+      max-width: 100%
+      margin: 60px 0px
+    @include phone-large 
+      margin: 50px 0px
+    @include phone-small 
+      margin: 40px 0px
+    h3
+      margin-bottom: 15px
+      font-size: 1.25rem
+      text-align: center
+      @include navsnap 
+        font-size: 1.15rem
+      @include phone-large 
+        font-size: 1rem
+      @include phone 
+        font-size: 0.95rem
+        margin-bottom: 12px
+      @include phone-small 
+        font-size: 0.8rem
+        margin-bottom: 10px
+    p 
+      text-align: center
+      color: $light-grey
+      font-size: 0.9rem
+      line-height: 1.1rem
+      @include navsnap 
+        font-size: 0.85rem
+        max-width: 90%
+      @include phone-large 
+        font-size: 0.8rem
+        max-width: 100%
+      @include phone-small 
+        font-size: 0.72rem
+        line-height: 0.9rem
+      

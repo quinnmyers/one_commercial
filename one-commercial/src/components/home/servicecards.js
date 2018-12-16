@@ -2,6 +2,8 @@ import React from 'react'
 
 import Content from '../content.js'
 
+import '../styles/home/servicecards.sass'
+
 class ServiceCards extends React.Component {
   render() {
     return (

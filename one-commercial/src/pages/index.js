@@ -11,7 +11,6 @@ import { graphql } from 'gatsby'
 
 //components
 import Hero from '../components/home/hero'
-import ServicesCta from '../components/home/servicescta'
 import ServiceCards from '../components/home/servicecards'
 import HomeTextBlock from '../components/home/hometextblock'
 
