@@ -28,15 +28,21 @@
     --height: 100px
   @include tablet-phone
     --height: 80px
+  @include phone-large 
+    --height: 70px 
+  @include phone 
+    --height: 65px
+  @include phone-small
+    --height: 58px
   &__container
     display: flex
     justify-content: space-between 
     align-items: flex-end
     width: 100%
-    height: 100%
     background: lightskyblue
     @include navsnap 
       align-items: center
+      height: 100%
     &__brand
       background: khaki
       .company--logo
@@ -63,9 +69,14 @@
         width: 30px
         @include navsnap 
           display: flex
+        @include phone-large 
+          height: 32%
+        @include phone-small 
+          height: 35%
         &__hamburger
           display: flex 
           flex-direction: column 
+          align-items: flex-end
           justify-content: space-between
           width: 100%
           height: 100%
@@ -76,7 +87,7 @@
             //styles lines when expanded
             .lineOne
               position: absolute 
-              transform: rotate(45deg)
+              transform: rotate(45deg) translateX(1px)
             .lineTwo
               opacity: 0
               transform: translateX(-60%)
@@ -88,17 +99,17 @@
             width: 30px
             background: black
             opacity: 1
-            border-radius: 10px
             &:nth-child(1)
               transition: all 0.3s
             &:nth-child(2)
               transition: all 1s
             &:nth-last-child(1)
               transition: all 0.3s
-        .test-button 
-          height: 40px 
-          width: 40px
-          background: coral
+            @include phone-large 
+              width: 25px
+            @include phone-small 
+              width: 22px
+              height: 2px
       nav
         line-height: 1rem
         @include navsnap
@@ -128,7 +139,7 @@
       width: 100vw
       height: 100vh
       color: white
-      background: rgba(55,15,145,0.8)
+      background: rgba(255,255,255,0.8)
       transition: transform 0.5s ease-in-out
       transform: translateY(-100%)
       nav 
