@@ -1,23 +1,26 @@
 import React from 'react'
-import PropTypes, { string } from 'prop-types'
+import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
+import Img from 'gatsby-image'
 
-const ServiceCard = ({ name, icon, alt, link, description }) => (
-  <div>
-    <Link to={`/${link}/`}>
+const ServiceCard = ({ name, icon, alt, description }) => (
+  <div className="service__cards__container__card">
+    <Link to={`#`}>
       <h4>{name}</h4>
-      <img src={icon} alt={alt} />
+      <Img
+        className="service__cards__container__card--image"
+        fluid={icon}
+        alt={alt}
+      />
       <p>{description}</p>
     </Link>
   </div>
 )
 
 ServiceCard.propTypes = {
-  name: string.isRequired,
-  icon: string.isRequired,
-  alt: string.isRequired,
-  link: string.isRequired,
-  description: string.isRequired,
+  name: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
 }
 
 export default ServiceCard

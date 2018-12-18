@@ -6,6 +6,9 @@ import Img from 'gatsby-image'
 import '../../components/styles/hero.sass'
 
 class Hero extends Component {
+  componentDidMount() {
+    console.log(`from hero: ${this.props}`)
+  }
   render() {
     // const { heroBackgroundImage, heroTextTop, heroTextBottom } = this.props
     return (

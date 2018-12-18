@@ -36,7 +36,7 @@ class IndexPage extends Component {
           header={indexAssets.underHeroTextBlockBold}
           paragraph={indexAssets.underHeroTextParagraph.internal.content}
         />
-        <ServiceCards />
+        <ServiceCards serviceCards={indexAssets.serviceCards} />
       </Layout>
     )
   }
@@ -57,6 +57,21 @@ export const query = graphql`
         id
         internal {
           content
+        }
+      }
+      serviceCards {
+        id
+        title
+        cardIcon {
+          fluid(maxWidth: 300) {
+            ...GatsbyContentfulFluid_noBase64
+          }
+        }
+        iconDescription
+        cardDescription {
+          internal {
+            content
+          }
         }
       }
     }
