@@ -1,7 +1,6 @@
 @import '../../base.sass'
 
 .service__cards
-  background: grey
   height: auto
   margin-bottom: 70px 
   @include navsnap 
@@ -10,17 +9,38 @@
     margin-bottom: 50px 
   @include phone-small 
     margin-bottom: 40px
+  &, a, a:hover, a:visited 
+    text-decoration: none 
+    color: black
   &__container 
     //container styles here
+    display: flex
+    justify-content: space-between
+    min-height: 290px
     &__card 
-      background: rebeccapurple
-      &--image 
-        height: 100px 
-        width: 100px
-
-  p 
-    margin: 0 
-    padding: 0
+      display: flex
+      border-radius: 3px
+      width: 22%
+      background: lightpink
+      padding: 30px 0px
+      transition: all 0.2s ease-in-out
+      &:hover 
+        transform: scale(1.025) translateY(-4px)
+      a
+        display: flex
+        flex-direction: column
+        align-items: center 
+        justify-content: space-between
+        img
+          height: 80px 
+          margin: 30px 0px
+        p 
+          margin: 0 
+          padding: 0
+          font-size: 0.85rem
+          line-height: 1.1rem
+          max-width: 90%
+          text-align: center
 
 
 

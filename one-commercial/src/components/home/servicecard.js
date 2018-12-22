@@ -1,15 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
 
 const ServiceCard = ({ name, icon, alt, description }) => (
   <div className="service__cards__container__card">
     <Link to={`#`}>
       <h4>{name}</h4>
-      <Img
+      <img
         className="service__cards__container__card--image"
-        fluid={icon}
+        src={icon}
         alt={alt}
       />
       <p>{description}</p>
@@ -20,7 +19,12 @@ const ServiceCard = ({ name, icon, alt, description }) => (
 ServiceCard.propTypes = {
   name: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
 }
 
 export default ServiceCard
+
+//not using gatsby-image on this page because the SVGs
+//do not work well with contentful under any optimization
+//category, just using regular images and SVGs from contentful

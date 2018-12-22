@@ -62,21 +62,32 @@ export const query = graphql`
       serviceCards {
         id
         title
-        cardIcon {
-          fluid(maxWidth: 300) {
-            ...GatsbyContentfulFluid_noBase64
-          }
-        }
-        iconDescription
         cardDescription {
           internal {
             content
+          }
+        }
+        iconDescription
+        cardIcon {
+          file {
+            url
           }
         }
       }
     }
   }
 `
+
+// serviceCards {
+//   id
+//   title
+//   iconDescription
+//   cardDescription {
+//     internal {
+//       content
+//     }
+//   }
+// }
 
 /* <section className="hero">
           <div className="hero__container">

@@ -61,9 +61,8 @@ class ServiceCards extends Component {
               <ServiceCard
                 key={service.id}
                 name={service.title}
-                icon={service.cardIcon.fluid}
+                icon={service.cardIcon.file.url}
                 alt={service.iconDescription}
-                // link={service.link}
                 description={service.cardDescription.internal.content}
               />
               // <h2>{serviceCard.name}</h2>
