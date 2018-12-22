@@ -42,7 +42,6 @@ class Layout extends React.Component {
   }
   render() {
     const { children, data } = this.props
-    const siteLogo = data.allContentfulAsset.edges[0].node.fluid
     return (
       <div>
         <Helmet
@@ -55,14 +54,18 @@ class Layout extends React.Component {
           <html lang="en" />
         </Helmet>
         <div>
-          {console.log(data.allContentfulAsset.edges[0].node.fluid)}
           <div className="header" ref={div => (this.siteHeader = div)}>
             <div className="header__container">
               <div
                 className="header__container__brand"
                 onClick={this.testFunction}
               >
-                <Img fluid={siteLogo} className="company--logo" />
+                <img
+                  className="company--logo"
+                  src={data.contentfulMeta.logo.file.url}
+                  alt=""
+                />
+                {/* <Img fluid={siteLogo} className="company--logo" /> */}
               </div>
               <div className="header__container__nav">
                 <nav>
@@ -162,18 +165,10 @@ export default props => (
             title
           }
         }
-        allContentfulAsset(
-          filter: { contentful_id: { eq: "6XeuaEJpjUAKEomcyauYEg" } }
-        ) {
-          edges {
-            node {
-              title
-              webp: fixed(width: 100) {
-                ...GatsbyContentfulFixed_withWebp_noBase64
-              }
-              fluid(maxWidth: 613) {
-                ...GatsbyContentfulFluid_noBase64
-              }
+        contentfulMeta {
+          logo {
+            file {
+              url
             }
           }
         }
