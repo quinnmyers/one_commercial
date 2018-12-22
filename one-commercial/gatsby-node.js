@@ -29,6 +29,7 @@ exports.createPages = ({ graphql, actions }) => {
                 if (result.errors) {
                     reject(result.errors)
                 }
+                // filter the result to is avabale, rent buy and have 3 blocks like the one below 
                 result.data.allContentfulProperties.edges.forEach((edge) => {
                     createPage({
                         path: edge.node.name.split(" ").join("+"),

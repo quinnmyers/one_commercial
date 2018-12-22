@@ -1,0 +1,63 @@
+@import '../../main.sass'
+  
+.hero 
+  max-height: 520px
+  width: 100%
+  overflow: hidden
+  &__container
+    display: flex
+    justify-content: center
+    position: relative
+    max-height: 520px
+    width: 100%
+    &__img
+      height: auto
+      overflow: hidden
+      // background: black
+      width: 100%
+      img 
+        //margin-top: -50px
+        display: inline-block
+        // @media (min-width: 1800px)
+    &__flag
+      display: flex 
+      flex-direction: column 
+      align-self: center
+      bottom: 0
+      width: 1200px
+      margin: 0 auto
+     
+      color: black
+      position: absolute
+     
+      @include edgesnap
+        width: 100% 
+        // padding: 0px 15px
+      @include tablet-large 
+
+      @include phone-large 
+      &__type
+        background: rgba(252, 252, 252, 0.65)
+        max-width: 250px
+        display: flex
+        justify-content: center
+        margin-bottom: 50px
+        // max-width: 46%
+        @include tablet 
+        //   max-width: 58%
+        @include phone-large 
+        //   max-width: 80%
+        @include phone-small 
+        //   max-width: 100%
+        h2 
+          font-weight: $normal
+          padding: 10px 30px
+          letter-spacing: .025rem
+          @include tablet-large 
+            font-size: 1.4rem
+          @include tablet
+            font-size: 1.2rem
+          @include phone-large 
+            font-size: 0.9rem
+            letter-spacing: 0.025rem
+      
