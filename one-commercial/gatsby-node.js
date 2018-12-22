@@ -5,3 +5,41 @@
  */
 
 // You can delete this file if you're not using it
+
+const path = require('path')
+
+exports.createPages = ({ graphql, actions }) => {
+    const { createPage } = actions
+    return new Promise((resolve, reject) => {
+        const listingTemplate = path.resolve('src/templates/listing.js')
+        resolve(
+            graphql(`
+        {
+            allContentfulProperties {
+            edges {
+              node {
+                id
+                name
+
+              }
+            }
+          }
+        }
+      `).then((result) => {
+                if (result.errors) {
+                    reject(result.errors)
+                }
+                result.data.allContentfulProperties.edges.forEach((edge) => {
+                    createPage({
+                        path: edge.node.name.split(" ").join("+"),
+                        component: listingTemplate,
+                        context: {
+                            id: edge.node.id
+                        }
+                    })
+                })
+                return
+            })
+        )
+    })
+}
