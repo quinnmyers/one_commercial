@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql, Link } from 'gatsby'
 // import HamburgerMenu from 'react-hamburger-menu'
 
-import Img from 'gatsby-image'
+// import Img from 'gatsby-image'
 
 import './layout.css'
 import './main.sass'
