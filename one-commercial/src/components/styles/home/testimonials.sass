@@ -1,13 +1,45 @@
 @import '../../base.sass'
 
 .testimonials
+  display: flex
+  height: auto
   &__container
+    display: flex 
+    justify-content: space-between
+    height: auto
+    width: 100%
     &__card
+      display: flex
+      height: auto
+      width: auto
+      background: khaki
       &__line
+        height: 100%
+        width: 7px
+        background-image: linear-gradient($gradientdark, $gradientlight)
+        border-radius: 10px
+        margin-right: 15px
       &__content
+        display: flex 
+        flex-direction: column
+        max-width: 230px
+        font-size: 12pt
         &__text
+          font-size: 0.8rem
+          line-height: 1.225rem
+          margin-bottom: 50px
         &__person
+          display: flex
+          align-items: center
           &__headshot
+            .person--headshot
+              border-radius: 100px
+              width: 85px
+              img 
+                height: 100px
           &__info
+            margin-left: 10px
             &__name
             &__title
+              color: $light-grey
+              font-size: 0.6rem
