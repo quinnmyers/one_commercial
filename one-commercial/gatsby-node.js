@@ -15,7 +15,7 @@ exports.createPages = ({ graphql, actions }) => {
         resolve(
             graphql(`
         {
-            allContentfulProperties {
+            allContentfulProperty {
             edges {
               node {
                 id
@@ -30,9 +30,9 @@ exports.createPages = ({ graphql, actions }) => {
                     reject(result.errors)
                 }
                 // filter the result to is avabale, rent buy and have 3 blocks like the one below 
-                result.data.allContentfulProperties.edges.forEach((edge) => {
+                result.data.allContentfulProperty.edges.forEach((edge) => {
                     createPage({
-                        path: edge.node.name.split(" ").join("+"),
+                        path: edge.node.name.split(" ").join("-"),
                         component: listingTemplate,
                         context: {
                             id: edge.node.id
