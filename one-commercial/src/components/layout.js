@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql, Link } from 'gatsby'
-// import HamburgerMenu from 'react-hamburger-menu'
 
-// import Img from 'gatsby-image'
+//components
+import Footer from './layout/footer/footer'
 
 import './layout.css'
 import './main.sass'
@@ -125,7 +125,7 @@ class Layout extends React.Component {
             {children}
           </div>
           <div className="footer">
-            <p>this is where your footer goes</p>
+            <Footer />
           </div>
         </div>
       </div>
