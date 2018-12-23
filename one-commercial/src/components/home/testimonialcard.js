@@ -39,4 +39,5 @@ TestimonialCard.propTypes = {
   title: PropTypes.string.isRequired,
   company: PropTypes.string.isRequired,
 }
+
 export default TestimonialCard

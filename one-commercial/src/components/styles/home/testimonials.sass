@@ -3,31 +3,67 @@
 .testimonials
   display: flex
   height: auto
+  margin-bottom: 70px 
+  @include navsnap 
+    margin-bottom: 60px
+  @include phone-large 
+    margin-bottom: 50px 
+  @include phone-small 
+    margin-bottom: 40px
   &__container
     display: flex 
     justify-content: space-between
     height: auto
     width: 100%
+    @include tablet-phone 
+      flex-direction: column
     &__card
       display: flex
       height: auto
       width: auto
       background: khaki
+      @include tablet-phone
+        justify-content: center 
+        margin-bottom: 50px 
+      @include phone-small 
+        margin-bottom: 40px
+      &:nth-last-child(1)
+        @include tablet-phone 
+          margin-bottom: 0px
       &__line
         height: 100%
         width: 7px
         background-image: linear-gradient($gradientdark, $gradientlight)
         border-radius: 10px
         margin-right: 15px
+        @include tablet 
+          width: 5px 
+          margin-right: 12px
+        @include tablet-phone 
+          display: none
       &__content
         display: flex 
         flex-direction: column
         max-width: 230px
-        font-size: 12pt
+        font-size: 12px
+        @include tablet
+          max-width: 190px
+          font-size: 11px
+        @include tablet-phone 
+          flex-direction: column-reverse
+          max-width: 100%
+          justify-content: center 
+          align-items: center
         &__text
-          font-size: 0.8rem
-          line-height: 1.225rem
+          font-size: 1.25em
+          line-height: 1.55em
           margin-bottom: 50px
+          @include tablet
+            margin-bottom: 40px
+            line-height: 1.4em
+          @include tablet-phone 
+            text-align: center
+            font-size: 1.2em
         &__person
           display: flex
           align-items: center
@@ -35,11 +71,18 @@
             .person--headshot
               border-radius: 100px
               width: 85px
-              img 
-                height: 100px
+              @include tablet
+                width: 65px
+              @include tablet-phone
+                margin-bottom: 12px
+              @include phone-small 
+                margin-bottom: 10px
           &__info
             margin-left: 10px
             &__name
+              h6 
+                font-size: 1.29em
+                margin-bottom: -0.3em
             &__title
               color: $light-grey
-              font-size: 0.6rem
+              font-size: 0.85em
