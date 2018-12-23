@@ -20,6 +20,7 @@ module.exports = {
           '243def89d1b2ffc6cc6eee58fd28fb0ad9a06de5eb2dc2e710be8bd0429110c0',
       },
     },
+    '@contentful/gatsby-transformer-contentful-richtext',
     'gatsby-plugin-sass',
     // 'react-hamburger-menu',
     'gatsby-image',

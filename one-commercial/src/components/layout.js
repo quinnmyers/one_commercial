@@ -125,7 +125,13 @@ class Layout extends React.Component {
             {children}
           </div>
           <div className="footer">
-            <Footer />
+            <Footer
+              address={
+                this.props.data.contentfulMeta.address.childContentfulRichText
+                  .html
+              }
+              phoneNumber={this.props.data.contentfulMeta.phoneNumber}
+            />
           </div>
         </div>
       </div>
@@ -169,6 +175,22 @@ export default props => (
           logo {
             file {
               url
+            }
+          }
+          email
+          phoneNumber
+          address {
+            childContentfulRichText {
+              html
+            }
+          }
+          socialMediaAccounts {
+            id
+            link
+            icon {
+              file {
+                url
+              }
             }
           }
         }
