@@ -11,8 +11,9 @@ import { graphql } from 'gatsby'
 
 //components
 import Hero from '../components/home/hero'
-import ServiceCards from '../components/home/servicecards'
 import HomeTextBlock from '../components/home/hometextblock'
+import ServiceCards from '../components/home/servicecards'
+import Testimonials from '../components/home/testimonials'
 
 //stles
 // import '../components/styles/home.sass'
@@ -37,6 +38,13 @@ class IndexPage extends Component {
           paragraph={indexAssets.underHeroTextParagraph.internal.content}
         />
         <ServiceCards serviceCards={indexAssets.serviceCards} />
+        <HomeTextBlock
+          header={indexAssets.underFeaturedTextBlockBold}
+          paragraph={
+            indexAssets.underFeaturedTextBlockParagraph.internal.content
+          }
+        />
+        <Testimonials testimonials={indexAssets.testimonials} />
       </Layout>
     )
   }
@@ -73,6 +81,29 @@ export const query = graphql`
             url
           }
         }
+      }
+      underFeaturedTextBlockBold
+      underFeaturedTextBlockParagraph {
+        id
+        internal {
+          content
+        }
+      }
+      testimonials {
+        id
+        testimonialParagraph {
+          internal {
+            content
+          }
+        }
+        personsPhoto {
+          fluid(maxWidth: 150) {
+            ...GatsbyContentfulFluid_noBase64
+          }
+        }
+        personsName
+        personsTitle
+        personsCompany
       }
     }
   }
