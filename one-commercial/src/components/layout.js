@@ -131,6 +131,8 @@ class Layout extends React.Component {
                   .html
               }
               phoneNumber={this.props.data.contentfulMeta.phoneNumber}
+              logo={data.contentfulMeta.logo.file.url}
+              email={this.props.data.contentfulMeta.email}
             />
           </div>
         </div>

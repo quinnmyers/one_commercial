@@ -5,6 +5,7 @@ import FooterLeft from './footer-left'
 import FooterCenter from './footer-center'
 import FooterRight from './footer-right'
 // import Content from '../../content'
+import PropTypes from 'prop-types'
 
 //styles
 import '../../styles/layout/footer/footer.sass'
@@ -20,13 +21,16 @@ class Footer extends Component {
   render() {
     return (
       <div className="footer__container">
-        <p>{this.props.phoneNumber}</p>
-        <p dangerouslySetInnerHTML={{ __html: this.props.address }} />
         <div className="footer__container__left">
           <FooterLeft />
         </div>
         <div className="footer__container__left">
-          <FooterCenter />
+          <FooterCenter
+            address={this.props.address}
+            phone={this.props.phone}
+            logo={this.props.logo}
+            email={this.props.email}
+          />
         </div>
         <div className="footer__container__left">
           <FooterRight />
@@ -34,6 +38,13 @@ class Footer extends Component {
       </div>
     )
   }
+}
+
+Footer.propTypes = {
+  address: PropTypes.string,
+  phone: PropTypes.string,
+  logo: PropTypes.string,
+  email: PropTypes.string,
 }
 
 export default Footer

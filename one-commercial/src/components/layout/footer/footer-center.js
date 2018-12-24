@@ -1,8 +1,38 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 //styles
 import '../../styles/layout/footer/footer-center.sass'
 
-const FooterCenter = () => <h2>FOOTER Center</h2>
+const FooterCenter = ({ address, phone, logo, email }) => (
+  <div>
+    <div className="footer__center">
+      <div className="footer__center__logo">
+        <img src={logo} alt="One Commercial Logo" />
+      </div>
+      <div className="footer__center__info">
+        <div className="footer__center__info__item">
+          <h6>Address</h6>
+          <p dangerouslySetInnerHTML={{ __html: address }} />
+        </div>
+        <div className="footer__center__info__item">
+          <h6>Phone</h6>
+          <p>{phone}</p>
+        </div>
+        <div className="footer__center__info__item">
+          <h6>Email</h6>
+          {email}
+        </div>
+      </div>
+    </div>
+  </div>
+)
+
+FooterCenter.propTypes = {
+  address: PropTypes.string,
+  phone: PropTypes.string,
+  logo: PropTypes.string,
+  email: PropTypes.string,
+}
 
 export default FooterCenter
