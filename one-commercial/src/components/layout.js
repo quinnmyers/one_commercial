@@ -130,9 +130,10 @@ class Layout extends React.Component {
                 this.props.data.contentfulMeta.address.childContentfulRichText
                   .html
               }
-              phoneNumber={this.props.data.contentfulMeta.phoneNumber}
+              phone={this.props.data.contentfulMeta.phoneNumber}
               logo={data.contentfulMeta.logo.file.url}
               email={this.props.data.contentfulMeta.email}
+              socialMedia={this.props.data.contentfulMeta.socialMediaAccounts}
             />
           </div>
         </div>
@@ -188,6 +189,7 @@ export default props => (
           }
           socialMediaAccounts {
             id
+            name
             link
             icon {
               file {

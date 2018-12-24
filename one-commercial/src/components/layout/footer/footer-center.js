@@ -13,7 +13,7 @@ const FooterCenter = ({ address, phone, logo, email }) => (
       <div className="footer__center__info">
         <div className="footer__center__info__item">
           <h6>Address</h6>
-          <p dangerouslySetInnerHTML={{ __html: address }} />
+          <div dangerouslySetInnerHTML={{ __html: address }} />
         </div>
         <div className="footer__center__info__item">
           <h6>Phone</h6>
@@ -21,7 +21,7 @@ const FooterCenter = ({ address, phone, logo, email }) => (
         </div>
         <div className="footer__center__info__item">
           <h6>Email</h6>
-          {email}
+          <p>{email}</p>
         </div>
       </div>
     </div>

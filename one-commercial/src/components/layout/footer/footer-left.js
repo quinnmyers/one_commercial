@@ -1,9 +1,10 @@
 import React from 'react'
+import { Link } from 'gatsby'
 
 //styles
 import '../../styles/layout/footer/footer-left.sass'
 
-const FooterLeft = () => (
+const FooterLeft = ({ socialMedia }) => (
   <div className="footer__left">
     <div className="footer__left__container">
       <div className="footer__left__container__top">
@@ -18,6 +19,23 @@ const FooterLeft = () => (
       </div>
       <div className="footer__left__container__middle">
         <h6>Or Find Us Here</h6>
+        <div className="footer__left__container__middle__socialmedia">
+          <div className="footer__left__container__middle__socialmedia__container">
+            {socialMedia.map(account => (
+              <div
+                className="footer__left__container__middle__socialmedia__container__account"
+                key={account.id}
+              >
+                <a href={account.link} target="__blank">
+                  <img
+                    src={account.icon.file.url}
+                    alt={`${account.name} logo`}
+                  />
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
       <div className="footer__left__container__bottom">
         <h6>Sign Up For Our Mailing List</h6>

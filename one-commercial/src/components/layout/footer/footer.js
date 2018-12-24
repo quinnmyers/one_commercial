@@ -22,9 +22,9 @@ class Footer extends Component {
     return (
       <div className="footer__container">
         <div className="footer__container__left">
-          <FooterLeft />
+          <FooterLeft socialMedia={this.props.socialMedia} />
         </div>
-        <div className="footer__container__left">
+        <div className="footer__container__center">
           <FooterCenter
             address={this.props.address}
             phone={this.props.phone}
@@ -32,7 +32,7 @@ class Footer extends Component {
             email={this.props.email}
           />
         </div>
-        <div className="footer__container__left">
+        <div className="footer__container__right">
           <FooterRight />
         </div>
       </div>
