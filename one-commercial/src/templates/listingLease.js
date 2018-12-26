@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Hero from "../components/listingpage/heroImg"
 import PropertyData from "../components/listingpage/PropertyData"
+import PhotoArray from "../components/listingpage/photoArray"
 
 // import ButtonRound from '../components/buttonRound'
 
@@ -11,7 +12,9 @@ import style from "./listing.module.sass"
 class listing extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+            listingInfo: []
+        }
         this.typeOfListing = this.typeOfListing.bind(this);
         this.listingType = this.listingType.bind(this);
         this.contactTitle = this.contactTitle.bind(this);
@@ -21,13 +24,10 @@ class listing extends React.Component {
     typeOfListing() {
         if (this.props.data.contentfulProperty.listingType === "Lease") {
             this.setState({ type: "lease" })
-
-
         } else if (this.props.data.contentfulProperty.listingType === "Sale") {
             this.setState({ type: "sale" })
         } else {
             console.log("somthing has gone wrong with the listing type check contentful");
-
         }
     }
     // returns a flag message for the corasponding listing type
@@ -46,7 +46,6 @@ class listing extends React.Component {
     contactTitle(data) {
         let contactMessage
         if (this.state.type === "lease") {
-
             contactMessage = `Intersted In Leasing ${data.name}`
         } else if (this.state.type === "sale") {
             contactMessage = `Intersted In Purchasing ${data.name}`
@@ -58,24 +57,73 @@ class listing extends React.Component {
     listingData(data) {
         const listingArr = [
             {
-                title: "Price",
-                value: data.salePrice
-            },
-            {
                 title: "Property Type",
                 value: data.propertyType
             },
             {
-                title: "Building Lot Size",
-                value: data.buildinglotSize
-            }
+                title: "Building / Lot Size",
+                value: `${data.buildinglotSize} ${data.measurementUnit}`
+            },
+            {
+                title: "Category",
+                value: data.category
+            }, {
+                title: "Under Pending Contract ",
+                value: data.underContractpending.toString()
+            },
+            {
+                title: "Official Listing Link",
+                value: data.officialListingLink
+            },
         ]
-        return listingArr
+        // const leasedListingArr = [
+        //     {
+        //         title: "number of spaces",
+        //         value: `${data.minimumNumberOfSpaces}-${data.maximumNumberOfSpaces}`
+        //     }, {
+        //         title: "Sf available",
+        //         value: `${data.smallestSfAvailable}-${data.largestSfAvailable}`
+        //     },
+        // ]
+        // let leasedListingPrice = []
+        // if (data.leasePsf) {
+        //     console.log("in the if", data);
+        //     leasedListingPrice.push({
+        //         title: "rent",
+        //         value: `$${data.leasePsf.toLocaleString()} PSF`
+        //     })
+        // }
+        // let salePrice = [{
+        //     title: "price",
+        //     value: `${data.salePrice.toLocaleString()}`
+        // }]
+
+        // if (data.listingType == "Sale") {
+        //     if (data.displayPricePerSf) {
+        //         salePrice = [{
+        //             title: "price",
+        //             value: `${(data.salePrice / data.buildinglotSize).toLocaleString()}`
+        //         }]
+        //     }
+        //     return this.setState({ listingInfo: listingArr.concat(salePrice) })
+        // }
+        // else if (data.listingType == "Lease") {
+
+        //     const rentInfo = leasedListingArr.concat(leasedListingPrice)
+        //     console.log(rentInfo);
+
+        //     return this.setState({ listingInfo: listingArr.concat(rentInfo) })
+        // } else {
+        return this.setState({ listingInfo: listingArr })
+
+        // }
 
     }
 
     // life cycle hooks 
+    // UNSAFE__componentWillMount()
     componentDidMount() {
+        this.listingData(this.props.data.contentfulProperty)
         this.typeOfListing()
     }
     render() {
@@ -94,16 +142,20 @@ class listing extends React.Component {
                             <div className={style.body__left__title}>
                                 <h2>{listing.name}</h2>
 
-                                <p dangerouslySetInnerHTML={{ __html: listing.address.internal.content }}></p>
+                                <p dangerouslySetInnerHTML={{ __html: listing.address.childContentfulRichText.html }}></p>
                             </div>
-                            <PropertyData ListingData={this.listingData(listing)}></PropertyData>
+                            <PropertyData ListingData={this.state.listingInfo}></PropertyData>
                             <p
-                                dangerouslySetInnerHTML={{ __html: listing.propertyDescription.internal.content }}></p>
+                                dangerouslySetInnerHTML={{ __html: listing.propertyDescription.childContentfulRichText.html }}></p>
                             <h3>More Information</h3>
 
                         </div>
                         <div className={style.body__right}>
                             <h4>Additional Photos</h4>
+                            <PhotoArray
+                                imageArray={listing.propertyPhotos}
+                                altImage={listing.mainImage}
+                            ></PhotoArray>
                         </div>
                     </div>
                     <div className={style.contact}>
@@ -131,29 +183,26 @@ export const query = graphql`
         name
         id
     		address{
-          internal{content}
+                childContentfulRichText {
+                    html
+                  }
         }
         city
         state
       propertyDescription{
-        internal{
-          content
-        }
+        childContentfulRichText {
+            html
+          }
         
       }
  
         category
         listingType
-        salePrice
         displayPricePerSf
         buildinglotSize
         measurementUnit
         propertyType
         underContractpending
-        minimumNumberOfSpaces
-        maximumNumberOfSpaces
-        smallestSfAvailable
-        largestSfAvailable
         officialListingLink
         displayProperty
         mainImage {
@@ -171,3 +220,53 @@ export const query = graphql`
     }
   }
 `
+
+
+// query($id: String!) {
+//     contentfulProperty(id: { eq: $id }) {
+//         name
+//         id
+//     		address{
+//                 childContentfulRichText {
+//                     html
+//                   }
+//         }
+//         city
+//         state
+//       propertyDescription{
+//         childContentfulRichText {
+//             html
+//           }
+
+//       }
+
+//         category
+//         listingType
+//         salePrice
+//         leasePsf
+//         displayPricePerSf
+//         buildinglotSize
+//         measurementUnit
+//         propertyType
+//         underContractpending
+//         minimumNumberOfSpaces
+//         maximumNumberOfSpaces
+//         smallestSfAvailable
+//         largestSfAvailable
+//         officialListingLink
+//         displayProperty
+//         mainImage {
+//           file {
+//             url
+//           }
+//         }
+//         propertyPhotos {
+//           file {
+//             url
+//           }
+//         }
+
+
+//     }
+//   }
+// `

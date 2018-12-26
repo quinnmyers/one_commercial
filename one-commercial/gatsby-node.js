@@ -11,11 +11,12 @@ const path = require('path')
 exports.createPages = ({ graphql, actions }) => {
     const { createPage } = actions
     return new Promise((resolve, reject) => {
-        const listingTemplate = path.resolve('src/templates/listing.js')
+        const listingSaleTemplate = path.resolve('src/templates/listingSale.js')
+
         resolve(
             graphql(`
         {
-            allContentfulProperty {
+            allContentfulPropertyForSale {
             edges {
               node {
                 id
@@ -30,17 +31,47 @@ exports.createPages = ({ graphql, actions }) => {
                     reject(result.errors)
                 }
                 // filter the result to is avabale, rent buy and have 3 blocks like the one below 
-                result.data.allContentfulProperty.edges.forEach((edge) => {
+                result.data.allContentfulPropertyForSale.edges.forEach((edge) => {
                     createPage({
                         path: edge.node.name.split(" ").join("-"),
-                        component: listingTemplate,
+                        component: listingSaleTemplate,
                         context: {
                             id: edge.node.id
                         }
                     })
                 })
-                return
+
             })
         )
+    }).then(() => {
+        const listingLeaseTemplate = path.resolve('src/templates/listingLease.js')
+        graphql(`
+        {
+            allContentfulPropertyForLease {
+            edges {
+              node {
+                id
+                name
+
+              }
+            }
+          }
+        }
+      `).then((result) => {
+            if (result.errors) {
+                reject(result.errors)
+            }
+            // filter the result to is avabale, rent buy and have 3 blocks like the one below 
+            result.data.allContentfulPropertyForLease.edges.forEach((edge) => {
+                createPage({
+                    path: edge.node.name.split(" ").join("-"),
+                    component: listingLeaseTemplate,
+                    context: {
+                        id: edge.node.id
+                    }
+                })
+            })
+            return
+        })
     })
 }
