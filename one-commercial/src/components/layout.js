@@ -28,12 +28,12 @@ class Layout extends React.Component {
           subMenu: [
             {
               name: 'Properties for Lease',
-              page: '#',
+              page: 'leaseindex',
               desc: 'View All Properties for Lease',
             },
             {
               name: 'Properties for Sale',
-              page: '#',
+              page: 'saleindex',
               desc: 'View All Properties for Sale',
             },
             {
@@ -158,13 +158,7 @@ class Layout extends React.Component {
                         >
                           {navitem.subMenu.map((subitem, index) => (
                             <li className="navitem__submenu__item" key={index}>
-                              <Link
-                                to={
-                                  navitem.name === 'Home'
-                                    ? `/`
-                                    : `/${navitem.page}/`
-                                }
-                              >
+                              <Link to={`/${subitem.page}/`}>
                                 {' '}
                                 {subitem.name}
                               </Link>
