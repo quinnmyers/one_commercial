@@ -124,10 +124,9 @@ class Layout extends React.Component {
               <div className="header__container__nav">
                 <nav>
                   {this.state.navItems.map((navitem, index) => (
-                    <div>
+                    <div key={index}>
                       <Link
                         to={navitem.name === 'Home' ? `/` : `/${navitem.page}/`}
-                        key={index}
                         activeClassName="active"
                         onMouseEnter={this.styleSubMenu.bind(
                           this,
@@ -157,9 +156,18 @@ class Layout extends React.Component {
                             false
                           )}
                         >
-                          {navitem.subMenu.map(subitem => (
-                            <li className="navitem__submenu__item">
-                              {subitem.name}
+                          {navitem.subMenu.map((subitem, index) => (
+                            <li className="navitem__submenu__item" key={index}>
+                              <Link
+                                to={
+                                  navitem.name === 'Home'
+                                    ? `/`
+                                    : `/${navitem.page}/`
+                                }
+                              >
+                                {' '}
+                                {subitem.name}
+                              </Link>
                             </li>
                           ))}
                         </ul>
