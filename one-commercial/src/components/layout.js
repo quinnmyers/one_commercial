@@ -14,8 +14,53 @@ class Layout extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      navItems: ['Home', 'Listings', 'Services', 'About', 'Contact'],
+      // navItems: ['Home', 'Listings', 'Services', 'About', 'Contact'],
+      navItems: [
+        {
+          name: 'Home',
+          page: '/',
+          desc: 'One Commercial Home',
+        },
+        {
+          name: 'Listings',
+          page: 'listings',
+          desc: "See One Commercial's Listings",
+          subMenu: [
+            {
+              name: 'Properties for Lease',
+              page: '#',
+              desc: 'View All Properties for Lease',
+            },
+            {
+              name: 'Properties for Sale',
+              page: '#',
+              desc: 'View All Properties for Sale',
+            },
+            {
+              name: 'Past Listings',
+              page: '#',
+              desc: 'View all past listings.',
+            },
+          ],
+        },
+        {
+          name: 'Services',
+          page: 'services',
+          desc: "Read About One Commercial's Services",
+        },
+        {
+          name: 'About',
+          page: 'about',
+          desc: 'Read about One Commercial',
+        },
+        {
+          name: 'Contact',
+          page: 'contact',
+          desc: 'Get in touch with One Commercial',
+        },
+      ],
       open: false,
+      subMenuOpen: false,
     }
     this.mobileNav = React.createRef()
   }
@@ -38,6 +83,15 @@ class Layout extends React.Component {
       console.log('mobile nav is closed')
       el.style.transform = `translateY(-100%)`
       this.hamburgerMenu.classList.remove('expanded')
+    }
+  }
+  styleSubMenu(navitem, bool) {
+    this.state.subMenuOpen = bool
+    const el = this.refs[`${navitem}--submenu`]
+    if (this.state.subMenuOpen) {
+      el.classList.add('submenu-expanded')
+    } else {
+      el.classList.remove('submenu-expanded')
     }
   }
   render() {
@@ -70,15 +124,49 @@ class Layout extends React.Component {
               <div className="header__container__nav">
                 <nav>
                   {this.state.navItems.map((navitem, index) => (
-                    <Link
-                      to={
-                        navitem === 'Home' ? `/` : `/${navitem.toLowerCase()}/`
-                      }
-                      key={index}
-                      activeClassName="active"
-                    >
-                      {navitem}
-                    </Link>
+                    <div>
+                      <Link
+                        to={navitem.name === 'Home' ? `/` : `/${navitem.page}/`}
+                        key={index}
+                        activeClassName="active"
+                        onMouseEnter={this.styleSubMenu.bind(
+                          this,
+                          navitem.name,
+                          true
+                        )}
+                        onMouseLeave={this.styleSubMenu.bind(
+                          this,
+                          navitem.name,
+                          false
+                        )}
+                      >
+                        {navitem.name}
+                      </Link>
+                      {navitem.hasOwnProperty('subMenu') ? (
+                        <ul
+                          className={`navitem__submenu`}
+                          ref={`${navitem.name}--submenu`}
+                          onMouseEnter={this.styleSubMenu.bind(
+                            this,
+                            navitem.name,
+                            true
+                          )}
+                          onMouseLeave={this.styleSubMenu.bind(
+                            this,
+                            navitem.name,
+                            false
+                          )}
+                        >
+                          {navitem.subMenu.map(subitem => (
+                            <li className="navitem__submenu__item">
+                              {subitem.name}
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        ''
+                      )}
+                    </div>
                   ))}
                 </nav>
                 <div className="mobile__hamburger">
@@ -108,12 +196,12 @@ class Layout extends React.Component {
             <nav>
               {this.state.navItems.map((navitem, index) => (
                 <Link
-                  to={navitem === 'Home' ? `/` : `/${navitem.toLowerCase()}/`}
+                  to={navitem.page}
                   key={index}
                   activeClassName="active"
                   onClick={this.handleClick.bind(this)}
                 >
-                  {navitem}
+                  {navitem.name}
                 </Link>
               ))}
             </nav>
