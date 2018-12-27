@@ -1,10 +1,13 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
+import ButtonRound from '../components/buttonRound/buttonRound'
 import Hero from "../components/listingpage/heroImg"
 import PropertyData from "../components/listingpage/PropertyData"
 import PhotoArray from "../components/listingpage/photoArray"
 import GoogleMap from "../components/listingpage/googleMap/googleMap"
+import ShareLinkButtons from "../components/listingpage/shareLinkButtons/shareLinkButtons"
+
 
 
 // import ButtonRound from '../components/buttonRound'
@@ -36,10 +39,6 @@ class listing extends React.Component {
                 title: "Under Pending Contract ",
                 value: data.underContractpending.toString()
             },
-            {
-                title: "Official Listing Link",
-                value: data.officialListingLink
-            },
         ]
         let price = []
         if (data.displaySalePrice) {
@@ -50,9 +49,9 @@ class listing extends React.Component {
         } else {
             price.push({
                 title: "Contact Us For Price",
-                value: "http://localhost:8000/contact/"
+                value: `${window.location.hostname}/contact/`
             })
-        } console.log(data.salePrice);
+        }
         return this.setState({ listingInfo: listingArr.concat(price) })
 
 
@@ -83,7 +82,7 @@ class listing extends React.Component {
                                 <p dangerouslySetInnerHTML={{ __html: listing.address.childContentfulRichText.html }}></p>
                             </div>
                             <PropertyData ListingData={this.state.listingInfo}></PropertyData>
-                            <p
+                            <p className={style.body__left__description}
                                 dangerouslySetInnerHTML={{ __html: listing.propertyDescription.childContentfulRichText.html }}></p>
                             <h3>More Information</h3>
                             <h4>Map</h4>
@@ -91,7 +90,21 @@ class listing extends React.Component {
                                 address={`${listing.address.childContentfulRichText.html} ${listing.city} ${listing.state}`}
                             ></GoogleMap>
                             <h3>Share {listing.name}</h3>
+                            <ShareLinkButtons icons={[{
+                                icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTkgMGgtMTRjLTIuNzYxIDAtNSAyLjIzOS01IDV2MTRjMCAyLjc2MSAyLjIzOSA1IDUgNWgxNGMyLjc2MiAwIDUtMi4yMzkgNS01di0xNGMwLTIuNzYxLTIuMjM4LTUtNS01em0tMyA3aC0xLjkyNGMtLjYxNSAwLTEuMDc2LjI1Mi0xLjA3Ni44ODl2MS4xMTFoM2wtLjIzOCAzaC0yLjc2MnY4aC0zdi04aC0ydi0zaDJ2LTEuOTIzYzAtMi4wMjIgMS4wNjQtMy4wNzcgMy40NjEtMy4wNzdoMi41Mzl2M3oiLz48L3N2Zz4=",
+                                site: "facebook"
+                            }, {
+                                icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTkgMGgtMTRjLTIuNzYxIDAtNSAyLjIzOS01IDV2MTRjMCAyLjc2MSAyLjIzOSA1IDUgNWgxNGMyLjc2MiAwIDUtMi4yMzkgNS01di0xNGMwLTIuNzYxLTIuMjM4LTUtNS01em0tLjEzOSA5LjIzN2MuMjA5IDQuNjE3LTMuMjM0IDkuNzY1LTkuMzMgOS43NjUtMS44NTQgMC0zLjU3OS0uNTQzLTUuMDMyLTEuNDc1IDEuNzQyLjIwNSAzLjQ4LS4yNzggNC44Ni0xLjM1OS0xLjQzNy0uMDI3LTIuNjQ5LS45NzYtMy4wNjYtMi4yOC41MTUuMDk4IDEuMDIxLjA2OSAxLjQ4Mi0uMDU2LTEuNTc5LS4zMTctMi42NjgtMS43MzktMi42MzMtMy4yNi40NDIuMjQ2Ljk0OS4zOTQgMS40ODYuNDExLTEuNDYxLS45NzctMS44NzUtMi45MDctMS4wMTYtNC4zODMgMS42MTkgMS45ODYgNC4wMzggMy4yOTMgNi43NjYgMy40My0uNDc5LTIuMDUzIDEuMDgtNC4wMyAzLjE5OS00LjAzLjk0MyAwIDEuNzk3LjM5OCAyLjM5NSAxLjAzNy43NDgtLjE0NyAxLjQ1MS0uNDIgMi4wODYtLjc5Ni0uMjQ2Ljc2Ny0uNzY2IDEuNDEtMS40NDMgMS44MTYuNjY0LS4wOCAxLjI5Ny0uMjU2IDEuODg1LS41MTctLjQzOS42NTYtLjk5NiAxLjIzNC0xLjYzOSAxLjY5N3oiLz48L3N2Zz4=",
+                                site: "twitter"
+                            }
+                            ]} ></ShareLinkButtons>
                             <h3>View Listing</h3>
+                            <ButtonRound
+                                type="link"
+                                pos="start"
+                                action={listing.officialListingLink}
+                                innerText={`see ${listing.name} on LoopNet`}
+                            ></ButtonRound>
                         </div>
                         <div className={style.body__right}>
                             <h4>Additional Photos</h4>
@@ -103,6 +116,11 @@ class listing extends React.Component {
                     </div>
                     <div className={style.contact}>
                         <h4>{`Intersted In Purchasing ${listing.name}`}</h4>
+                        <ButtonRound
+                            innerText={`Contact Us About ${listing.name}`}
+                            action={`/contact/`}
+                            type="link"
+                        ></ButtonRound>
 
                     </div>
                 </div>

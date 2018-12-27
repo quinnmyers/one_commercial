@@ -11,9 +11,6 @@ class propertyData extends Component {
     }
 
     componentDidMount() {
-
-        console.log("this is from proprty data", this.props.ListingData);
-
     }
     validUrl(str) {
         const pattern = new RegExp("(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])"); // fragment locater
@@ -32,9 +29,6 @@ class propertyData extends Component {
                     } else {
                         return <p key={index} className={style.data__line}><span className={style.data__line__title}>{specs.title}:</span>{specs.value}</p>
                     }
-
-
-
                 }
 
                 )}
