@@ -20,6 +20,8 @@ class SimpleMap extends Component {
                 lng: -115.13
             }
         }
+        this.mapWraper = React.createRef()
+        this.setWidth = this.setWidth.bind(this)
         this.getLatLng = this.getLatLng.bind(this);
     }
     static defaultProps = {
@@ -51,23 +53,21 @@ class SimpleMap extends Component {
             }
         );
     }
-    createMapOptions(maps) {
-        return {
-            panControl: false,
-            mapTypeControl: false,
-            scrollwheel: false,
-            styles: mapStyles
-        }
+    setWidth() {
+        this.setState({ wraperWidth: this.mapWraper.current.offsetWidth })
     }
-
     componentDidMount() {
         this.getLatLng(this.props.address)
+        this.setWidth()
     }
     render() {
+
         return (
+
+
             // Important! Always set the container height explicitly
-            <div>
-                <div style={{ height: '500px', width: '100%' }}>
+            <div ref={this.mapWraper}>
+                <div style={{ height: `${this.state.wraperWidth}px`, width: '100%', padding: "10px 0" }}>
                     <GoogleMapReact
 
                         bootstrapURLKeys={{ key: "AIzaSyCl_dsFh-W92B-JNqfjKfo0ZHUSJ7roDNo" }}

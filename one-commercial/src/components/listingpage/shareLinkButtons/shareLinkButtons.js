@@ -19,12 +19,13 @@ class shareLinkButtons extends React.Component {
                 })
             } else if (element.site === "twitter") {
                 tempArray.push({
-                    link: `https://twitter.com/intent/tweet?url=test&text=check%20out%20this%20property%20from%20One%20Commercial%20${window.location.href}`,
+                    link: `https://twitter.com/intent/tweet?url=${window.location.href}&text=check%20out%20this%20property%20from%20One%20Commercial%20`,
                     icon: element.icon
                 })
             } else if (element.site === "linkedin") {
                 tempArray.push({
-                    link: `http://www.linkedin.com/shareArticle?mini=true&url=test&title=check%20out%20this%20property%20from%20One%20Commercial%20${window.location.href}`
+                    link: `http://www.linkedin.com/shareArticle?mini=true&url=${window.location.href}&title=check%20out%20this%20property%20from%20One%20Commercial%20${window.location.href}`,
+                    icon: element.icon
                 })
             }
         });
