@@ -115,10 +115,14 @@
         line-height: 1rem
         @include navsnap
           display: none
+        div 
+          margin: 0px 10px
+          &:nth-last-child(1)
+            margin-right: 0px
         a, a:visited 
           font-size: 1rem
           font-weight: $medium
-          margin: 0px 10px
+          // margin: 0px 10px
           @include edgesnap 
             font-size: 0.9rem
           @include tablet 
@@ -127,10 +131,6 @@
           &:hover 
             color: $gradientmid 
             border-bottom: 2px solid $gradientmid
-          &:nth-child(1)
-            //first nav item here
-          &:nth-last-child(1)
-            margin-right: 0px
         a.active 
           color: $gradientmid
           border-bottom: 2px solid $gradientmid
