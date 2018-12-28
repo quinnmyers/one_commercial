@@ -1,47 +1,47 @@
+// props
+// flagSize padding
+// flagBackground background
+
 import React, { Component } from 'react'
-import { Link } from 'gatsby'
-import Img from 'gatsby-image'
+
+import Content from '../content'
+// import Content from '../../content'
+import '../listingsindex/listingindexhero/listingindexhero.sass'
 
 //styles
 import style from '../../components/styles/listingPage/hero.module.sass'
 
 class Hero extends Component {
-    componentDidMount() {
-        console.log(`from hero: ${this.props}`)
+
+    static defaultProps = {
+        flagSize: "5px 15px",
+        flagBackground: "rgba(255, 255, 255, 0.40)"
     }
     render() {
         // const { heroBackgroundImage, heroTextTop, heroTextBottom } = this.props
         return (
-            <section className={style.hero}>
-                <div className={style.hero__container}>
-                    <div className={style.hero__container__img}>
+            <div
+                className="listing__index__hero"
+                style={{ backgroundImage: `url("${this.props.heroBackgroundImage}")` }}
+            >
+                <Content>
+                    <div className="listing__index__hero__content">
+                        <div className="listing__index__hero__content__top">
 
-                        <img src={this.props.heroBackgroundImage} alt="" />
-                    </div>
-                    <div className={style.hero__container__flag}>
-                        <div className={style.hero__container__flag__type}>
-                            <h2>{this.props.flag}</h2>
+
                         </div>
-
-
+                        <div className="listing__index__hero__content__bottom">
+                            <h2> <span style={{
+                                background: this.props.flagBackground,
+                                padding: this.props.flagSize
+                            }}>{this.props.flag}</span></h2>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </Content>
+            </div>
         )
     }
 }
 
-// export const query = graphql`
-//   query HeroPageQuery {
-//     contentfulHomePage {
-//       heroTextTop
-//       heroTextBottom
-//       heroImage {
-//         fluid(maxWidth: 2000) {
-//           ...GatsbyContentfulFluid_noBase64
-//         }
-//       }
-//     }
-//   }
-// `
 export default Hero
+
