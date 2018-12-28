@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import Layout from '../components/layout'
 import Content from '../components/content'
 import ListingIndexHero from '../components/listingsindex/listingindexhero/listingindexhero'
+import PropertyPreview from '../components/listingsindex/propertypreview/propertypreview'
 
 //styles
 import '../components/styles/listingindex/listingindex.sass'
@@ -13,6 +14,7 @@ class SaleIndex extends Component {
   render() {
     const { data } = this.props
     const liQuery = data.contentfulForSaleListingsPage
+    const liPQuery = data.contentfulPropertiesOnWebsite
     return (
       <Layout>
         <ListingIndexHero
@@ -23,7 +25,24 @@ class SaleIndex extends Component {
           buttonText={liQuery.heroButtonText}
           buttonLink="/saleindex/"
         />
-        <p>this is the leasing index page</p>
+        <div className="index__preview__container">
+          {liPQuery.propertiesForSale.map(property => (
+            // <p>i am a prop {property.name}</p>
+            <PropertyPreview
+              id={property.id}
+              name={property.name}
+              address={property.address.childContentfulRichText.html}
+              image={property.mainImage.fluid}
+              salePrice={property.salePrice}
+              category={property.category}
+              buildinglotSize={property.buildinglotSize}
+              measurementUnit={property.measurementUnit}
+              underContractPending={property.underContractpending}
+              desc={property.propertyDescription.childContentfulRichText.html}
+              salePrice={property.salePrice}
+            />
+          ))}
+        </div>
       </Layout>
     )
   }
@@ -53,7 +72,40 @@ export const query = graphql`
         }
       }
     }
+    contentfulPropertiesOnWebsite {
+      propertiesForSale {
+        id
+        name
+        address {
+          childContentfulRichText {
+            html
+          }
+        }
+        mainImage {
+          fluid(maxWidth: 250) {
+            ...GatsbyContentfulFluid_noBase64
+          }
+        }
+        salePrice
+        category
+        buildinglotSize
+        measurementUnit
+        underContractpending
+        propertyDescription {
+          childContentfulRichText {
+            html
+          }
+        }
+        salePrice
+      }
+    }
   }
 `
+
+// address {
+//   childContentfulRichText {
+//     html
+//   }
+// }
 
 export default SaleIndex
