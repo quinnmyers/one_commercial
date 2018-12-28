@@ -33,7 +33,7 @@ class ButtonRound extends React.Component {
               button = (
                 <Link
                   className={style.buttonRound}
-                  to={/${this.props.action}}
+                  to={`/${this.props.action}/`}
                 >
                   <button style={color: this.props.color, borderColor: this.props.color, padding: this.props.padding, fontSize: `${this.props.fsize}rem` }}> {this.props.innerText}</button>
                 </Link>
