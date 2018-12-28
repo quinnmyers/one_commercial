@@ -16,7 +16,8 @@ class LeaseIndex extends Component {
     return (
       <Layout>
         <ListingIndexHero
-          backgroundImage={liQuery.heroBackgroundImage.file.url}
+          bgImage={liQuery.heroBackgroundImage.file.url}
+          header={liQuery.heroHeader}
           content={liQuery.heroParagraph.internal.content}
           subHeader={liQuery.heroSubheader}
           buttonText={liQuery.heroButtonText}
@@ -27,9 +28,6 @@ class LeaseIndex extends Component {
     )
   }
 }
-
-//YOU WERE GOING TO GO TEST IF THE PROPS FROM CONTENTFUL CAME THROUGH
-//IN THE LISTING INDEX HERO
 
 // backgroundImage: PropTypes.string,
 // header: PropTypes.string,
