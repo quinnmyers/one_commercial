@@ -31,7 +31,7 @@ const ListingIndexHero = ({
           <h3>{subHeader}</h3>
           <ButtonRound
             action={buttonLink}
-            type="gatsbylink"
+            type="link"
             innerText={buttonText}
             color="white"
             pos="left"
