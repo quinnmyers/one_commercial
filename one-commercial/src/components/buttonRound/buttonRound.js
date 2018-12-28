@@ -2,12 +2,10 @@
 // innerText "what the button should say"
 // type "link" or "function"
 // action "url" or function
-// color "black"
-// pos "center"
-// padding "0px 25px"
-// fsize "1"... ".7"
 
 import React from 'react'
+
+import { Link } from 'gatsby'
 //styles
 import style from './buttonround.module.sass'
 class ButtonRound extends React.Component {
@@ -18,8 +16,6 @@ class ButtonRound extends React.Component {
   static defaultProps = {
     color: 'black',
     pos: 'center',
-    fsize: '.7',
-    padding: '0px 25px',
   }
   render() {
     let button
@@ -27,11 +23,7 @@ class ButtonRound extends React.Component {
       button = (
         <button
           className={style.buttonRound}
-          style={{
-            borderColor: this.props.color,
-            padding: this.props.padding,
-            fontSize: `${this.props.fsize}rem`,
-          }}
+          style={{ borderColor: this.props.color }}
         >
           <a href={this.props.action} style={{ color: this.props.color }}>
             {this.props.innerText}
@@ -43,15 +35,20 @@ class ButtonRound extends React.Component {
         <button
           className={style.buttonRound}
           onClick={this.props.action}
-          style={{
-            color: this.props.color,
-            borderColor: this.props.color,
-            padding: this.props.padding,
-            fontSize: `${this.props.fsize}rem`,
-          }}
+          style={{ color: this.props.color, borderColor: this.props.color }}
         >
           {this.props.innerText}
         </button>
+      )
+    } else if (this.props.type === 'gatsbylink') {
+      button = (
+        <Link
+          className={style.buttonRound}
+          to={`/${this.props.action}`}
+          style={{ color: this.props.color, borderColor: this.props.color }}
+        >
+          <button> {this.props.innerText}</button>
+        </Link>
       )
     }
     return (
@@ -63,14 +60,3 @@ class ButtonRound extends React.Component {
 }
 
 export default ButtonRound
-// else if (this.props.type === 'gatsbylink') {
-//   button = (
-//     <Link
-//       className={style.buttonRound}
-//       to={`/${this.props.action}`}
-//       style={{ color: this.props.color, borderColor: this.props.color }}
-//     >
-//       <button> {this.props.innerText}</button>
-//     </Link>
-//   )
-// }
