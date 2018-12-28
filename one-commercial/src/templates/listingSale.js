@@ -125,8 +125,8 @@ class listing extends React.Component {
                         <h4>{`Intersted In Purchasing ${listing.name}`}</h4>
                         <ButtonRound
                             innerText={`Contact Us About ${listing.name}`}
-                            action={`/contact/`}
-                            type="link"
+                            action={`contact`}
+                            type="gatsbylink"
                         ></ButtonRound>
 
                     </div>
