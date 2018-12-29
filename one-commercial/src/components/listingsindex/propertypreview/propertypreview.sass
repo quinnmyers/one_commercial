@@ -1,0 +1,74 @@
+@import '../../base.sass'
+  
+.property__preview
+  display: flex
+  width: 100%
+  &__container
+    display: flex
+    justify-content: space-between
+    width: 100%
+    height: 200px
+    display: flex
+    padding: 15px 15px
+    margin-top: 25px
+    // border: 1px solid black
+    border-radius: 10px
+    box-shadow: 0px 0px 20px 0px rgba(152,152,152,0.4)
+    transition: all 0.2s ease-in-out
+    &:hover 
+      transform: scale(1.004)
+      box-shadow: 0px 0px 20px 0px rgba(132,132,132,0.5)
+      cursor: pointer
+    &__image, &__info, &__description
+      // width: 31%
+    &__image 
+      width: 25%
+    &__info 
+      width: 30%
+    &__description
+      width: 40%
+    &__image
+      // display: flex
+      height: 100%
+      // background: red
+      overflow: hidden
+      position: relative
+      picture
+        //position; absolute
+        // max-height: 100%
+        img 
+          // max-height: 100%
+      
+    &__info 
+      display: flex
+      justify-content: space-between
+      // background: khaki
+      &__left, &__right
+        display: flex
+        flex-direction: column
+        min-width: 45%
+        h3, h5 
+          margin-bottom: 0.25em
+        h3 
+          font-weight: $normal
+          font-size: 1.25em
+        h5 
+          font-weight: $normal
+          
+        p 
+          color: $grey
+          line-height: 1.4em
+          font-size: 0.75em
+        &__price
+          margin-top: 20px
+      &__left
+      &__right
+        h5 
+          margin-top: 10px
+        h5:nth-child(1)
+          margin-top: 0px
+    &__description
+      // background: pink
+      p 
+        line-height: 1.2em
+        font-size: 0.75em
