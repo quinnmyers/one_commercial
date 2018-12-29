@@ -21,7 +21,7 @@ class LeaseIndex extends Component {
           content={liQuery.heroParagraph.internal.content}
           subHeader={liQuery.heroSubheader}
           buttonText={liQuery.heroButtonText}
-          buttonLink="/leaseindex/"
+          buttonLink="saleindex"
         />
         <p>this is the leasing index page</p>
       </Layout>
