@@ -20,7 +20,14 @@ class listing extends React.Component {
         this.state = {
             listingInfo: []
         }
-
+        this.availableCheck = this.availableCheck.bind(this)
+    }
+    availableCheck(ifTrue, ifFalse) {
+        if (this.props.data.contentfulPropertyForSale.available) {
+            return ifTrue
+        } else {
+            return ifFalse
+        }
     }
     listingData(data) {
         const listingArr = [
@@ -69,7 +76,7 @@ class listing extends React.Component {
             <Layout>
                 <Hero
                     heroBackgroundImage={listing.mainImage.file.url}
-                    flag={"For Sale!"}
+                    flag={this.availableCheck("Sold!", "For Sale!")}
                 ></Hero>
                 <div className={style.wraper}>
                     <div className={style.body}>
@@ -105,12 +112,12 @@ class listing extends React.Component {
                                 site: "linkedin"
                             }
                             ]} ></ShareLinkButtons>
-                            <h3 className={style.body__left__view}>View Listing</h3>
+                            <h3 className={style.body__left__view}>{this.availableCheck("View Other Listings For Sale", "View Listing")}</h3>
                             <ButtonRound
                                 type="link"
                                 pos="start"
-                                action={listing.officialListingLink}
-                                innerText={`see ${listing.name} on LoopNet`}
+                                action={this.availableCheck("/saleindex", listing.officialListingLink)}
+                                innerText={this.availableCheck("All For Sale Listings", `see ${listing.name} on LoopNet`)}
                             ></ButtonRound>
                         </div>
                         <div className={style.body__right}>
@@ -122,7 +129,7 @@ class listing extends React.Component {
                         </div>
                     </div>
                     <div className={style.contact}>
-                        <h4>{`Intersted In Purchasing ${listing.name}`}</h4>
+                        <h4>{this.availableCheck(`Intersted In Details on ${listing.name}`, `Intersted In Purchasing ${listing.name}`)}</h4>
                         <ButtonRound
                             innerText={`Contact Us About ${listing.name}`}
                             action={`contact`}
@@ -148,6 +155,7 @@ export const query = graphql`
 
   query($id: String!) {
     contentfulPropertyForSale(id: { eq: $id }) {
+        available
         name
         id
     
