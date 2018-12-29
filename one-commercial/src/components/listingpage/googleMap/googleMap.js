@@ -29,7 +29,7 @@ class SimpleMap extends Component {
             lat: 36.16,
             lng: -115.13
         },
-        zoom: 15,
+        zoom: 12,
 
         createMapOptions: function (maps) {
             console.log("this", this);

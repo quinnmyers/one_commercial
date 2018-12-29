@@ -1,7 +1,10 @@
 // props
 // innerText "what the button should say"
-// type "link" or "function"
-// action "url" or function
+// type "link" or "function" or "gatsby link"
+// action "url" or function or "page name"
+// color "color"
+// fsize ".5"
+// padding "0 20px"
 import React from 'react'
 import { Link } from 'gatsby'
 //styles
@@ -52,11 +55,19 @@ class ButtonRound extends React.Component {
     } else if (this.props.type === 'gatsbylink') {
       button = (
         <Link
-          className={style.buttonRound}
-          to={this.props.action}
-          style={{ color: this.props.color, borderColor: this.props.color }}
+          to={`/${this.props.action}/`}
         >
-          {this.props.innerText}
+          <button
+            className={style.buttonRound}
+            style={{
+              color: this.props.color,
+              borderColor: this.props.color,
+              padding: this.props.padding,
+              fontSize: `${this.props.fsize}rem`,
+            }}
+          >
+            {this.props.innerText}
+          </button>
         </Link>
       )
     }
