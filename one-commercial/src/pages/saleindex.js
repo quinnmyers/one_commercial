@@ -11,6 +11,12 @@ import PropertyPreview from '../components/listingsindex/propertypreview/propert
 import '../components/styles/listingindex/listingindex.sass'
 
 class SaleIndex extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      listingType: 'sale',
+    }
+  }
   render() {
     const { data } = this.props
     const liQuery = data.contentfulForSaleListingsPage
@@ -29,6 +35,7 @@ class SaleIndex extends Component {
           {liPQuery.propertiesForSale.map(property => (
             // <p>i am a prop {property.name}</p>
             <PropertyPreview
+              listingType={'sale'}
               id={property.id}
               name={property.name}
               address={property.address.childContentfulRichText.html}
@@ -82,7 +89,7 @@ export const query = graphql`
           }
         }
         mainImage {
-          fluid(maxWidth: 250) {
+          fluid(maxWidth: 300) {
             ...GatsbyContentfulFluid_noBase64
           }
         }

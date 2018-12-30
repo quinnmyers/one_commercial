@@ -17,6 +17,8 @@ const PropertyPreview = ({
   measurementUnit,
   underContractPending,
   desc,
+  pricePerSquareFoot,
+  listingType,
 }) => (
   <Content>
     <div className="property__preview">
@@ -29,7 +31,9 @@ const PropertyPreview = ({
             <h3>{name}</h3>
             <div dangerouslySetInnerHTML={{ __html: address }} />
             <div className="property__preview__container__info__left__price">
-              $ {salePrice.toLocaleString()}
+              {listingType === 'sale'
+                ? salePrice.toLocaleString()
+                : `PSF $${pricePerSquareFoot.toLocaleString()}`}
             </div>
           </div>
           <div className="property__preview__container__info__right">
@@ -48,25 +52,6 @@ const PropertyPreview = ({
         </div>
       </div>
     </div>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <ul>
-      <li>{name}</li> --
-      <li>{address}</li> --
-      {/* <li>{image}</li> */}
-      <li>{salePrice}</li> --
-      <li>{category}</li> --
-      <li>{buildinglotSize}</li>--
-      <li>{measurementUnit}</li>--
-      <li>{underContractPending ? 'true' : 'false'}</li>--
-      <li>{desc}</li>
-    </ul>
   </Content>
 )
 
@@ -80,7 +65,9 @@ PropertyPreview.propTypes = {
   measurementUnit: PropTypes.string.isRequired,
   underContractPending: PropTypes.bool.isRequired,
   desc: PropTypes.string.isRequired,
-  salePrice: PropTypes.number.isRequired,
+  salePrice: PropTypes.number,
+  pricePerSquareFoot: PropTypes.number,
+  listingType: PropTypes.string.isRequired,
 }
 
 export default PropertyPreview
