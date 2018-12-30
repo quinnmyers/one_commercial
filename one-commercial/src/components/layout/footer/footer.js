@@ -20,20 +20,22 @@ class Footer extends Component {
   // }
   render() {
     return (
-      <div className="footer__container">
-        <div className="footer__container__left">
-          <FooterLeft socialMedia={this.props.socialMedia} />
-        </div>
-        <div className="footer__container__center">
-          <FooterCenter
-            address={this.props.address}
-            phone={this.props.phone}
-            logo={this.props.logo}
-            email={this.props.email}
-          />
-        </div>
-        <div className="footer__container__right">
-          <FooterRight />
+      <div className="footer">
+        <div className="footer__container">
+          <div className="footer__container__left">
+            <FooterLeft socialMedia={this.props.socialMedia} />
+          </div>
+          <div className="footer__container__center">
+            <FooterCenter
+              address={this.props.address}
+              phone={this.props.phone}
+              logo={this.props.logo}
+              email={this.props.email}
+            />
+          </div>
+          <div className="footer__container__right">
+            <FooterRight />
+          </div>
         </div>
       </div>
     )

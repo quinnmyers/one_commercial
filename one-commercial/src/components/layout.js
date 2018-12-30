@@ -214,18 +214,16 @@ class Layout extends React.Component {
           >
             {children}
           </div>
-          <div className="footer">
-            <Footer
-              address={
-                this.props.data.contentfulMeta.address.childContentfulRichText
-                  .html
-              }
-              phone={this.props.data.contentfulMeta.phoneNumber}
-              logo={data.contentfulMeta.logo.file.url}
-              email={this.props.data.contentfulMeta.email}
-              socialMedia={this.props.data.contentfulMeta.socialMediaAccounts}
-            />
-          </div>
+          <Footer
+            address={
+              this.props.data.contentfulMeta.address.childContentfulRichText
+                .html
+            }
+            phone={this.props.data.contentfulMeta.phoneNumber}
+            logo={data.contentfulMeta.logo.file.url}
+            email={this.props.data.contentfulMeta.email}
+            socialMedia={this.props.data.contentfulMeta.socialMediaAccounts}
+          />
         </div>
       </div>
     )
