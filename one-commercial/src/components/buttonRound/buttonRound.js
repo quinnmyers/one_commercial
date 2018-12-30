@@ -18,6 +18,7 @@ class ButtonRound extends React.Component {
     color: 'black',
     pos: 'center',
     fsize: '.7',
+    passedState: "",
     padding: '0px 25px',
   }
   render() {
@@ -56,6 +57,7 @@ class ButtonRound extends React.Component {
       button = (
         <Link
           to={`/${this.props.action}/`}
+          state={{ fromButtonRound: this.props.passedState }}
         >
           <button
             className={style.buttonRound}
