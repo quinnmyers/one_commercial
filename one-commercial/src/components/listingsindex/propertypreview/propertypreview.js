@@ -8,6 +8,7 @@ import './propertypreview.sass'
 import Content from '../../content'
 
 const PropertyPreview = ({
+  id,
   name,
   address,
   image,
@@ -21,7 +22,7 @@ const PropertyPreview = ({
   listingType,
 }) => (
   <Content>
-    <div className="property__preview">
+    <div className="property__preview" key={id}>
       <div className="property__preview__container">
         <div className="property__preview__container__image">
           <Img fluid={image} />

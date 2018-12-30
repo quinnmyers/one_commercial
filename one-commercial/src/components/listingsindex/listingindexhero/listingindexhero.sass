@@ -9,14 +9,20 @@
     repeat: no-repeat
     position: center
     size: cover
+  @include edgesnap 
+    height: 400px
   &__content
     display: flex
     height: 67%
     justify-content: space-between
     flex-direction: column
     color: white
+    @include edgesnap 
+      height: 63%
     &__top, &__bottom 
       font-size: 12pt
+      @include edgesnap 
+        font-size: 11pt
       h2, h3
         font-weight: $normal
       p 

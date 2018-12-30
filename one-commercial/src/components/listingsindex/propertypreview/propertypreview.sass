@@ -22,23 +22,18 @@
     &__image, &__info, &__description
       // width: 31%
     &__image 
-      width: 25%
+      min-width: 25%
     &__info 
       width: 30%
     &__description
       width: 40%
     &__image
-      // display: flex
+      justify-content: center 
+      align-items: center
       height: 100%
-      // background: red
-      overflow: hidden
-      position: relative
-      picture
-        //position; absolute
-        // max-height: 100%
-        img 
-          // max-height: 100%
-      
+      background: red
+      .gatsby-image-wrapper
+        height: 100%
     &__info 
       display: flex
       justify-content: space-between

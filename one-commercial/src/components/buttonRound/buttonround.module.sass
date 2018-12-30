@@ -1,9 +1,15 @@
+@import '../base.sass'
+  
 .wraper
-    width: 100%
-    display: flex
-    .buttonRound
-        border-radius: .9rem
-        border: 1px solid black
-        a
-          text-decoration: none
+  width: 100%
+  display: flex
+  font-size: 12pt
+  @include edgesnap 
+    // display: none !important
+  .buttonRound, button
+      border-radius: .9rem
+      border: 1px solid black
+      font-size: 0.82em !important
+      a
+        text-decoration: none
             
