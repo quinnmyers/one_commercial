@@ -134,6 +134,7 @@ class listing extends React.Component {
                             innerText={`Contact Us About ${listing.name}`}
                             action={`contact`}
                             type="gatsbylink"
+                            passedState={listing.name}
                         ></ButtonRound>
 
                     </div>
