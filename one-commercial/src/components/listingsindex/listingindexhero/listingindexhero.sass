@@ -10,7 +10,11 @@
     position: center
     size: cover
   @include edgesnap 
-    height: 400px
+    height: 40vw
+  @include tablet-phone 
+    height: 40vw
+  @include phone-large 
+    height: 55vw
   &__content
     display: flex
     height: 67%
@@ -19,10 +23,15 @@
     color: white
     @include edgesnap 
       height: 63%
+    @include phone-large 
+      height: 70%
     &__top, &__bottom 
       font-size: 12pt
       @include edgesnap 
-        font-size: 11pt
+        // font-size: 11pt
+        font-size: 1.35vw
+      @include tablet-phone 
+        font-size: 1.8vw
       h2, h3
         font-weight: $normal
       p 
@@ -30,11 +39,20 @@
         line-height: 1.1em
         font-size: 0.925em
         font-weight: $light
+        @include edgesnap 
+          max-width: 66%
+        @include phone-large 
+          font-size: 1.3em 
+          max-width: 80%
       h2 
         font-size: 1.9em
         letter-spacing: .005em
         margin-bottom: 0.6em
+        @include phone-large 
+          font-size: 2.8em
       h3 
         font-size: 1.5em
         letter-spacing: .003em
         margin-bottom: 0.45em
+        @include phone-large 
+          font-size: 2.15em
