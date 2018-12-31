@@ -9,6 +9,10 @@
   background: lightskyblue
   --height: 575px 
   height: var(--height)
+  @include edgesnap 
+    --height: 500px
+  @include featured-snap
+    --height: 42vw
   &__container 
     display: flex
     align-self: center 
@@ -26,10 +30,15 @@
       width: 35%
       max-width: 300px
       font-size: 12pt
+      @include edgesnap 
+        font-size: 1.4vw
+        margin: 4vw 0px
       h2 
         font-weight: $normal
         font-size: 1.8em
         margin-bottom: 45px
+        @include edgesnap 
+          margin-bottom: 2vw
       h4 
         font-weight: $medium
         font-size: 1.35em
@@ -38,9 +47,14 @@
         line-height: 1.1em
         font-size: 0.92em
       &__desc
+        @include edgesnap 
+          width: 90%
         p 
           font-size: 0.85em !important
           margin-bottom: 30px
+          @include edgesnap 
+            margin-bottom: 1.5vw
+            font-size: 0.8em !important
         button 
           margin-bottom: 12px
   &__spacer
