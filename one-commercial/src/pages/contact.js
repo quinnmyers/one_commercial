@@ -43,6 +43,7 @@ class Contact extends Component {
           <div className={style.left}>
             <ContactForm
               listings={leaseListings.concat(saleListings)}
+              email={siteMeta.email}
               contactFrom={this.fromOtherPage()}
             ></ContactForm>
           </div>
