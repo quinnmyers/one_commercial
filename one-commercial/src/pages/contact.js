@@ -4,12 +4,20 @@ import Hero from '../components/contactPage/hero/hero'
 import Layout from '../components/layout'
 import FooterClone from "../components/contactPage/footerClone/footerClone"
 import ContactForm from "../components/contactPage/contatForm/contactForm"
+import ButtonRound from "../components/buttonRound/buttonRound"
 import style from "../components/styles/contact/contact.module.sass"
 
 class Contact extends Component {
   constructor(props) {
     super(props);
     this.state = {}
+  }
+  fromOtherPage() {
+    if (this.props.location.state.fromButtonRound) {
+      return this.props.location.state.fromButtonRound
+    } else {
+      return null
+    }
   }
   componentDidMount() {
     console.log(this.props);
@@ -20,7 +28,6 @@ class Contact extends Component {
     const siteMeta = this.props.data.contentfulMeta
     const leaseListings = this.props.data.contentfulPropertiesOnWebsite.propertiesForLease
     const saleListings = this.props.data.contentfulPropertiesOnWebsite.propertiesForSale
-    console.log(siteMeta);
 
     return (
       <Layout>
@@ -36,19 +43,38 @@ class Contact extends Component {
           <div className={style.left}>
             <ContactForm
               listings={leaseListings.concat(saleListings)}
-              contactFrom={this.props.location.state.fromButtonRound}
+              contactFrom={this.fromOtherPage()}
             ></ContactForm>
           </div>
           <div className={style.right}>
-            <FooterClone
-              address={siteMeta.address.childContentfulRichText.html}
-              phone={siteMeta.phoneNumber}
-              logo={siteMeta.logo.file.url}
-              email={siteMeta.email}
-            ></FooterClone>
+            <div className={style.right__body}>
+              <FooterClone
+                address={siteMeta.address.childContentfulRichText.html}
+                phone={siteMeta.phoneNumber}
+                logo={siteMeta.logo.file.url}
+                email={siteMeta.email}
+              ></FooterClone>
+              <h3>Still Haven't Found What You're Looking For?</h3>
+              <div className={style.right__body__buttons}>
+                <ButtonRound
+                  innerText="view Properties for Sale"
+                  type="gatsbylink"
+                  action="saleindex"
+                  pos="start"
+                >
+                </ButtonRound>
+                <ButtonRound
+                  innerText="view Properties for Lease"
+                  type="gatsbylink"
+                  action="leaseindex"
+                  pos="flex-end"
+                >
+                </ButtonRound>
+              </div>
+            </div>
           </div>
         </div>
-      </Layout>
+      </Layout >
     )
   }
 }
