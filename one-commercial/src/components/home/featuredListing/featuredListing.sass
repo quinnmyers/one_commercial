@@ -13,6 +13,9 @@
     --height: 500px
   @include featured-snap
     --height: 42vw
+  @include tablet-phone 
+    flex-direction: column
+    --height: auto
   &__container 
     display: flex
     align-self: center 
@@ -22,6 +25,8 @@
     @include edgesnap
       width: 100%
       padding: 0px 15px
+    @include tablet-phone 
+      position: relative
     &__info 
       display: flex 
       flex-direction: column
