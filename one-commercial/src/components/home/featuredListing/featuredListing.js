@@ -21,7 +21,7 @@ const FeaturedListing = ({ name, address, size, unit, desc, image }) => {
             <div dangerouslySetInnerHTML={{ __html: address }} />
           </div>
           <div className="featured__listing__container__info__desc">
-            <div dangerouslySetInnerHTML={{ __html: desc.substring(0, 400) }} />
+            <div dangerouslySetInnerHTML={{ __html: desc.substring(0, 350) }} />
             <ButtonRound
               action="#"
               type="gatsbylink"

@@ -132,7 +132,7 @@ export const query = graphql`
           }
         }
         mainImage {
-          fluid(maxWidth: 1400) {
+          fluid(maxWidth: 2800) {
             ...GatsbyContentfulFluid_noBase64
           }
         }
