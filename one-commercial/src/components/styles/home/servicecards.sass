@@ -2,6 +2,16 @@
 
 .service__cards
   height: auto
+  margin-bottom: 70px
+  @include edgesnap 
+    max-width: 100%
+  @include navsnap 
+    max-width: 100%
+    margin-bottom: 60px
+  @include phone-large 
+    margin-bottom: 50px
+  @include phone-small 
+    margin-bottom: 40px
   &, a, a:hover, a:visited 
     text-decoration: none 
     color: black

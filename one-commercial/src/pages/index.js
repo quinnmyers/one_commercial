@@ -13,6 +13,7 @@ import { graphql } from 'gatsby'
 import Hero from '../components/home/hero'
 import HomeTextBlock from '../components/home/hometextblock'
 import ServiceCards from '../components/home/servicecards'
+import FeaturedListing from '../components/home/featuredListing/featuredListing'
 import Testimonials from '../components/home/testimonials'
 
 //stles
@@ -22,6 +23,7 @@ class IndexPage extends Component {
   render() {
     const { data } = this.props
     const indexAssets = data.contentfulHomePage
+    const featuredQuery = data.contentfulPropertiesOnWebsite.featuredProperty
     return (
       <Layout>
         <Hero
@@ -38,6 +40,14 @@ class IndexPage extends Component {
           paragraph={indexAssets.underHeroTextParagraph.internal.content}
         />
         <ServiceCards serviceCards={indexAssets.serviceCards} />
+        <FeaturedListing
+          name={featuredQuery.name}
+          address={featuredQuery.address.childContentfulRichText.html}
+          size={featuredQuery.buildinglotSize}
+          unit={featuredQuery.measurementUnit}
+          desc={featuredQuery.propertyDescription.childContentfulRichText.html}
+          image={featuredQuery.mainImage.fluid}
+        />
         <HomeTextBlock
           header={indexAssets.underFeaturedTextBlockBold}
           paragraph={
@@ -104,6 +114,28 @@ export const query = graphql`
         personsName
         personsTitle
         personsCompany
+      }
+    }
+    contentfulPropertiesOnWebsite {
+      featuredProperty {
+        name
+        address {
+          childContentfulRichText {
+            html
+          }
+        }
+        buildinglotSize
+        measurementUnit
+        propertyDescription {
+          childContentfulRichText {
+            html
+          }
+        }
+        mainImage {
+          fluid(maxWidth: 1400) {
+            ...GatsbyContentfulFluid_noBase64
+          }
+        }
       }
     }
   }

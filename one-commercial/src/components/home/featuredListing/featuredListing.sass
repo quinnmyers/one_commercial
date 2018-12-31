@@ -1,0 +1,46 @@
+@import '../../base.sass'
+
+.featured__listing
+  display: flex
+  justify-content: center 
+  position: relative
+  // height: 500px
+  width: 100%
+  background: lightskyblue
+  --height: 575px 
+  height: var(--height)
+  &__container 
+    display: flex
+    align-self: center 
+    width: 1200px
+    position: absolute
+    background: rgba(0,0,0,0.5)
+    height: 100%
+    @include edgesnap
+      width: 100%
+      padding: 0px 15px
+    &__info 
+      display: flex 
+      flex-direction: column
+      justify-content: space-between 
+      // max-height: 80%
+      align-self: center
+      background: lightgrey
+      width: 35%
+      max-width: 300px
+      font-size: 12pt
+      h2 
+        font-weight: $normal
+        font-size: 1.6vw
+      h4 
+        font-weight: $medium
+        font-size: 1.1vw
+  &__spacer
+    width: 36%
+    background: red
+  &__image 
+    background: lightgreen 
+    // position: absolute
+     height: var(--height)
+    // width: 65%
+    flex: 1
