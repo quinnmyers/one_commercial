@@ -30,7 +30,7 @@ class ContactForm extends React.Component {
 
     render() {
         return (
-            <form action="https://formspree.io/your@email.com" method="POST" className={style.wraper}>
+            <form action={`https://formspree.io/${this.props.email}`} method="POST" className={style.wraper}>
                 <div className={style.inputblock}>
                     <label htmlFor="listings">Which property are you interested in?</label>
                     <select ref={this.selectRef} id="listings">
