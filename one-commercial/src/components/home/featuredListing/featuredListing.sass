@@ -22,19 +22,30 @@
     &__info 
       display: flex 
       flex-direction: column
-      justify-content: space-between 
-      // max-height: 80%
-      align-self: center
+      justify-content: space-between
+      margin: 60px 0px 
+      // align-content: center 
       background: lightgrey
       width: 35%
       max-width: 300px
       font-size: 12pt
       h2 
         font-weight: $normal
-        font-size: 1.6vw
+        font-size: 1.8em
+        margin-bottom: 45px
       h4 
         font-weight: $medium
-        font-size: 1.1vw
+        font-size: 1.35em
+        margin-bottom: 5px
+      p
+        line-height: 1.1em
+        font-size: 0.92em
+      &__desc
+        p 
+          font-size: 0.85em !important
+          margin-bottom: 30px
+        button 
+          margin-bottom: 12px
   &__spacer
     width: 36%
     background: red
@@ -44,3 +55,6 @@
      height: var(--height)
     // width: 65%
     flex: 1
+    .featured-listing-image 
+      height: 100%
+
