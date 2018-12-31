@@ -25,13 +25,15 @@ class Hero extends Component {
                 style={{ backgroundImage: `url("${this.props.heroBackgroundImage}")` }}
             >
                 <Content>
-                    <div className="listing__index__hero__content">
+                    <div className="listing__index__hero__content"
+                        style={{ width: "100%" }}>
                         <div className="listing__index__hero__content__top">
 
 
                         </div>
                         <div className="listing__index__hero__content__bottom">
                             <h2> <span style={{
+
                                 background: this.props.flagBackground,
                                 padding: this.props.flagSize
                             }}>{this.props.flag}</span></h2>

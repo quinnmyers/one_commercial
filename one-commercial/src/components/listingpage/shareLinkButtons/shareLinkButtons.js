@@ -1,5 +1,6 @@
 // props
 // icons : {site: "linkedin", icon:"url"}
+// url "url"
 
 import React from 'react'
 import style from './shareLinkButtons.module.sass'
@@ -14,17 +15,17 @@ class shareLinkButtons extends React.Component {
         prop.icons.forEach(element => {
             if (element.site === "facebook") {
                 tempArray.push({
-                    link: `https://www.facebook.com/sharer/sharer.php?u${window.location.href.substr(8)}`,
+                    link: `https://www.facebook.com/sharer/sharer.php?u${prop.url.substr(8)}`,
                     icon: element.icon
                 })
             } else if (element.site === "twitter") {
                 tempArray.push({
-                    link: `https://twitter.com/intent/tweet?url=${window.location.href}&text=check%20out%20this%20property%20from%20One%20Commercial%20`,
+                    link: `https://twitter.com/intent/tweet?url=${prop.url}&text=check%20out%20this%20property%20from%20One%20Commercial%20`,
                     icon: element.icon
                 })
             } else if (element.site === "linkedin") {
                 tempArray.push({
-                    link: `http://www.linkedin.com/shareArticle?mini=true&url=${window.location.href}&title=check%20out%20this%20property%20from%20One%20Commercial%20${window.location.href}`,
+                    link: `http://www.linkedin.com/shareArticle?mini=true&url=${prop.url}&title=check%20out%20this%20property%20from%20One%20Commercial%20${prop.url}`,
                     icon: element.icon
                 })
             }

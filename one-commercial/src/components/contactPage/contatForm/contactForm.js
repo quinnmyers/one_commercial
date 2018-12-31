@@ -21,10 +21,6 @@ class ContactForm extends React.Component {
         }
     }
     componentDidMount() {
-        console.log(this.selectRef.current);
-        console.log(this.props);
-
-
         this.selectRef.current.value = this.props.contactFrom
     }
 
