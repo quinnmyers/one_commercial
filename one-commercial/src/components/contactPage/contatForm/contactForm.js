@@ -21,7 +21,10 @@ class ContactForm extends React.Component {
         }
     }
     componentDidMount() {
-        this.selectRef.current.value = this.props.contactFrom
+        setTimeout(() => {
+            this.selectRef.current.value = this.props.contactFrom
+        }, 10);
+
     }
 
     render() {

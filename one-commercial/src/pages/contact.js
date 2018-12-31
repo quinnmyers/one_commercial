@@ -10,17 +10,21 @@ import style from "../components/styles/contact/contact.module.sass"
 class Contact extends Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      fromPage: ""
+    }
+    this.fromOtherPage = this.fromOtherPage.bind(this)
   }
   fromOtherPage() {
-    if (this.props.location.state.fromButtonRound) {
-      return this.props.location.state.fromButtonRound
+
+    if (this.props.location.state.hasOwnProperty('fromButtonRound')) {
+      this.setState({ fromPage: this.props.location.state.fromButtonRound })
     } else {
       return null
     }
   }
   componentDidMount() {
-    console.log(this.props);
+    this.fromOtherPage()
 
   }
   render() {
@@ -44,7 +48,7 @@ class Contact extends Component {
             <ContactForm
               listings={leaseListings.concat(saleListings)}
               email={siteMeta.email}
-              contactFrom={this.fromOtherPage()}
+              contactFrom={this.state.fromPage}
             ></ContactForm>
           </div>
           <div className={style.right}>
