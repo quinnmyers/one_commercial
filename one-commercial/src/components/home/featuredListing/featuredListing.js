@@ -10,7 +10,7 @@ import ShareLinkButtons from '../../listingpage/shareLinkButtons/shareLinkButton
 //styles
 import './featuredListing.sass'
 
-const FeaturedListing = ({ name, address, size, unit, desc, image }) => {
+const FeaturedListing = ({ name, address, size, unit, desc, image, pageUrl }) => {
   return (
     <div className="featured__listing">
       <div className="featured__listing__container">
@@ -30,6 +30,7 @@ const FeaturedListing = ({ name, address, size, unit, desc, image }) => {
               pos="left"
             />
             <ShareLinkButtons
+              url={pageUrl}
               icons={[
                 {
                   icon:
