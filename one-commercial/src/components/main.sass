@@ -9,7 +9,7 @@
     align-items: center
     justify-content: center
     flex-direction: column
-    width: 1200px 
+    width: 1200px
     height: 100%
     // background: coral
     @include edgesnap
@@ -65,7 +65,7 @@
     &__nav
       display: flex
       height: 100%
-      font-size: 12pt
+      font-size: 12pt 
       //overall height of the hamburger 
       height: 70%
       .mobile__hamburger
@@ -128,7 +128,7 @@
             margin-right: 0px
         a, a:visited 
           font-size: 1rem
-          font-weight: $medium
+          font-weight: $normal
           // margin: 0px 10px
           @include edgesnap 
             font-size: 0.9rem
@@ -157,6 +157,7 @@
               color: black
     &__mobilenav
       position: absolute
+      text-align: right
       z-index: 998 
       width: 100vw
       height: 100vh
@@ -170,10 +171,21 @@
         flex-direction: column 
         align-items: flex-end
         padding-right: 38px
-        a 
+        margin-top: 20px
+        // height: 300px
+        div
+          margin: 4px 0px
+        ul, li, a
           font-size: 0.9rem
-          margin: 8px 0px
-          &:nth-child(1)
-            margin-top: 20px
+          margin: 12px 0px
+        ul, .mobile__navitem__submenu
+          list-style: none
+          &__item, li 
+            margin: 4px 0px
+            a
+              line-height: 1em
+              font-size: 0.8em
+              color: $grey
+
   
         

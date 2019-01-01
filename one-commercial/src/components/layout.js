@@ -197,14 +197,32 @@ class Layout extends React.Component {
           <div className="header__container__mobilenav" ref={this.mobileNav}>
             <nav>
               {this.state.navItems.map((navitem, index) => (
-                <Link
-                  to={navitem.page}
-                  key={index}
-                  activeClassName="active"
-                  onClick={this.handleClick.bind(this)}
-                >
-                  {navitem.name}
-                </Link>
+                <div>
+                  <Link
+                    to={navitem.page}
+                    key={index}
+                    activeClassName="active"
+                    onClick={this.handleClick.bind(this)}
+                  >
+                    {navitem.name}
+                  </Link>
+                  {navitem.hasOwnProperty('subMenu') ? (
+                    <ul className="mobile__navitem__submenu">
+                      {navitem.subMenu.map((subitem, index) => (
+                        <li
+                          className="mobile__navitem__submenu__item"
+                          key={index}
+                        >
+                          {' '}
+                          <Link to={subitem.page}>{subitem.name}</Link>
+                        </li>
+                      ))}
+                      <li />
+                    </ul>
+                  ) : (
+                    ''
+                  )}
+                </div>
               ))}
             </nav>
           </div>
