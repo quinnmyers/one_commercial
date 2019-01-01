@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Helmet } from "react-helmet"
 import Layout from '../components/layout'
 import Content from "../components/content"
 import ListingIndexHero from "../components/listingsindex/listingindexhero/listingindexhero"
@@ -15,6 +16,11 @@ class Services extends Component {
 
     return (
       <Layout>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>{"Services"}</title>
+          <meta name="description" content={"somthing good"} />
+        </Helmet>
         <ListingIndexHero
           bgImage={page.headerImage.file.url}
           header={"Services"}
