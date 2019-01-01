@@ -31,25 +31,23 @@ class SaleIndex extends Component {
           buttonText={liQuery.heroButtonText}
           buttonLink="leaseindex"
         />
-        <div className="index__preview__container">
-          {liPQuery.propertiesForSale.map(property => (
-            // <p>i am a prop {property.name}</p>
-            <PropertyPreview
-              listingType={'sale'}
-              id={property.id}
-              name={property.name}
-              address={property.address.childContentfulRichText.html}
-              image={property.mainImage.fluid}
-              salePrice={property.salePrice}
-              category={property.category}
-              buildinglotSize={property.buildinglotSize}
-              measurementUnit={property.measurementUnit}
-              underContractPending={property.underContractpending}
-              desc={property.propertyDescription.childContentfulRichText.html}
-              salePrice={property.salePrice}
-            />
-          ))}
-        </div>
+        {liPQuery.propertiesForSale.map(property => (
+          // <p>i am a prop {property.name}</p>
+          <PropertyPreview
+            listingType={'sale'}
+            id={property.id}
+            name={property.name}
+            address={property.address.childContentfulRichText.html}
+            image={property.mainImage.fluid}
+            salePrice={property.salePrice}
+            category={property.category}
+            buildinglotSize={property.buildinglotSize}
+            measurementUnit={property.measurementUnit}
+            underContractPending={property.underContractpending}
+            desc={property.propertyDescription.childContentfulRichText.html}
+            salePrice={property.salePrice}
+          />
+        ))}
       </Layout>
     )
   }
