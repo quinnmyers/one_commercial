@@ -20,6 +20,17 @@ import Testimonials from '../components/home/testimonials'
 // import '../components/styles/home.sass'
 
 class IndexPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { pageUrl: "" }
+
+  }
+  componentWillMount() {
+    this.setState({ pageUrl: `${window.location.origin}${this.props.data.contentfulPropertiesOnWebsite.featuredProperty.name.split(" ").join("-")}` })
+  }
+  componentDidMount() {
+
+  }
   render() {
     const { data } = this.props
     const indexAssets = data.contentfulHomePage
@@ -41,6 +52,7 @@ class IndexPage extends Component {
         />
         <ServiceCards serviceCards={indexAssets.serviceCards} />
         <FeaturedListing
+          pageUrl={this.state.pageUrl}
           name={featuredQuery.name}
           address={featuredQuery.address.childContentfulRichText.html}
           size={featuredQuery.buildinglotSize}

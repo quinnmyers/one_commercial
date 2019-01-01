@@ -32,7 +32,6 @@ class SimpleMap extends Component {
         zoom: 12,
 
         createMapOptions: function (maps) {
-            console.log("this", this);
 
             return {
                 panControl: false,
