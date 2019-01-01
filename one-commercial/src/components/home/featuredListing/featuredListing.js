@@ -10,7 +10,7 @@ import ShareLinkButtons from '../../listingpage/shareLinkButtons/shareLinkButton
 //styles
 import './featuredListing.sass'
 
-const FeaturedListing = ({ name, address, size, unit, desc, image, pageUrl }) => {
+const FeaturedListing = ({ name, address, desc, image, pageUrl }) => {
   return (
     <div className="featured__listing">
       <div className="featured__listing__container">
@@ -23,7 +23,7 @@ const FeaturedListing = ({ name, address, size, unit, desc, image, pageUrl }) =>
           <div className="featured__listing__container__info__desc">
             <div dangerouslySetInnerHTML={{ __html: desc.substring(0, 350) }} />
             <ButtonRound
-              action="#"
+              action={name.split(' ').join('-')}
               type="gatsbylink"
               innerText={`Learn More About ${name}`}
               color="black"
@@ -64,12 +64,10 @@ const FeaturedListing = ({ name, address, size, unit, desc, image, pageUrl }) =>
   )
 }
 
-// FeaturedListing.propTypes = {
-//   name: PropTypes.string.isRequired,
-//   address: PropTypes.string.isRequired,
-//   size: PropTypes.integer.isRequired,
-//   unit: PropTypes.string.isRequired,
-//   desc: PropTypes.string.isRequired,
-//   image: PropTypes.object.isRequired,
-// }
+FeaturedListing.propTypes = {
+  name: PropTypes.string.isRequired,
+  address: PropTypes.string.isRequired,
+  desc: PropTypes.string.isRequired,
+  image: PropTypes.object.isRequired,
+}
 export default FeaturedListing

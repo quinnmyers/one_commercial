@@ -18,7 +18,7 @@ class ButtonRound extends React.Component {
     color: 'black',
     pos: 'center',
     fsize: '.7',
-    passedState: "",
+    passedState: '',
     padding: '0px 25px',
   }
   render() {
