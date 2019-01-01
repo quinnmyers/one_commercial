@@ -25,11 +25,13 @@
   align-items: center
   --height: 140px
   height: var(--height)
-  padding: 0px 20px
-  background: tomato
-  position: sticky 
+  padding: 0px 15px
+  // background: tomato
+  background: white
+  box-shadow: 0 4px 2px -2px $light-grey
+  position: sticky
   top: 0
-  z-index: 999
+  z-index: 9999
   @include edgesnap
     --height: 120px
   @include tablet 
@@ -47,12 +49,13 @@
     justify-content: space-between 
     align-items: flex-end
     width: 100%
-    background: lightskyblue
+    background: white
+    z-index: 998
     @include navsnap 
       align-items: center
       height: 100%
     &__brand
-      background: khaki
+      // background: khaki
       .company--logo
         width: calc(var(--height)*1.4)
         height: auto
@@ -139,19 +142,19 @@
             color: $gradientmid 
             border-bottom: 2px solid $gradientmid
         a.active 
-          color: $gradientmid
           border-bottom: 2px solid $gradientmid
         ul.submenu-expanded 
           transform: translateY(0) !important
           z-index: 9999
+          // opacity: 1 !important
+          padding-top: 20px
         ul.navitem__submenu
-          position: absolute 
+          position: absolute
           // margin-left: 11px
           list-style: none 
           background: khaki
           transform: translateY(-100%)
           transition: all 0.3s ease-in-out
-          z-index: -100
           li.navitem__submenu__item
             &, a, a:visited 
               color: black

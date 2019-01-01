@@ -48,11 +48,11 @@ class Layout extends React.Component {
           page: 'services',
           desc: "Read About One Commercial's Services",
         },
-        {
-          name: 'About',
-          page: 'about',
-          desc: 'Read about One Commercial',
-        },
+        // {
+        //   name: 'About',
+        //   page: 'about',
+        //   desc: 'Read about One Commercial',
+        // },
         {
           name: 'Contact',
           page: 'contact',
