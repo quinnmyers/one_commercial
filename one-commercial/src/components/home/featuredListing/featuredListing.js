@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Img from 'gatsby-image'
-import Content from '../../content'
 import PropTypes from 'prop-types'
 
 //components

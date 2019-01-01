@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
 
 //components
 import Layout from '../components/layout'
-import Content from '../components/content'
 import ListingIndexHero from '../components/listingsindex/listingindexhero/listingindexhero'
 import PropertyPreview from '../components/listingsindex/propertypreview/propertypreview'
 

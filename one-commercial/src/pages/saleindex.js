@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 
 //components
 import Layout from '../components/layout'
-import Content from '../components/content'
 import ListingIndexHero from '../components/listingsindex/listingindexhero/listingindexhero'
 import PropertyPreview from '../components/listingsindex/propertypreview/propertypreview'
 
@@ -106,11 +104,5 @@ export const query = graphql`
     }
   }
 `
-
-// address {
-//   childContentfulRichText {
-//     html
-//   }
-// }
 
 export default SaleIndex
