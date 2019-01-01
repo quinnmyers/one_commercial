@@ -31,7 +31,6 @@ class shareLinkButtons extends React.Component {
                 })
             }
         });
-        console.log(tempArray);
         this.setState({ ShareLinks: tempArray })
 
     }

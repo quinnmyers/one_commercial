@@ -3,6 +3,11 @@ module.exports = {
     title: 'Gatsby Default Starter',
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-manifest`,
+
+    },
+    'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-source-filesystem`,
