@@ -38,8 +38,8 @@ class Contact extends Component {
       <Layout>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>{"Contact page"}</title>
-          <meta name="description" content={"somthing good"} />
+          <title>{"las vegas real estate professional -- Contact One Commercial"}</title>
+          <meta name="description" content={"Contact One Commercial your one stop shop for las vegas real estate for both sales and leases"} />
         </Helmet>
         <Hero
           bgImage={contact.headerImage.file.url}

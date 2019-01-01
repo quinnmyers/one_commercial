@@ -18,8 +18,10 @@ class Services extends Component {
       <Layout>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>{"Services"}</title>
-          <meta name="description" content={"somthing good"} />
+          <title>{"las vegas real estate professional one commercial -- Services Offered "}</title>
+          <meta name="description" content={`Services Offered ${services.map(service => (
+            service.node.title
+          ))}`} />
         </Helmet>
         <ListingIndexHero
           bgImage={page.headerImage.file.url}
@@ -57,33 +59,33 @@ class Services extends Component {
 
 export default Services
 export const query = graphql`
-
+    
   query {
-    allContentfulServices {
-      edges {
-        node {
-          title
+          allContentfulServices {
+        edges {
+          node {
+        title
           description {
-            childContentfulRichText {
-              html
-            }
-          }
-        }
-      }
-    }
-    contentfulServicesPage {
-      headerImage {
-        file {
-          url
-        }
-      }
-      tagLine
-      description {
-        childContentfulRichText {
-          html
-        }
+          childContentfulRichText {
+        html
       }
     }
   }
-  
+}
+}
+    contentfulServicesPage {
+          headerImage {
+        file {
+          url
+        }
+        }
+        tagLine
+      description {
+          childContentfulRichText {
+        html
+      }
+    }
+  }
+}
+ 
 `
