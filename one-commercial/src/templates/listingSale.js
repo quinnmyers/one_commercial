@@ -19,7 +19,6 @@ class listing extends React.Component {
         super(props);
         this.state = {
             listingInfo: [],
-            pageUrl: ""
         }
         this.availableCheck = this.availableCheck.bind(this)
     }
@@ -67,7 +66,6 @@ class listing extends React.Component {
 
     // life cycle hooks 
     componentWillMount() {
-        this.setState({ pageUrl: window.location.href })
     }
     componentDidMount() {
         this.listingData(this.props.data.contentfulPropertyForSale)
@@ -104,7 +102,7 @@ class listing extends React.Component {
                             ></GoogleMap>
                             <h3 className={style.body__left__share}>Share {listing.name}</h3>
                             <ShareLinkButtons
-                                url={this.state.pageUrl}
+                                url={this.props.location.href}
                                 icons={[{
                                     icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTkgMGgtMTRjLTIuNzYxIDAtNSAyLjIzOS01IDV2MTRjMCAyLjc2MSAyLjIzOSA1IDUgNWgxNGMyLjc2MiAwIDUtMi4yMzkgNS01di0xNGMwLTIuNzYxLTIuMjM4LTUtNS01em0tMyA3aC0xLjkyNGMtLjYxNSAwLTEuMDc2LjI1Mi0xLjA3Ni44ODl2MS4xMTFoM2wtLjIzOCAzaC0yLjc2MnY4aC0zdi04aC0ydi0zaDJ2LTEuOTIzYzAtMi4wMjIgMS4wNjQtMy4wNzcgMy40NjEtMy4wNzdoMi41Mzl2M3oiLz48L3N2Zz4=",
                                     site: "facebook"
