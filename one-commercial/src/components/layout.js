@@ -36,11 +36,11 @@ class Layout extends React.Component {
               page: 'saleindex',
               desc: 'View All Properties for Sale',
             },
-            {
-              name: 'Past Listings',
-              page: '#',
-              desc: 'View all past listings.',
-            },
+            // {
+            //   name: 'Past Listings',
+            //   page: '#',
+            //   desc: 'View all past listings.',
+            // },
           ],
         },
         {
