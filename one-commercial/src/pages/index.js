@@ -27,8 +27,8 @@ class IndexPage extends Component {
     super(props)
     this.state = {}
   }
-  componentWillMount() {}
-  componentDidMount() {}
+  componentWillMount() { }
+  componentDidMount() { }
   render() {
     const { data } = this.props
     const indexAssets = data.contentfulHomePage
@@ -46,6 +46,7 @@ class IndexPage extends Component {
             )}
           />
         </Helmet>
+
         <ListingIndexHero
           bgImage={indexAssets.heroImage.file.url}
           header={indexAssets.heroHeader}
@@ -66,9 +67,9 @@ class IndexPage extends Component {
         <FeaturedListing
           pageUrl={`${
             this.props.location.href
-          }${this.props.data.contentfulPropertiesOnWebsite.featuredProperty.name
-            .split(' ')
-            .join('-')}`}
+            }${this.props.data.contentfulPropertiesOnWebsite.featuredProperty.name
+              .split(' ')
+              .join('-')}`}
           name={featuredQuery.name}
           address={featuredQuery.address.childContentfulRichText.html}
           size={featuredQuery.buildinglotSize}
