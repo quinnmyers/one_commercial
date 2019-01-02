@@ -4,7 +4,8 @@ import { Link } from 'gatsby'
 
 const ServiceCard = ({ name, icon, alt, description }) => (
   <div className="service__cards__container__card">
-    <Link to={`#`}>
+    <Link to={`/services/`}
+      state={{ toID: name.split(" ").join("_") }}>
       <h4>{name}</h4>
       <img
         className="service__cards__container__card--image"

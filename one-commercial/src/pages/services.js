@@ -8,10 +8,17 @@ import style from "../components/styles/services/services.module.sass"
 
 class Services extends Component {
   state = {}
+  componentDidMount() {
+    if (this.props.location.state.hasOwnProperty("toID")) {
+      setTimeout(() => {
+        document.getElementById(this.props.location.state.toID).scrollIntoView({ block: 'end', behavior: 'smooth' })
+      }, 150);
+    } else {
+      return
+    }
+  }
   render() {
-    console.log(this.props);
-
-    const services = this.props.data.allContentfulServices.edges
+    const services = this.props.data.contentfulServicesPage.servicesDisplayed
     const page = this.props.data.contentfulServicesPage
 
     return (
@@ -20,7 +27,7 @@ class Services extends Component {
           <meta charSet="utf-8" />
           <title>{"las vegas real estate professional one commercial -- Services Offered "}</title>
           <meta name="description" content={`Services Offered ${services.map(service => (
-            service.node.title
+            service.title
           ))}`} />
         </Helmet>
         <ListingIndexHero
@@ -36,9 +43,9 @@ class Services extends Component {
         </ListingIndexHero>
         <Content>
           {services.map((service, index) => (
-            <div className={style.service} key={index}>
-              <h3>{service.node.title}</h3>
-              <div dangerouslySetInnerHTML={{ __html: service.node.description.childContentfulRichText.html }}></div>
+            <div className={style.service} id={service.title.split(" ").join("_")} key={index}>
+              <h3>{service.title}</h3>
+              <div dangerouslySetInnerHTML={{ __html: service.description.childContentfulRichText.html }}></div>
             </div>
           ))}
           <div className={style.contact}>
@@ -61,31 +68,27 @@ export default Services
 export const query = graphql`
     
   query {
-          allContentfulServices {
-        edges {
-          node {
-        title
-          description {
-          childContentfulRichText {
-        html
-      }
-    }
-  }
-}
-}
     contentfulServicesPage {
-          headerImage {
+      headerImage {
         file {
           url
         }
-        }
-        tagLine
+      }
+      tagLine
       description {
+        childContentfulRichText {
+          html
+        }
+      }
+      servicesDisplayed {
+        title
+        description {
           childContentfulRichText {
-        html
+            html
+          }
+        }
       }
     }
-  }
 }
  
 `
