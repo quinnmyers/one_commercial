@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Helmet } from "react-helmet"
+import { Helmet } from 'react-helmet'
 // import { Link } from 'gatsby'
 // import { graphql } from 'gatsby'
 import Layout from '../components/layout'
@@ -17,6 +17,7 @@ import ServiceCards from '../components/home/servicecards'
 import FeaturedListing from '../components/home/featuredListing/featuredListing'
 import Testimonials from '../components/home/testimonials'
 import ListingIndexHero from '../components/listingsindex/listingindexhero/listingindexhero'
+import SignupCta from '../components/home/signupcta/signupcta'
 
 //stles
 // import '../components/styles/home.sass'
@@ -34,20 +35,17 @@ class IndexPage extends Component {
     const featuredQuery = data.contentfulPropertiesOnWebsite.featuredProperty
     return (
       <Layout>
-
         <Helmet>
           <meta charSet="utf-8" />
-          <title>{"One Commercial a Las Vegas real estate company"}</title>
-          <meta name="description" content={indexAssets.underFeaturedTextBlockParagraph.internal.content.substring(0, 100)} />
+          <title>{'One Commercial a Las Vegas real estate company'}</title>
+          <meta
+            name="description"
+            content={indexAssets.underFeaturedTextBlockParagraph.internal.content.substring(
+              0,
+              100
+            )}
+          />
         </Helmet>
-        <Hero
-
-        {/* <Hero
-
-          heroBackgroundImage={indexAssets.heroImage.fluid}
-          heroTextTop={indexAssets.heroTextTop}
-          heroTextBottom={indexAssets.heroTextBottom}
-        /> */}
         <ListingIndexHero
           bgImage={indexAssets.heroImage.file.url}
           header={indexAssets.heroHeader}
@@ -85,6 +83,10 @@ class IndexPage extends Component {
           }
         />
         <Testimonials testimonials={indexAssets.testimonials} />
+        <SignupCta
+          logo={data.contentfulMeta.logo.file.url}
+          text={indexAssets.emailSignUpText.internal.content}
+        />
       </Layout>
     )
   }
@@ -95,6 +97,13 @@ class IndexPage extends Component {
 
 export const query = graphql`
   query IndexPageQuery {
+    contentfulMeta {
+      logo {
+        file {
+          url
+        }
+      }
+    }
     contentfulHomePage {
       heroHeader
       heroParagraph {
@@ -104,8 +113,6 @@ export const query = graphql`
       }
       heroSubheader
       heroButtonText
-      heroTextTop
-      heroTextBottom
       heroImage {
         file {
           url
@@ -155,6 +162,11 @@ export const query = graphql`
         personsName
         personsTitle
         personsCompany
+      }
+      emailSignUpText {
+        internal {
+          content
+        }
       }
     }
     contentfulPropertiesOnWebsite {

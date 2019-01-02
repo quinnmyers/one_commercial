@@ -1,0 +1,74 @@
+@import '../../base.sass'
+  
+.signupcta 
+  display: flex 
+  justify-content: center
+  align-items: center
+  min-height: 300px 
+  width: 100%
+  background-image: linear-gradient(-90deg, $gradientlight, $gradientdark)
+  font-size: 12pt
+  &__container
+    display: flex 
+    justify-content: center 
+    color: red
+    width: 100%
+    padding: 90px 0px
+    &__logo 
+      background: white
+      padding: 20px 10px
+      min-width: 33%
+      img 
+        // width: 33%
+    &__text
+      display: flex 
+      flex-direction: column 
+      align-items: center 
+      // justify-content: space-between
+      padding-left: 20px 
+      color: white
+      font-size: 1.8em
+      letter-spacing: .025em
+      position: relative
+      p
+        font-weight: $medium
+        margin-bottom: 20px
+      &__input
+        position: relative
+
+      .signupcta__container__text__input
+        position: absolute 
+        bottom: 0 
+        left: 0
+        // display: flex !important
+        // display: none !important
+        // transform: scale(1.25)
+        margin-left: 20px
+        #mc_embed_signup
+          // display: none !important
+          form   
+            // display: none !important
+            margin-bottom: 0px !important
+            #mc_embed_signup_scroll
+              // display: none !important
+              #mce-EMAIL 
+                background: none
+                border: 1px solid white 
+                border-top-left-radius: 100px
+                border-bottom-left-radius: 100px
+                color: white 
+              input
+                // display: none !important
+            .clear 
+              input
+                background: white !important
+                color: $gradientmid !important
+                border-top-right-radius: 100px 
+                border-bottom-right-radius: 100px 
+                padding: 0px 25px
+                font-size: 1.1em
+                .button
+                  background: red !important
+                  font-family: $mainfont !important
+              button 
+                background: red
