@@ -9,7 +9,7 @@
     align-items: center
     justify-content: center
     flex-direction: column
-    width: 1200px 
+    width: 1200px
     height: 100%
     // background: coral
     @include edgesnap
@@ -25,11 +25,13 @@
   align-items: center
   --height: 140px
   height: var(--height)
-  padding: 0px 20px
-  background: tomato
-  position: sticky 
+  padding: 0px 15px
+  // background: tomato
+  background: white
+  box-shadow: 0 4px 2px -2px $light-grey
+  position: sticky
   top: 0
-  z-index: 999
+  z-index: 9999
   @include edgesnap
     --height: 120px
   @include tablet 
@@ -46,13 +48,14 @@
     display: flex
     justify-content: space-between 
     align-items: flex-end
+    position: relative
     width: 100%
-    background: lightskyblue
+    z-index: 99
     @include navsnap 
       align-items: center
       height: 100%
     &__brand
-      background: khaki
+      // background: khaki
       .company--logo
         width: calc(var(--height)*1.4)
         height: auto
@@ -65,14 +68,14 @@
     &__nav
       display: flex
       height: 100%
-      font-size: 12pt
+      font-size: 12pt 
       //overall height of the hamburger 
       height: 70%
       .mobile__hamburger
         display: none
         align-self: center 
         justify-self: center
-        background: red
+        // background: red
         height: 40%
         width: 30px
         @include navsnap 
@@ -120,6 +123,8 @@
               height: 2px
       nav
         line-height: 1rem
+        position: relative 
+        z-index: 1000
         @include navsnap
           display: none
         div 
@@ -128,7 +133,7 @@
             margin-right: 0px
         a, a:visited 
           font-size: 1rem
-          font-weight: $medium
+          font-weight: $normal
           // margin: 0px 10px
           @include edgesnap 
             font-size: 0.9rem
@@ -139,24 +144,28 @@
             color: $gradientmid 
             border-bottom: 2px solid $gradientmid
         a.active 
-          color: $gradientmid
           border-bottom: 2px solid $gradientmid
         ul.submenu-expanded 
           transform: translateY(0) !important
           z-index: 9999
+          opacity: 1 !important
+          // padding-top: 20px
         ul.navitem__submenu
-          position: absolute 
-          // margin-left: 11px
-          list-style: none 
-          background: khaki
+          position: absolute
+          z-index: -99999
+          opacity: 0
+          background: white
+          padding: 30px 14px
+          list-style: none
           transform: translateY(-100%)
           transition: all 0.3s ease-in-out
-          z-index: -100
           li.navitem__submenu__item
             &, a, a:visited 
               color: black
+              margin: 15px 0px
     &__mobilenav
       position: absolute
+      text-align: right
       z-index: 998 
       width: 100vw
       height: 100vh
@@ -170,10 +179,21 @@
         flex-direction: column 
         align-items: flex-end
         padding-right: 38px
-        a 
+        margin-top: 20px
+        // height: 300px
+        div
+          margin: 4px 0px
+        ul, li, a
           font-size: 0.9rem
-          margin: 8px 0px
-          &:nth-child(1)
-            margin-top: 20px
+          margin: 12px 0px
+        ul, .mobile__navitem__submenu
+          list-style: none
+          &__item, li 
+            margin: 4px 0px
+            a
+              line-height: 1em
+              font-size: 0.8em
+              color: $grey
+
   
         

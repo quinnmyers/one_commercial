@@ -36,11 +36,11 @@ class Layout extends React.Component {
               page: 'saleindex',
               desc: 'View All Properties for Sale',
             },
-            {
-              name: 'Past Listings',
-              page: '#',
-              desc: 'View all past listings.',
-            },
+            // {
+            //   name: 'Past Listings',
+            //   page: '#',
+            //   desc: 'View all past listings.',
+            // },
           ],
         },
         {
@@ -48,11 +48,11 @@ class Layout extends React.Component {
           page: 'services',
           desc: "Read About One Commercial's Services",
         },
-        {
-          name: 'About',
-          page: 'about',
-          desc: 'Read about One Commercial',
-        },
+        // {
+        //   name: 'About',
+        //   page: 'about',
+        //   desc: 'Read about One Commercial',
+        // },
         {
           name: 'Contact',
           page: 'contact',
@@ -197,14 +197,32 @@ class Layout extends React.Component {
           <div className="header__container__mobilenav" ref={this.mobileNav}>
             <nav>
               {this.state.navItems.map((navitem, index) => (
-                <Link
-                  to={navitem.page}
-                  key={index}
-                  activeClassName="active"
-                  onClick={this.handleClick.bind(this)}
-                >
-                  {navitem.name}
-                </Link>
+                <div>
+                  <Link
+                    to={navitem.page}
+                    key={index}
+                    activeClassName="active"
+                    onClick={this.handleClick.bind(this)}
+                  >
+                    {navitem.name}
+                  </Link>
+                  {navitem.hasOwnProperty('subMenu') ? (
+                    <ul className="mobile__navitem__submenu">
+                      {navitem.subMenu.map((subitem, index) => (
+                        <li
+                          className="mobile__navitem__submenu__item"
+                          key={index}
+                        >
+                          {' '}
+                          <Link to={subitem.page}>{subitem.name}</Link>
+                        </li>
+                      ))}
+                      <li />
+                    </ul>
+                  ) : (
+                    ''
+                  )}
+                </div>
               ))}
             </nav>
           </div>

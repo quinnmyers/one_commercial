@@ -16,37 +16,45 @@ import HomeTextBlock from '../components/home/hometextblock'
 import ServiceCards from '../components/home/servicecards'
 import FeaturedListing from '../components/home/featuredListing/featuredListing'
 import Testimonials from '../components/home/testimonials'
+import ListingIndexHero from '../components/listingsindex/listingindexhero/listingindexhero'
 
 //stles
 // import '../components/styles/home.sass'
 
 class IndexPage extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {}
-
   }
-  componentWillMount() {
-
-  }
-  componentDidMount() {
-
-  }
+  componentWillMount() {}
+  componentDidMount() {}
   render() {
     const { data } = this.props
     const indexAssets = data.contentfulHomePage
     const featuredQuery = data.contentfulPropertiesOnWebsite.featuredProperty
     return (
       <Layout>
+
         <Helmet>
           <meta charSet="utf-8" />
           <title>{"One Commercial a Las Vegas real estate company"}</title>
           <meta name="description" content={indexAssets.underFeaturedTextBlockParagraph.internal.content.substring(0, 100)} />
         </Helmet>
         <Hero
+
+        {/* <Hero
+
           heroBackgroundImage={indexAssets.heroImage.fluid}
           heroTextTop={indexAssets.heroTextTop}
           heroTextBottom={indexAssets.heroTextBottom}
+        /> */}
+        <ListingIndexHero
+          bgImage={indexAssets.heroImage.file.url}
+          header={indexAssets.heroHeader}
+          content={indexAssets.heroParagraph.internal.content}
+          subHeader={indexAssets.heroSubheader}
+          buttonText={indexAssets.heroButtonText}
+          buttonLink="saleindex"
         />
         {/* <ServicesCta
           underHeroHeader={indexAssets.underHeroTextBlockBold}
@@ -58,7 +66,11 @@ class IndexPage extends Component {
         />
         <ServiceCards serviceCards={indexAssets.serviceCards} />
         <FeaturedListing
-          pageUrl={`${this.props.location.href}${this.props.data.contentfulPropertiesOnWebsite.featuredProperty.name.split(" ").join("-")}`}
+          pageUrl={`${
+            this.props.location.href
+          }${this.props.data.contentfulPropertiesOnWebsite.featuredProperty.name
+            .split(' ')
+            .join('-')}`}
           name={featuredQuery.name}
           address={featuredQuery.address.childContentfulRichText.html}
           size={featuredQuery.buildinglotSize}
@@ -77,15 +89,26 @@ class IndexPage extends Component {
     )
   }
 }
+// fluid(maxWidth: 2000) {
+//   ...GatsbyContentfulFluid_noBase64
+// }
 
 export const query = graphql`
   query IndexPageQuery {
     contentfulHomePage {
+      heroHeader
+      heroParagraph {
+        internal {
+          content
+        }
+      }
+      heroSubheader
+      heroButtonText
       heroTextTop
       heroTextBottom
       heroImage {
-        fluid(maxWidth: 2000) {
-          ...GatsbyContentfulFluid_noBase64
+        file {
+          url
         }
       }
       underHeroTextBlockBold

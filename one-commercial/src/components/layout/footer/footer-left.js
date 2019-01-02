@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 
 //styles
 import '../../styles/layout/footer/footer-left.sass'

@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+
 import { Helmet } from "react-helmet"
 import PropTypes from 'prop-types'
 
+
 //components
 import Layout from '../components/layout'
-import Content from '../components/content'
 import ListingIndexHero from '../components/listingsindex/listingindexhero/listingindexhero'
 import PropertyPreview from '../components/listingsindex/propertypreview/propertypreview'
 
@@ -37,25 +38,23 @@ class SaleIndex extends Component {
           buttonText={liQuery.heroButtonText}
           buttonLink="leaseindex"
         />
-        <div className="index__preview__container">
-          {liPQuery.propertiesForSale.map(property => (
-            // <p>i am a prop {property.name}</p>
-            <PropertyPreview
-              listingType={'sale'}
-              id={property.id}
-              name={property.name}
-              address={property.address.childContentfulRichText.html}
-              image={property.mainImage.fluid}
-              salePrice={property.salePrice}
-              category={property.category}
-              buildinglotSize={property.buildinglotSize}
-              measurementUnit={property.measurementUnit}
-              underContractPending={property.underContractpending}
-              desc={property.propertyDescription.childContentfulRichText.html}
-              salePrice={property.salePrice}
-            />
-          ))}
-        </div>
+        {liPQuery.propertiesForSale.map(property => (
+          // <p>i am a prop {property.name}</p>
+          <PropertyPreview
+            listingType={'sale'}
+            id={property.id}
+            name={property.name}
+            address={property.address.childContentfulRichText.html}
+            image={property.mainImage.fluid}
+            salePrice={property.salePrice}
+            category={property.category}
+            buildinglotSize={property.buildinglotSize}
+            measurementUnit={property.measurementUnit}
+            underContractPending={property.underContractpending}
+            desc={property.propertyDescription.childContentfulRichText.html}
+            salePrice={property.salePrice}
+          />
+        ))}
       </Layout>
     )
   }
@@ -114,11 +113,5 @@ export const query = graphql`
     }
   }
 `
-
-// address {
-//   childContentfulRichText {
-//     html
-//   }
-// }
 
 export default SaleIndex
