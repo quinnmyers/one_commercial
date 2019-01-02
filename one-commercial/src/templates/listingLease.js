@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import ButtonRound from '../components/buttonRound/buttonRound'
 import Hero from "../components/listingpage/heroImg"
-import PropertyData from "../components/listingpage/PropertyData"
+import PropertyData from "../components/listingpage/propertyData"
 import PhotoArray from "../components/listingpage/photoArray"
 import GoogleMap from "../components/listingpage/googleMap/googleMap"
 import ShareLinkButtons from "../components/listingpage/shareLinkButtons/shareLinkButtons"
