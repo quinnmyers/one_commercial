@@ -28,6 +28,7 @@ class ButtonRound extends React.Component {
         <button
           className={style.buttonRound}
           style={{
+            border: `1px solid ${this.props.color}`,
             borderColor: this.props.color,
             padding: this.props.padding,
             fontSize: `${this.props.fsize}rem`,
@@ -44,6 +45,7 @@ class ButtonRound extends React.Component {
           className={style.buttonRound}
           onClick={this.props.action}
           style={{
+            border: `1px solid ${this.props.color}`,
             color: this.props.color,
             borderColor: this.props.color,
             padding: this.props.padding,
@@ -62,6 +64,7 @@ class ButtonRound extends React.Component {
           <button
             className={style.buttonRound}
             style={{
+              border: `1px solid ${this.props.color}`,
               color: this.props.color,
               borderColor: this.props.color,
               padding: this.props.padding,

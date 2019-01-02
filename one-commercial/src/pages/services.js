@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Helmet } from "react-helmet"
 import Layout from '../components/layout'
 import Content from "../components/content"
 import ListingIndexHero from "../components/listingsindex/listingindexhero/listingindexhero"
@@ -15,6 +16,13 @@ class Services extends Component {
 
     return (
       <Layout>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>{"las vegas real estate professional one commercial -- Services Offered "}</title>
+          <meta name="description" content={`Services Offered ${services.map(service => (
+            service.node.title
+          ))}`} />
+        </Helmet>
         <ListingIndexHero
           bgImage={page.headerImage.file.url}
           header={"Services"}
@@ -51,33 +59,33 @@ class Services extends Component {
 
 export default Services
 export const query = graphql`
-
+    
   query {
-    allContentfulServices {
-      edges {
-        node {
-          title
+          allContentfulServices {
+        edges {
+          node {
+        title
           description {
-            childContentfulRichText {
-              html
-            }
-          }
-        }
-      }
-    }
-    contentfulServicesPage {
-      headerImage {
-        file {
-          url
-        }
-      }
-      tagLine
-      description {
-        childContentfulRichText {
-          html
-        }
+          childContentfulRichText {
+        html
       }
     }
   }
-  
+}
+}
+    contentfulServicesPage {
+          headerImage {
+        file {
+          url
+        }
+        }
+        tagLine
+      description {
+          childContentfulRichText {
+        html
+      }
+    }
+  }
+}
+ 
 `

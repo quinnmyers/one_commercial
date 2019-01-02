@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Helmet } from "react-helmet"
 // import { Link } from 'gatsby'
 // import { graphql } from 'gatsby'
 import Layout from '../components/layout'
@@ -33,7 +34,16 @@ class IndexPage extends Component {
     const featuredQuery = data.contentfulPropertiesOnWebsite.featuredProperty
     return (
       <Layout>
+
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>{"One Commercial a Las Vegas real estate company"}</title>
+          <meta name="description" content={indexAssets.underFeaturedTextBlockParagraph.internal.content.substring(0, 100)} />
+        </Helmet>
+        <Hero
+
         {/* <Hero
+
           heroBackgroundImage={indexAssets.heroImage.fluid}
           heroTextTop={indexAssets.heroTextTop}
           heroTextBottom={indexAssets.heroTextBottom}

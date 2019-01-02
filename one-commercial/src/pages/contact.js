@@ -1,11 +1,13 @@
 
 import React, { Component } from 'react'
+import { Helmet } from "react-helmet"
 import Hero from '../components/contactPage/hero/hero'
 import Layout from '../components/layout'
 import FooterClone from "../components/contactPage/footerClone/footerClone"
 import ContactForm from "../components/contactPage/contatForm/contactForm"
 import ButtonRound from "../components/buttonRound/buttonRound"
 import style from "../components/styles/contact/contact.module.sass"
+import Content from "../components/content"
 
 class Contact extends Component {
   constructor(props) {
@@ -34,6 +36,11 @@ class Contact extends Component {
 
     return (
       <Layout>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>{"las vegas real estate professional -- Contact One Commercial"}</title>
+          <meta name="description" content={"Contact One Commercial your one stop shop for las vegas real estate for both sales and leases"} />
+        </Helmet>
         <Hero
           bgImage={contact.headerImage.file.url}
           header={"Contact Us"}
@@ -42,6 +49,7 @@ class Contact extends Component {
           buttonText={"Back Home"}
           buttonLink=""
         />
+
         <div className={style.wraper}>
           <div className={style.left}>
             <ContactForm

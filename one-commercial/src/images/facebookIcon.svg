@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-1 {
+        clip-rule: evenodd;
+      }
+
+      .cls-3 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-4 {
+        clip-path: url(#clip-path-2);
+      }
+
+      .cls-5 {
+        fill: #4460a0;
+      }
+    </style>
+    <clipPath id="clip-path">
+      <path id="Path_460" data-name="Path 460" class="cls-1" d="M2.649,0A2.649,2.649,0,0,1,0-2.649v-42.7A2.649,2.649,0,0,1,2.649-48h42.7A2.649,2.649,0,0,1,48-45.351v42.7A2.649,2.649,0,0,1,45.351,0H33.119V-18.588h6.239l.934-7.244H33.119v-4.625c0-2.1.582-3.527,3.59-3.527l3.836,0v-6.479a51.28,51.28,0,0,0-5.59-.286c-5.531,0-9.317,3.376-9.317,9.576v5.342H19.383v7.244h6.255V0Z"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <path id="Path_459" data-name="Path 459" class="cls-2" d="M-200,1043H848V-208H-200Z"/>
+    </clipPath>
+  </defs>
+  <g id="Group_550" data-name="Group 550" transform="translate(0 48)">
+    <g id="Group_549" data-name="Group 549" class="cls-3">
+      <g id="Group_548" data-name="Group 548" class="cls-4">
+        <path id="Path_458" data-name="Path 458" class="cls-5" d="M-5-53H53V5H-5Z"/>
+      </g>
+    </g>
+  </g>
+</svg>
