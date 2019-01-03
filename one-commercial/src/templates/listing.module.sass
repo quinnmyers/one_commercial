@@ -37,6 +37,27 @@
             @include phone-large
                 width: 100% 
     .contact
-        text-align: center
+      margin-top: 40px
+      display: flex
+      text-align: center
+      flex-direction: column
+      font-size: 12pt 
+      @include edgesnap 
+        font-size: 1.35vw
+      @include tablet-phone 
+        font-size: 1.8vw
+      h4 
+        font-weight: $normal 
+        font-size: 1.45em
+        margin-bottom: 0.5em
+      p
+        color: $grey
+        font-weight: $light
+        margin: 0.5em
     h3
-        padding: 30px 0
+      padding: 30px 0
+      // color: red
+
+
+
+  
