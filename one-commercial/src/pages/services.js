@@ -1,18 +1,20 @@
 import React, { Component } from 'react'
-import { Helmet } from "react-helmet"
+import { Helmet } from 'react-helmet'
 import Layout from '../components/layout'
-import Content from "../components/content"
-import ListingIndexHero from "../components/listingsindex/listingindexhero/listingindexhero"
-import ButtonRound from "../components/buttonRound/buttonRound"
-import style from "../components/styles/services/services.module.sass"
+import Content from '../components/content'
+import ListingIndexHero from '../components/listingsindex/listingindexhero/listingindexhero'
+import ButtonRound from '../components/buttonRound/buttonRound'
+import style from '../components/styles/services/services.module.sass'
 
 class Services extends Component {
   state = {}
   componentDidMount() {
-    if (this.props.location.state.hasOwnProperty("toID")) {
+    if (this.props.location.state.hasOwnProperty('toID')) {
       setTimeout(() => {
-        document.getElementById(this.props.location.state.toID).scrollIntoView({ block: 'end', behavior: 'smooth' })
-      }, 150);
+        document
+          .getElementById(this.props.location.state.toID)
+          .scrollIntoView({ block: 'end', behavior: 'smooth' })
+      }, 150)
     } else {
       return
     }
@@ -25,38 +27,51 @@ class Services extends Component {
       <Layout>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>{"las vegas real estate professional one commercial -- Services Offered "}</title>
-          <meta name="description" content={`Services Offered ${services.map(service => (
-            service.title
-          ))}`} />
+          <title>
+            {
+              'las vegas real estate professional one commercial -- Services Offered '
+            }
+          </title>
+          <meta
+            name="description"
+            content={`Services Offered ${services.map(
+              service => service.title
+            )}`}
+          />
         </Helmet>
         <ListingIndexHero
           bgImage={page.headerImage.file.url}
-          header={"Services"}
+          header={'Services'}
           content={page.description.childContentfulRichText.html}
           subHeader={"Let's work together"}
-          buttonText={"Contact Us"}
+          buttonText={'Contact Us'}
           buttonLink="contact"
           color="black"
           innerhtml={true}
-        >
-        </ListingIndexHero>
+        />
         <Content>
           {services.map((service, index) => (
-            <div className={style.service} id={service.title.split(" ").join("_")} key={index}>
+            <div
+              className={style.service}
+              id={service.title.split(' ').join('_')}
+              key={index}
+            >
               <h3>{service.title}</h3>
-              <div dangerouslySetInnerHTML={{ __html: service.description.childContentfulRichText.html }}></div>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: service.description.childContentfulRichText.html,
+                }}
+              />
             </div>
           ))}
           <div className={style.contact}>
-            <h4>Let's work together</h4>
+            <h4>Let's Work Together</h4>
             <p>{page.tagLine}</p>
             <ButtonRound
               innerText={`Contact Us`}
               action={`contact`}
               type="gatsbylink"
-            ></ButtonRound>
-
+            />
           </div>
         </Content>
       </Layout>
@@ -66,7 +81,6 @@ class Services extends Component {
 
 export default Services
 export const query = graphql`
-    
   query {
     contentfulServicesPage {
       headerImage {
@@ -89,6 +103,5 @@ export const query = graphql`
         }
       }
     }
-}
- 
+  }
 `
