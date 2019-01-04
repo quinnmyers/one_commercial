@@ -9,6 +9,24 @@ import './signupcta.sass'
 import './mailchimpstyles.sass'
 
 class SignUpCta extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {}
+    this.focusHandler = this.focusHandler.bind(this)
+    this.blurHandler = this.blurHandler.bind(this)
+  }
+  focusHandler(e) {
+    e.persist()
+    const oldPlaceholder = e.target.placeholder
+    e.target.placeholder = ""
+    this.setState({ oldPlaceholder: oldPlaceholder })
+  }
+  blurHandler(e) {
+    e.persist()
+    if (e.target.value === "") {
+      e.target.placeholder = this.state.oldPlaceholder
+    }
+  }
   render() {
     return (
       <div className="signupcta">
@@ -47,6 +65,8 @@ class SignUpCta extends Component {
                         id="mce-EMAIL"
                         placeholder="email address"
                         required="required"
+                        value=""
+                        onFocus={this.focusHandler} onBlur={this.blurHandler}
                       />
                       {/* real people should not fill this in and expect good things - do not remove this or risk form bot signups*/}
                       <div
