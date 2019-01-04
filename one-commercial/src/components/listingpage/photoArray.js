@@ -32,9 +32,9 @@ class photoArray extends React.Component {
 
         const { photoIndex, isOpen } = this.state;
         return (
-            this.props.imageArray.map((img, index) => (
+            this.state.images.map((img, index) => (
                 <div>
-                    <img key={index} src={img.file.url} alt="" onClick={() => this.setState({ isOpen: true })} />
+                    <img key={index} src={img} alt="" onClick={() => this.setState({ isOpen: true })} />
                     {isOpen && (
                         <Lightbox
                             mainSrc={this.state.images[photoIndex]}
