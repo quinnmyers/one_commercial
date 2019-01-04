@@ -163,7 +163,7 @@ class listing extends React.Component {
                   )}
                   innerText={this.availableCheck(
                     'All For Lease Listings',
-                    `see ${listing.name} on LoopNet`
+                    `View ${listing.name} on LoopNet`
                   )}
                 />
               </div>
@@ -178,8 +178,8 @@ class listing extends React.Component {
             <div className={style.contact}>
               <h4>
                 {this.availableCheck(
-                  `Intersted In Details on ${listing.name}`,
-                  `Intersted In Leasing ${listing.name}`
+                  `Intersted In Details on ${listing.name}?`,
+                  `Intersted In Leasing ${listing.name}?`
                 )}
               </h4>
               <ButtonRound

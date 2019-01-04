@@ -91,9 +91,6 @@ class SimpleMap extends Component {
         <div
           style={{
             marginTop: '15px',
-            display: 'flex',
-            width: '100%',
-            justifyContent: 'flex-end',
           }}
         >
           <ButtonRound
