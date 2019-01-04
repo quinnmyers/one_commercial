@@ -26,7 +26,11 @@ class propertyData extends Component {
                 {this.props.ListingData.map((specs, index) => {
                     if (this.validUrl(specs.value)) {
                         return <p key={index} className={style.data__line}><a href={specs.value}>{specs.title}</a></p>
-                    } else {
+                    } else if( specs.value === "true"){
+                        return <p key={index} className={style.data__line}><span className={style.data__line__title}>{specs.title}:</span>Yes</p>
+                    } else if( specs.value === "false"){
+                        return <p key={index} className={style.data__line}><span className={style.data__line__title}>{specs.title}:</span>No</p>
+                    } else{
                         return <p key={index} className={style.data__line}><span className={style.data__line__title}>{specs.title}:</span>{specs.value}</p>
                     }
                 }

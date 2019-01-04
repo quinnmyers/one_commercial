@@ -32,8 +32,9 @@ class Hero extends Component {
 
                         </div>
                         <div className="listing__index__hero__content__bottom">
-                            <h2> <span style={{
-
+                            <h2 style={{
+                                transform: "translateY(150%)",
+                            }}> <span style={{
                                 background: this.props.flagBackground,
                                 padding: this.props.flagSize
                             }}>{this.props.flag}</span></h2>

@@ -1,5 +1,5 @@
 import React from 'react'
-import style from "./contactForm.module.sass"
+import style from "./contactform.module.sass"
 class ContactForm extends React.Component {
     constructor(props) {
         super(props);
