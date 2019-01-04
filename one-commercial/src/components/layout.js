@@ -139,12 +139,7 @@ class Layout extends React.Component {
                           false
                         )}
                       >
-                        {navitem.name}
-                      </Link>
-                      {navitem.hasOwnProperty('subMenu') ? (
-                        <ul
-                          className={`navitem__submenu`}
-                          ref={`${navitem.name}--submenu`}
+                        <span
                           onMouseEnter={this.styleSubMenu.bind(
                             this,
                             navitem.name,
@@ -155,6 +150,13 @@ class Layout extends React.Component {
                             navitem.name,
                             false
                           )}
+                        >{navitem.name} </span>
+                      </Link>
+                      {navitem.hasOwnProperty('subMenu') ? (
+                        <ul
+                          className={`navitem__submenu`}
+                          ref={`${navitem.name}--submenu`}
+
                         >
                           {navitem.subMenu.map((subitem, index) => (
                             <li className="navitem__submenu__item" key={index}>
@@ -166,8 +168,8 @@ class Layout extends React.Component {
                           ))}
                         </ul>
                       ) : (
-                        ''
-                      )}
+                          ''
+                        )}
                     </div>
                   ))}
                 </nav>
@@ -220,8 +222,8 @@ class Layout extends React.Component {
                       <li />
                     </ul>
                   ) : (
-                    ''
-                  )}
+                      ''
+                    )}
                 </div>
               ))}
             </nav>
