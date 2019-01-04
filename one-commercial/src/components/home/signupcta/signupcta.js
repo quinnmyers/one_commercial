@@ -6,6 +6,7 @@ import Content from '../../content'
 
 //styles
 import './signupcta.sass'
+import './mailchimpstyles.sass'
 
 class SignUpCta extends Component {
   render() {
@@ -20,11 +21,6 @@ class SignUpCta extends Component {
               <p>{this.props.text}</p>
               <div className="signupcta__container__text__input">
                 {/* Begin Mailchimp Signup Form */}
-                <link
-                  href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css"
-                  rel="stylesheet"
-                  type="text/css"
-                />
                 <style
                   type="text/css"
                   dangerouslySetInnerHTML={{
@@ -50,7 +46,7 @@ class SignUpCta extends Component {
                         className="email"
                         id="mce-EMAIL"
                         placeholder="email address"
-                        required
+                        required="required"
                       />
                       {/* real people should not fill this in and expect good things - do not remove this or risk form bot signups*/}
                       <div

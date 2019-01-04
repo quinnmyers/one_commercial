@@ -13,42 +13,53 @@
     justify-content: center 
     color: red
     width: 100%
-    padding: 90px 0px
+    padding: 110px 0px
+    @include edgesnap 
+      padding: 6em 0em
+    @include tablet-phone 
+      padding: 4em 0em
     &__logo 
       background: white
-      padding: 20px 10px
-      min-width: 33%
+      padding: 30px 20px
+      min-width: 30%
       img 
         // width: 33%
     &__text
       display: flex 
       flex-direction: column 
       align-items: center 
-      // justify-content: space-between
-      padding-left: 20px 
+      justify-content: center
+      padding-left: 50px 
       color: white
       font-size: 1.8em
-      letter-spacing: .025em
+      line-height: 1.1em
       position: relative
+      @include edgesnap 
+        font-size: 2.3vw
       p
-        font-weight: $medium
+        font-weight: $normal
         margin-bottom: 20px
       &__input
-        position: relative
-
+        display: flex 
+        align-self: flex-start
+        align-items: flex-start
+        width: 100%
+        @media(max-width: 862px)
+          width: 100%
+        @include tablet-phone 
+          // background: khaki
       .signupcta__container__text__input
-        position: absolute 
-        bottom: 0 
-        left: 0
-        // display: flex !important
-        // display: none !important
-        // transform: scale(1.25)
-        margin-left: 20px
+        @include tablet-phone 
+          transform: scale(0.8)
+          align-self: flex-start
         #mc_embed_signup
-          // display: none !important
+          display: flex 
+          align-self: flex-start
+          width: 100%
           form   
             // display: none !important
             margin-bottom: 0px !important
+            width: 100%
             #mc_embed_signup_scroll
               // display: none !important
               #mce-EMAIL 
