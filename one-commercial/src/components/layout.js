@@ -92,6 +92,8 @@ class Layout extends React.Component {
       el.classList.add('submenu-expanded')
     } else {
       el.classList.remove('submenu-expanded')
+
+
     }
   }
   render() {
@@ -128,18 +130,14 @@ class Layout extends React.Component {
                       <Link
                         to={navitem.name === 'Home' ? `/` : `/${navitem.page}/`}
                         activeClassName="active"
-                        onMouseEnter={this.styleSubMenu.bind(
-                          this,
-                          navitem.name,
-                          true
-                        )}
-                        onMouseLeave={this.styleSubMenu.bind(
-                          this,
-                          navitem.name,
-                          false
-                        )}
+
                       >
-                        <span
+                        {navitem.name}
+                      </Link>
+                      {navitem.hasOwnProperty('subMenu') ? (
+                        <ul
+                          className={`navitem__submenu`}
+                          ref={`${navitem.name}--submenu`}
                           onMouseEnter={this.styleSubMenu.bind(
                             this,
                             navitem.name,
@@ -150,16 +148,11 @@ class Layout extends React.Component {
                             navitem.name,
                             false
                           )}
-                        >{navitem.name} </span>
-                      </Link>
-                      {navitem.hasOwnProperty('subMenu') ? (
-                        <ul
-                          className={`navitem__submenu`}
-                          ref={`${navitem.name}--submenu`}
-
                         >
                           {navitem.subMenu.map((subitem, index) => (
-                            <li className="navitem__submenu__item" key={index}>
+                            <li className="navitem__submenu__item" key={index}
+
+                            >
                               <Link to={`/${subitem.page}/`}>
                                 {' '}
                                 {subitem.name}
@@ -245,7 +238,7 @@ class Layout extends React.Component {
             socialMedia={this.props.data.contentfulMeta.socialMediaAccounts}
           />
         </div>
-      </div>
+      </div >
     )
   }
   componentDidMount() {

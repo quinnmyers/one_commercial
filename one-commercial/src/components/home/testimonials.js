@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Content from '../content.js'
 import TestimonialCard from './testimonialcard'
 //styles
-import '../styles/home/testimonials.sass'
+import './testimonials.sass'
 
 class Testimonials extends Component {
   render() {

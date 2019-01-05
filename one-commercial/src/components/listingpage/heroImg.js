@@ -9,7 +9,7 @@ import Content from '../content'
 import '../listingsindex/listingindexhero/listingindexhero.sass'
 
 //styles
-import style from '../../components/styles/listingPage/hero.module.sass'
+import style from './hero.module.sass'
 
 class Hero extends Component {
   static defaultProps = {

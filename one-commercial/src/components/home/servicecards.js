@@ -4,7 +4,7 @@ import Content from '../content.js'
 
 import ServiceCard from './servicecard.js'
 
-import '../styles/home/servicecards.sass'
+import './servicecards.sass'
 
 class ServiceCards extends Component {
   // constructor(props) {

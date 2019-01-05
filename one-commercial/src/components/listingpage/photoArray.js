@@ -2,7 +2,7 @@
 import React from 'react';
 import Lightbox from 'lightbox-react';
 import 'lightbox-react/style.css';
-import style from "../../components/styles/listingPage/photoArray.module.sass"
+import style from "./photoArray.module.sass"
 import { array } from 'prop-types';
 
 class photoArray extends React.Component {

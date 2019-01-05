@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import Content from '../content.js'
 
-import '../styles/home/hometextblock.sass'
+import './hometextblock.sass'
 
 class HomeTextBlock extends Component {
   render() {
