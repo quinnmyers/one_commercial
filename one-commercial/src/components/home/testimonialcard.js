@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 
-import '../styles/home/testimonials.sass'
+import './testimonials.sass'
 
 const TestimonialCard = ({ testimonial, photo, name, title, company }) => (
   <div className="testimonials__container__card">
