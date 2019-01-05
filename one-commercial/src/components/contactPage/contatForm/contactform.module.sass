@@ -1,31 +1,46 @@
+@import "../../base.sass"
+  
 .wraper
-    display: flex
-    flex-direction: column
-    .inputblock
-        display: flex
-        flex-direction: column
-        margin-bottom: 15px
-        textarea
-            border: 1px solid black
-            resize: none
-        input[type=submit]
-            font-size: .7rem
-            align-self: flex-end
-            padding: 0px 25px
-            border-radius: 1rem
-            border: 1px solid black
-        select
-            background: white
-            border: 1px solid black
-        input
-            border: none
-            border-bottom: 1px solid black
-    .inputsubmit
-        display: flex
-        flex-direction: column
-        input[type=submit]
-            font-size: .7rem
-            align-self: flex-end
-            padding: 0px 25px
-            border-radius: 1rem
-            border: 1px solid black
+  display: flex
+  flex-direction: column
+  .inputblock
+      display: flex
+      flex-direction: column
+      margin-bottom: 15px
+      font-size: 12pt
+      @include edgesnap 
+        font-size: 1.42vw
+      @include tablet-phone 
+        font-size: 2.1vw
+      label 
+        color: black
+        font-size: 1.05em
+        font-weight: $normal
+        margin-bottom: .2em
+      textarea
+          border: 1px solid black
+          resize: none
+      input[type=submit]
+          font-size: .7em
+          align-self: flex-end
+          padding: 0px 25px
+          border-radius: 1em
+          border: 1px solid black
+      select
+          background: white
+          border: 1px solid black
+      input, textarea
+        font-weight: $light
+        font-size: 0.95em
+      input
+          border: none
+          border-bottom: 1px solid black
+  .inputsubmit
+      display: flex
+      flex-direction: column
+      input[type=submit]
+          font-size: .7rem
+          align-self: flex-end
+          padding: 0px 25px
+          border-radius: 1em
+          border: 1px solid black

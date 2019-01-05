@@ -5,18 +5,24 @@
     display: flex
     justify-content: space-between
     width: $edgesnap-width
-    transform: translateY(-100px)
+    --negative-height: -100px
+    transform: translateY(var(--negative-height))
     padding: 50px 90px
-    box-shadow: 0px 0px 13px -2px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 13px -2px rgba(0,0,0,0.75)
+    font-size: 12pt
     @include edgesnap
-        width: 90%
+        width: 97%
         padding: 20px 30px
+        margin: 0px 15px
+        font-size: 1.42vw
+    @include tablet-phone 
+      font-size: 1.8vw
     @include tablet-large
         padding: 10px 19px
         border-radius: none
         transform: translateY(0)
         box-shadow: none 
-    @include phone-large
+    @include tablet-phone
         border-radius: none
         transform: translateY(0)
         box-shadow: none 
@@ -27,25 +33,32 @@
         margin: auto 0
         @include edgesnap
             width: 47%
-        @include phone-large
+        @include tablet-phone
             width: 100%
         h3
+            font-weight: $normal
             text-align: center
+            font-size: 1.5em
             // font-size: 2.9rem
             padding: 30px 0
         &__body
             display: flex
             flex-direction: column
             &__buttons
-
                 display: flex 
-                width: 100%
+                width: 97%
                 justify-content: space-between
+                align-self: flex-end
+                @include edgesnap 
+                  flex-direction: column
+                  button 
+                    margin-bottom: 1.5em
+                    width: 100%
     .left
         align-content: center
         width: 33%
         @include edgesnap
             width: 47%
-        @include phone-large
+        @include tablet-phone
             width: 100%
        
