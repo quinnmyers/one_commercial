@@ -124,13 +124,25 @@ class Layout extends React.Component {
                 {/* <Img fluid={siteLogo} className="company--logo" /> */}
               </div>
               <div className="header__container__nav">
+                <div className="header__container__nav__spacer"></div>
                 <nav>
                   {this.state.navItems.map((navitem, index) => (
                     <div key={index}>
                       <Link
                         to={navitem.name === 'Home' ? `/` : `/${navitem.page}/`}
                         activeClassName="active"
-
+                        className={`navitem__submenu`}
+                        ref={`${navitem.name}--submenu`}
+                        onMouseEnter={this.styleSubMenu.bind(
+                          this,
+                          navitem.name,
+                          true
+                        )}
+                        onMouseLeave={this.styleSubMenu.bind(
+                          this,
+                          navitem.name,
+                          false
+                        )}
                       >
                         {navitem.name}
                       </Link>
