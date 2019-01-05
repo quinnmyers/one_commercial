@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 //styles
-import '../../styles/layout/footer/footer-right.sass'
+import './footer-right.sass'
 
 const FooterRight = () => (
   <div className="footer__right">

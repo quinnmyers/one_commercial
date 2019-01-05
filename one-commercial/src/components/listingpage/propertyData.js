@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 //styles
-import style from '../../components/styles/listingPage/data.module.sass'
+import style from './data.module.sass'
 
 class propertyData extends Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class propertyData extends Component {
     this.state = {}
   }
 
-  componentDidMount() {}
+  componentDidMount() { }
   validUrl(str) {
     const pattern = new RegExp(
       '(?:(?:https?|ftp|file)://|www.|ftp.)(?:([-A-Z0-9+&@#/%=~_|$?!:,.]*)|[-A-Z0-9+&@#/%=~_|$?!:,.])*(?:([-A-Z0-9+&@#/%=~_|$?!:,.]*)|[A-Z0-9+&@#/%=~_|$])'

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 //styles
-import '../../styles/layout/footer/footer-center.sass'
+import './footer-center.sass'
 
 const FooterCenter = ({ address, phone, logo, email }) => (
   <div>

@@ -1,7 +1,7 @@
 import React from 'react'
 
 //styles
-import '../../styles/layout/footer/footer-left.sass'
+import './footer-left.sass'
 
 const FooterLeft = ({ socialMedia }) => (
   <div className="footer__left">

@@ -8,7 +8,7 @@ import FooterRight from './footer-right'
 import PropTypes from 'prop-types'
 
 //styles
-import '../../styles/layout/footer/footer.sass'
+import './footer.sass'
 
 class Footer extends Component {
   constructor(props) {
