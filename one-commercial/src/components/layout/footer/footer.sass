@@ -3,20 +3,23 @@
 
 .footer
   display: flex
-  height: 400px
-  background: lightskyblue
-  margin-top: 500px
-  @include edgesnap
-    height: auto
+  // height: 400px
+  // background: lightskyblue
+  // margin-top: 500px
+  padding: 50px 0px
+  height: auto
   &__container 
     display: flex
     justify-content: space-between
     padding: 0px 15px
+    // background: khaki
     @include tablet-phone
       flex-wrap: wrap-reverse
       padding: 20px 0px
+      // flex-direction: column
+      // flex-wrap: wrap
     h6 
-      font-size: 0.8em
+      font-size: 0.825em
       font-weight: $normal
     p 
       font-size: 0.7em
@@ -32,19 +35,31 @@
     &__center
       max-width: 220px
       @include tablet-phone
-        min-width: 50%
+        // min-width: 50%
+        max-width: 50%
         // background: red
         justify-content: space-between
     &__right
       min-width: 20%
       @include tablet-phone
         min-width: 50%
-        background: pink
     &__left, &__center, &__right 
-      display: flex 
+      display: flex
+      // background: red
       justify-content: space-between
       align-items: center
       h6 
-        color: red
+        color: black
       p 
-        color: yellow
+        color: $grey
+      @include tablet-phone 
+        display: inline
+    &__center 
+      @include tablet-phone
+        width: 48%
+        display: inline
+    &__right 
+      justify-content: flex-end
+      @include tablet-phone
+        width: 48%
+        display: inline
