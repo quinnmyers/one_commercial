@@ -57,7 +57,7 @@
     @include navsnap 
       align-items: center
       height: 100%
-    &__brandf
+    &__brand
       margin: auto 0
       .company--logo
         width: calc(var(--height)*1.4)
@@ -72,12 +72,14 @@
       display: flex
       flex-direction: column
       height: 100%
-
+      
       // height: var(--height)
       font-size: 12pt 
 
       //overall height of the hamburger 
       // height: 70%
+      @include navsnap 
+        justify-content: center
       &__spacer
         z-index: 10000
         display: flex
@@ -85,6 +87,7 @@
 
         height: calc(100% - 21pt)
         @include navsnap 
+         height: 0
           // height: 100%
 
       .mobile__hamburger
