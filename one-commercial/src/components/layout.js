@@ -120,6 +120,8 @@ class Layout extends React.Component {
   }
   render() {
     const { children, data } = this.props
+    console.log(data.contentfulMeta.logo.file.url);
+
     return (
       <div>
         <Helmet
