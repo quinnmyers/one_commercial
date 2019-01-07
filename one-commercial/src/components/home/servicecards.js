@@ -47,7 +47,6 @@ class ServiceCards extends Component {
   //   }
   // }
   componentDidMount() {
-    console.log(this.props.serviceCards)
   }
   render() {
     // const { serviceCards } = this.props
