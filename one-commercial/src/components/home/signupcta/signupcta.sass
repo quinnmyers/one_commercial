@@ -18,10 +18,15 @@
       padding: 6em 0em
     @include tablet-phone 
       padding: 4em 0em
+      flex-direction: column
+      justify-content: center 
+      align-items: center
     &__logo 
       background: white
       padding: 30px 20px
       min-width: 30%
+      @include tablet-phone 
+        width: 85%
       img 
         // width: 33%
     &__text
@@ -34,11 +39,18 @@
       font-size: 1.8em
       line-height: 1.1em
       position: relative
+      @include tablet-phone 
+        padding-left: 0px
+        width: 85%
+        margin-top: 25px
       @include edgesnap 
         font-size: 2.3vw
       p
         font-weight: $normal
         margin-bottom: 20px
+        @include tablet-phone 
+          font-size: 2em
+          line-height: 1em
       &__input
         display: flex 
         align-self: flex-start
@@ -50,7 +62,7 @@
           // background: khaki
       .signupcta__container__text__input
         @include tablet-phone 
-          transform: scale(0.8)
+          // transform: scale(0.8)
           align-self: flex-start
         #mc_embed_signup
           display: flex 

@@ -28,7 +28,8 @@
   padding: 0px 15px
   // background: tomato
   background: white
-  box-shadow: 0 4px 2px -2px $light-grey
+  box-shadow: 0 4px 4px -4px $light-grey
+  //  box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);
   position: sticky
   top: 0
   z-index: 999
@@ -56,10 +57,8 @@
     @include navsnap 
       align-items: center
       height: 100%
-    &__brand
-
+    &__brandf
       margin: auto 0
-
       .company--logo
         width: calc(var(--height)*1.4)
         height: auto
@@ -85,6 +84,8 @@
         width: 100%
 
         height: calc(100% - 21pt)
+        @include navsnap 
+          // height: 100%
 
       .mobile__hamburger
         display: none

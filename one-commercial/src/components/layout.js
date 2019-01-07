@@ -23,7 +23,7 @@ class Layout extends React.Component {
         },
         {
           name: 'Listings',
-          page: 'listings',
+          page: 'willgetsetbybuildNavLinkFunction',
           desc: "See One Commercial's Listings",
           subMenu: [
             {
@@ -86,7 +86,7 @@ class Layout extends React.Component {
     }
   }
   styleSubMenu(navitem, bool) {
-    if (navitem === "Listings") {
+    if (navitem === 'Listings') {
       this.state.subMenuOpen = bool
       const el = this.refs[`${navitem}--submenu`]
       if (this.state.subMenuOpen) {
@@ -96,7 +96,6 @@ class Layout extends React.Component {
       }
     } else {
       return
-
     }
   }
   render() {
@@ -115,26 +114,33 @@ class Layout extends React.Component {
         <div>
           <div className="header" ref={div => (this.siteHeader = div)}>
             <div className="header__container">
-              <div
-                className="header__container__brand"
-                onClick={this.testFunction}
-              >
-                <img
-                  className="company--logo"
-                  src={data.contentfulMeta.logo.file.url}
-                  alt=""
-                />
-                {/* <Img fluid={siteLogo} className="company--logo" /> */}
-              </div>
+              <Link to={'/'}>
+                <div
+                  className="header__container__brand"
+                  onClick={this.testFunction}
+                >
+                  <img
+                    className="company--logo"
+                    src={data.contentfulMeta.logo.file.url}
+                    alt=""
+                  />
+                  {/* <Img fluid={siteLogo} className="company--logo" /> */}
+                </div>
+              </Link>
+
               <div className="header__container__nav">
-                <div className="header__container__nav__spacer"></div>
+                <div className="header__container__nav__spacer" />
                 <nav>
                   {this.state.navItems.map((navitem, index) => (
                     <div key={index}>
                       <Link
-                        to={navitem.name === 'Home' ? `/` : `/${navitem.page}/`}
+                        to={
+                          navitem.name.toLowerCase() !==
+                          navitem.page.toLowerCase()
+                            ? this.buildNavLink(navitem.name)
+                            : `/${navitem.page}/`
+                        }
                         activeClassName="active"
-
                         className={`navitem__submenu`}
                         ref={`${navitem.name}--submenu`}
                         onMouseEnter={this.styleSubMenu.bind(
@@ -147,7 +153,6 @@ class Layout extends React.Component {
                           navitem.name,
                           false
                         )}
-
                       >
                         {navitem.name}
                       </Link>
@@ -176,8 +181,8 @@ class Layout extends React.Component {
                           ))}
                         </ul>
                       ) : (
-                          ''
-                        )}
+                        ''
+                      )}
                     </div>
                   ))}
                 </nav>
@@ -230,8 +235,8 @@ class Layout extends React.Component {
                       <li />
                     </ul>
                   ) : (
-                      ''
-                    )}
+                    ''
+                  )}
                 </div>
               ))}
             </nav>
@@ -261,6 +266,13 @@ class Layout extends React.Component {
     this.stylePageContainer()
     // console.log(this.state)
     console.log('hi, the layout just mounted')
+  }
+  buildNavLink(name) {
+    if (name === 'Home') {
+      return '/'
+    } else if (name === 'Listings') {
+      return 'leaseindex'
+    }
   }
   stylePageContainer() {
     //styles the page container so that the footer is always exactly below

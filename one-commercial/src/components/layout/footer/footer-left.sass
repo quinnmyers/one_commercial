@@ -2,8 +2,10 @@
 
 .footer__left__container
   display: flex
+  height: 100%
   // display: none
   flex-direction: column
+  justify-content: space-between
   @include tablet-phone 
     align-self: flex-end
     // background: pink 
@@ -13,7 +15,7 @@
   &__middle,
     display: flex 
     flex-direction: column 
-    margin-bottom: 10px
+    // margin-bottom: 10px
     h6 
       margin: 8px 0px
     &:nth-child(1)
