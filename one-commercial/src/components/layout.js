@@ -86,12 +86,17 @@ class Layout extends React.Component {
     }
   }
   styleSubMenu(navitem, bool) {
-    this.state.subMenuOpen = bool
-    const el = this.refs[`${navitem}--submenu`]
-    if (this.state.subMenuOpen) {
-      el.classList.add('submenu-expanded')
+    if (navitem === "Listings") {
+      this.state.subMenuOpen = bool
+      const el = this.refs[`${navitem}--submenu`]
+      if (this.state.subMenuOpen) {
+        el.classList.add('submenu-expanded')
+      } else {
+        el.classList.remove('submenu-expanded')
+      }
     } else {
-      el.classList.remove('submenu-expanded')
+      return
+
     }
   }
   render() {
@@ -171,8 +176,8 @@ class Layout extends React.Component {
                           ))}
                         </ul>
                       ) : (
-                        ''
-                      )}
+                          ''
+                        )}
                     </div>
                   ))}
                 </nav>
@@ -225,8 +230,8 @@ class Layout extends React.Component {
                       <li />
                     </ul>
                   ) : (
-                    ''
-                  )}
+                      ''
+                    )}
                 </div>
               ))}
             </nav>
