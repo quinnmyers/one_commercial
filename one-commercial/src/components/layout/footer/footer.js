@@ -23,7 +23,10 @@ class Footer extends Component {
       <div className="footer">
         <div className="footer__container">
           <div className="footer__container__left">
-            <FooterLeft socialMedia={this.props.socialMedia} />
+            <FooterLeft
+              socialMedia={this.props.socialMedia}
+              footerLeftText={this.props.footerLeftText.internal.content}
+            />
           </div>
           <div className="footer__container__center">
             <FooterCenter
@@ -47,6 +50,7 @@ Footer.propTypes = {
   phone: PropTypes.string,
   logo: PropTypes.string,
   email: PropTypes.string,
+  footerLeftText: PropTypes.string,
 }
 
 export default Footer

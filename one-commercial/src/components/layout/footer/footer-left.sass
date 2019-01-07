@@ -1,18 +1,28 @@
+@import '../../base.sass'
+
 .footer__left__container
   display: flex
+  // display: none
   flex-direction: column
-  justify-content: center
-  background: red
-  height: 100%
+  @include tablet-phone 
+    align-self: flex-end
+    // background: pink 
+  p 
+    margin-bottom: 5px !important
   &__top,
   &__middle,
-  &__bottom,
+    display: flex 
+    flex-direction: column 
+    margin-bottom: 10px
     h6 
       margin: 8px 0px
     &:nth-child(1)
       h6 
         margin-top: 0px
   &__top
+    p 
+      @include tablet-phone
+        margin-bottom: 10px !important
   &__middle
     &__socialmedia
       &__container
@@ -24,4 +34,3 @@
           &:nth-child(1)
             img
               margin-left: 0px
-  &__bottom

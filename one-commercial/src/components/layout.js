@@ -92,8 +92,6 @@ class Layout extends React.Component {
       el.classList.add('submenu-expanded')
     } else {
       el.classList.remove('submenu-expanded')
-
-
     }
   }
   render() {
@@ -131,6 +129,7 @@ class Layout extends React.Component {
                       <Link
                         to={navitem.name === 'Home' ? `/` : `/${navitem.page}/`}
                         activeClassName="active"
+
                         className={`navitem__submenu`}
                         ref={`${navitem.name}--submenu`}
                         onMouseEnter={this.styleSubMenu.bind(
@@ -143,6 +142,7 @@ class Layout extends React.Component {
                           navitem.name,
                           false
                         )}
+
                       >
                         {navitem.name}
                       </Link>
@@ -162,9 +162,7 @@ class Layout extends React.Component {
                           )}
                         >
                           {navitem.subMenu.map((subitem, index) => (
-                            <li className="navitem__submenu__item" key={index}
-
-                            >
+                            <li className="navitem__submenu__item" key={index}>
                               <Link to={`/${subitem.page}/`}>
                                 {' '}
                                 {subitem.name}
@@ -173,8 +171,8 @@ class Layout extends React.Component {
                           ))}
                         </ul>
                       ) : (
-                          ''
-                        )}
+                        ''
+                      )}
                     </div>
                   ))}
                 </nav>
@@ -227,8 +225,8 @@ class Layout extends React.Component {
                       <li />
                     </ul>
                   ) : (
-                      ''
-                    )}
+                    ''
+                  )}
                 </div>
               ))}
             </nav>
@@ -248,9 +246,10 @@ class Layout extends React.Component {
             logo={data.contentfulMeta.logo.file.url}
             email={this.props.data.contentfulMeta.email}
             socialMedia={this.props.data.contentfulMeta.socialMediaAccounts}
+            footerLeftText={this.props.data.contentfulMeta.footerLeftText}
           />
         </div>
-      </div >
+      </div>
     )
   }
   componentDidMount() {
@@ -308,6 +307,11 @@ export default props => (
               file {
                 url
               }
+            }
+          }
+          footerLeftText {
+            internal {
+              content
             }
           }
         }

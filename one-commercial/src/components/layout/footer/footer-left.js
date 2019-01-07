@@ -1,20 +1,24 @@
 import React from 'react'
 
+// components
+import ButtonRound from '../../buttonRound/buttonRound'
+
 //styles
 import './footer-left.sass'
 
-const FooterLeft = ({ socialMedia }) => (
+const FooterLeft = ({ socialMedia, footerLeftText }) => (
   <div className="footer__left">
     <div className="footer__left__container">
       <div className="footer__left__container__top">
         <h6>Contact Us Today For A Free Consultation</h6>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla, odio
-          magnam. Sequi distinctio illum dicta doloribus excepturi reprehenderit
-          officiis consectetur, nisi numquam! Assumenda adipisci aut sit
-          inventore, id alias molestiae.
-        </p>
-        <p>Contact Button Goes Here</p>
+        <p>{footerLeftText}</p>
+        <ButtonRound
+          action="contact"
+          type="gatsbylink"
+          innerText={`Contact Us`}
+          color="black"
+          pos="left"
+        />
       </div>
       <div className="footer__left__container__middle">
         <h6>Or Find Us Here</h6>
@@ -36,7 +40,7 @@ const FooterLeft = ({ socialMedia }) => (
           </div>
         </div>
       </div>
-      <div className="footer__left__container__bottom">
+      {/* <div className="footer__left__container__bottom">
         <h6>Sign Up For Our Mailing List</h6>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque eum
@@ -44,7 +48,7 @@ const FooterLeft = ({ socialMedia }) => (
           at inventore ipsa laudantium ad nostrum pariatur. In?
         </p>
         <p>Sign Up Goes Here</p>
-      </div>
+      </div> */}
     </div>
   </div>
 )
