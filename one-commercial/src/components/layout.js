@@ -76,12 +76,12 @@ class Layout extends React.Component {
   expandMobileNav() {
     const el = this.mobileNav.current
     if (!this.state.open) {
-      console.log('mobile nav is open!')
       el.style.transform = `translateY(0)`
+      el.style.position = "fixed"
       this.hamburgerMenu.classList.add('expanded')
     } else {
-      console.log('mobile nav is closed')
       el.style.transform = `translateY(-100%)`
+      el.style.position = "absolute"
       this.hamburgerMenu.classList.remove('expanded')
     }
   }
@@ -265,7 +265,6 @@ class Layout extends React.Component {
   componentDidMount() {
     this.stylePageContainer()
     // console.log(this.state)
-    console.log('hi, the layout just mounted')
   }
   buildNavLink(name) {
     if (name === 'Home') {
