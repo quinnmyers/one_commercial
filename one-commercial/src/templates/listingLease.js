@@ -50,13 +50,13 @@ class listing extends React.Component {
         title: 'number of spaces',
         value: `${data.minimumNumberOfSpacesAvailable}-${
           data.maximumNumberOfSpacesAvailable
-        }`,
+          }`,
       },
       {
         title: 'Sf available',
         value: `${data.smallestSquareFootageAvailable}-${
           data.largestSquareFootageAvailable
-        }`,
+          }`,
       },
     ]
     let price = []
@@ -75,8 +75,9 @@ class listing extends React.Component {
   }
 
   // life cycle hooks
-  componentWillMount() {}
+  componentWillMount() { }
   componentDidMount() {
+
     this.listingData(this.props.data.contentfulPropertyForLease)
   }
   render() {
@@ -129,7 +130,7 @@ class listing extends React.Component {
                 <GoogleMap
                   address={`${listing.address.childContentfulRichText.html} ${
                     listing.city
-                  } ${listing.state}`}
+                    } ${listing.state}`}
                 />
                 <h3 className={style.body__left__share}>
                   Share {listing.name}

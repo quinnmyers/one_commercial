@@ -61,17 +61,19 @@ class Layout extends React.Component {
       ],
       open: false,
       subMenuOpen: false,
+      subOpen: false
     }
     this.mobileNav = React.createRef()
   }
   //handles clicks on the hamburger button
   handleClick() {
-    console.log('WHADDUP')
     this.setState({
+
       open: !this.state.open,
     })
     this.expandMobileNav()
   }
+
   //sets styling of the &__mobilenav div
   expandMobileNav() {
     const el = this.mobileNav.current
@@ -97,6 +99,24 @@ class Layout extends React.Component {
     } else {
       return
     }
+  }
+  subMenuClickHandler(navitem) {
+    console.log(this.state.subOpen);
+
+    if (navitem === 'Listings') {
+      console.log(this)
+      const el = this.refs[`${navitem}--submenu`]
+      if (!this.state.subOpen) {
+        this.setState({ subOpen: true })
+        el.classList.add('submenu-expanded')
+      } else {
+        this.setState({ subOpen: false })
+        el.classList.remove('submenu-expanded')
+      }
+    }
+  }
+  componentWillMount() {
+
   }
   render() {
     const { children, data } = this.props
@@ -134,15 +154,21 @@ class Layout extends React.Component {
                   {this.state.navItems.map((navitem, index) => (
                     <div key={index}>
                       <Link
+
                         to={
                           navitem.name.toLowerCase() !==
-                          navitem.page.toLowerCase()
+                            navitem.page.toLowerCase()
                             ? this.buildNavLink(navitem.name)
                             : `/${navitem.page}/`
                         }
                         activeClassName="active"
                         className={`navitem__submenu`}
                         ref={`${navitem.name}--submenu`}
+                        onClick={this.subMenuClickHandler.bind(
+                          this,
+                          navitem.name,
+
+                        )}
                         onMouseEnter={this.styleSubMenu.bind(
                           this,
                           navitem.name,
@@ -181,8 +207,8 @@ class Layout extends React.Component {
                           ))}
                         </ul>
                       ) : (
-                        ''
-                      )}
+                          ''
+                        )}
                     </div>
                   ))}
                 </nav>
@@ -235,8 +261,8 @@ class Layout extends React.Component {
                       <li />
                     </ul>
                   ) : (
-                    ''
-                  )}
+                      ''
+                    )}
                 </div>
               ))}
             </nav>
@@ -263,6 +289,7 @@ class Layout extends React.Component {
     )
   }
   componentDidMount() {
+    this.setState({ onpage: window.location.pathname })
     this.stylePageContainer()
     // console.log(this.state)
   }
@@ -270,7 +297,8 @@ class Layout extends React.Component {
     if (name === 'Home') {
       return '/'
     } else if (name === 'Listings') {
-      return 'leaseindex'
+      // return 'leaseindex'
+      return `${this.state.onpage}/#`
     }
   }
   stylePageContainer() {
