@@ -35,8 +35,8 @@ const PropertyPreview = ({
                 <div dangerouslySetInnerHTML={{ __html: address }} />
                 <div className="property__preview__container__info__left__price">
                   {listingType === 'sale'
-                    ? salePrice.toLocaleString()
-                    : `PSF $${pricePerSquareFoot.toLocaleString()}`}
+                    ? `$ ${salePrice.toLocaleString()}`
+                    : `PSF $ ${pricePerSquareFoot.toLocaleString()}`}
                 </div>
               </div>
               <div className="property__preview__container__info__right">
