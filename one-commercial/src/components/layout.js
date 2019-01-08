@@ -23,7 +23,7 @@ class Layout extends React.Component {
         },
         {
           name: 'Listings',
-          page: 'willgetsetbybuildNavLinkFunction',
+          page: 'leaseindex',
           desc: "See One Commercial's Listings",
           subMenu: [
             {
@@ -61,14 +61,13 @@ class Layout extends React.Component {
       ],
       open: false,
       subMenuOpen: false,
-      subOpen: false
+      subOpen: false,
     }
     this.mobileNav = React.createRef()
   }
   //handles clicks on the hamburger button
   handleClick() {
     this.setState({
-
       open: !this.state.open,
     })
     this.expandMobileNav()
@@ -79,11 +78,11 @@ class Layout extends React.Component {
     const el = this.mobileNav.current
     if (!this.state.open) {
       el.style.transform = `translateY(0)`
-      el.style.position = "fixed"
+      el.style.position = 'fixed'
       this.hamburgerMenu.classList.add('expanded')
     } else {
       el.style.transform = `translateY(-100%)`
-      el.style.position = "absolute"
+      el.style.position = 'absolute'
       this.hamburgerMenu.classList.remove('expanded')
     }
   }
@@ -101,7 +100,7 @@ class Layout extends React.Component {
     }
   }
   subMenuClickHandler(navitem) {
-    console.log(this.state.subOpen);
+    console.log(this.state.subOpen)
 
     if (navitem === 'Listings') {
       console.log(this)
@@ -115,12 +114,10 @@ class Layout extends React.Component {
       }
     }
   }
-  componentWillMount() {
-
-  }
+  componentWillMount() {}
   render() {
     const { children, data } = this.props
-    console.log(data.contentfulMeta.logo.file.url);
+    console.log(data.contentfulMeta.logo.file.url)
 
     return (
       <div>
@@ -156,10 +153,9 @@ class Layout extends React.Component {
                   {this.state.navItems.map((navitem, index) => (
                     <div key={index}>
                       <Link
-
                         to={
                           navitem.name.toLowerCase() !==
-                            navitem.page.toLowerCase()
+                          navitem.page.toLowerCase()
                             ? this.buildNavLink(navitem.name)
                             : `/${navitem.page}/`
                         }
@@ -168,8 +164,7 @@ class Layout extends React.Component {
                         ref={`${navitem.name}--submenu`}
                         onClick={this.subMenuClickHandler.bind(
                           this,
-                          navitem.name,
-
+                          navitem.name
                         )}
                         onMouseEnter={this.styleSubMenu.bind(
                           this,
@@ -209,8 +204,8 @@ class Layout extends React.Component {
                           ))}
                         </ul>
                       ) : (
-                          ''
-                        )}
+                        ''
+                      )}
                     </div>
                   ))}
                 </nav>
@@ -242,7 +237,12 @@ class Layout extends React.Component {
               {this.state.navItems.map((navitem, index) => (
                 <div>
                   <Link
-                    to={navitem.page}
+                    ///////////
+                    to={
+                      navitem.name.toLowerCase() === 'listings'
+                        ? '/leaseindex/'
+                        : navitem.page
+                    }
                     key={index}
                     activeClassName="active"
                     onClick={this.handleClick.bind(this)}
@@ -263,8 +263,8 @@ class Layout extends React.Component {
                       <li />
                     </ul>
                   ) : (
-                      ''
-                    )}
+                    ''
+                  )}
                 </div>
               ))}
             </nav>
