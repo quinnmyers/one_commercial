@@ -37,7 +37,7 @@ class IndexPage extends Component {
       <Layout>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>{'One Commercial a Las Vegas real estate company'}</title>
+          <title>{'One Commercial, Las Vegas Commercial Real Estate'}</title>
           <meta
             name="description"
             content={indexAssets.underFeaturedTextBlockParagraph.internal.content.substring(

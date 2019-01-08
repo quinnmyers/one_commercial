@@ -1,22 +1,23 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'One Commercial - Las Vegas Commercial Real Estate Company',
+    siteUrl: `#`,
+    description: `One Commercial is a Las Vegas Commercial Real Company Specializing in Leasing, Sales, Investments, and New Development.`,
   },
   plugins: [
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: "GatsbyJS",
-        short_name: "GatsbyJS",
-        start_url: "/",
-        background_color: "#fff",
-        theme_color: "#38E86F",
+        name: 'GatsbyJS',
+        short_name: 'GatsbyJS',
+        start_url: '/',
+        background_color: '#fff',
+        theme_color: '#38E86F',
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
-        display: "standalone",
-        icon: "src/images/one__comm__logo__square.png", // This path is relative to the root of the site.
+        display: 'standalone',
+        icon: 'src/images/one__comm__logo__square.png', // This path is relative to the root of the site.
       },
-
     },
     'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',

@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import { Helmet } from "react-helmet"
+import { Helmet } from 'react-helmet'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-
 
 //components
 import Layout from '../components/layout'
@@ -27,8 +26,11 @@ class LeaseIndex extends Component {
       <Layout>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>{"Top Properties For Lease In Las Vegas"}</title>
-          <meta name="description" content={liQuery.heroParagraph.internal.content.substring(0, 100)} />
+          <title>{'One Commercial Listings for Lease in Las Vegas'}</title>
+          <meta
+            name="description"
+            content={liQuery.heroParagraph.internal.content.substring(0, 100)}
+          />
         </Helmet>
         <ListingIndexHero
           bgImage={liQuery.heroBackgroundImage.file.url}

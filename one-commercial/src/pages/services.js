@@ -28,15 +28,13 @@ class Services extends Component {
         <Helmet>
           <meta charSet="utf-8" />
           <title>
-            {
-              'las vegas real estate professional one commercial -- Services Offered '
-            }
+            {'One Commercial Las Vegas Commercial Real Estate Services'}
           </title>
           <meta
             name="description"
-            content={`Services Offered ${services.map(
+            content={`One Commercial offers services such as ${services.map(
               service => service.title
-            )}`}
+            )}, learn more about what we can do for you.`}
           />
         </Helmet>
         <ListingIndexHero

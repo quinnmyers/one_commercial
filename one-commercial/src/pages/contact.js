@@ -44,12 +44,14 @@ class Contact extends Component {
         <Helmet>
           <meta charSet="utf-8" />
           <title>
-            {'las vegas real estate professional -- Contact One Commercial'}
+            {
+              'Contact One Commercial, A Las Vegas Commercial Real Estate Company'
+            }
           </title>
           <meta
             name="description"
             content={
-              'Contact One Commercial your one stop shop for las vegas real estate for both sales and leases'
+              'Contact One Commercial, a Las Vegas Commercial Real Estate Company.'
             }
           />
         </Helmet>
