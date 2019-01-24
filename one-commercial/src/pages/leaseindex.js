@@ -47,7 +47,7 @@ class LeaseIndex extends Component {
             name={property.name}
             address={property.address.childContentfulRichText.html}
             image={property.mainImage.fluid}
-            pricePerSquareFoot={property.pricePerSquareFoot}
+            pricePerSquareFoot={property.displayPricePerSquareFoot ? property.pricePerSquareFoot : " contact for price"}
             category={property.category}
             buildinglotSize={property.buildinglotSize}
             measurementUnit={property.measurementUnit}
@@ -99,6 +99,7 @@ export const query = graphql`
           }
         }
         pricePerSquareFoot
+        displayPricePerSquareFoot
         category
         buildinglotSize
         measurementUnit
