@@ -16,17 +16,25 @@ class Contact extends Component {
     }
   }
   fromOtherPage() {
-    if (this.props.location.state.hasOwnProperty('fromButtonRound')) {
-      this.setState({ fromPage: this.props.location.state.fromButtonRound })
-      // return this.props.location.state.fromButtonRound
-    } else {
-      this.setState({ fromPage: '' })
+    if (this.props.location.state) {
+      console.log(" not null");
+
+      if (this.props.location.state.hasOwnProperty('fromButtonRound')) {
+        console.log(true);
+
+        this.setState({ fromPage: this.props.location.state.fromButtonRound })
+        // return this.props.location.state.fromButtonRound
+      } else {
+        this.setState({ fromPage: '' })
+      }
     }
   }
   // checkContainerPosition() {
 
   // }
   componentDidMount() {
+    console.log("props", this.props);
+
     this.fromOtherPage()
     // this.checkContainerPosition()
   }

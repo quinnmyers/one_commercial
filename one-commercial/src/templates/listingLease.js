@@ -50,32 +50,32 @@ class listing extends React.Component {
         title: 'Suites Available',
         value: `${data.minimumNumberOfSpacesAvailable} - ${
           data.maximumNumberOfSpacesAvailable
-        }`,
+          }`,
       },
       {
         title: 'Available SF',
         value: `${data.smallestSquareFootageAvailable} - ${
           data.largestSquareFootageAvailable
-        } sf`,
+          } sf`,
       },
     ]
     let price = []
     if (data.displayPricePerSquareFoot) {
       price.push({
         title: 'Price',
-        value: `$${data.pricePerSquareFoot.toLocaleString()} PSF`,
+        value: `${data.pricePerSquareFoot} PSF`,
       })
     } else {
       price.push({
         title: 'Contact Us For Price',
-        value: `${window.location.hostname}/contact/`,
+        value: `${window.location.origin}/contact/`,
       })
     }
     return this.setState({ listingInfo: listingArr.concat(price) })
   }
 
   // life cycle hooks
-  componentWillMount() {}
+  componentWillMount() { }
   componentDidMount() {
     this.listingData(this.props.data.contentfulPropertyForLease)
   }
@@ -129,7 +129,7 @@ class listing extends React.Component {
                 <GoogleMap
                   address={`${listing.address.childContentfulRichText.html} ${
                     listing.city
-                  } ${listing.state}`}
+                    } ${listing.state}`}
                 />
                 <h3 className={style.body__left__share}>
                   Share {listing.name}
