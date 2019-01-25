@@ -83,7 +83,7 @@ class IndexPage extends Component {
             indexAssets.underFeaturedTextBlockParagraph.internal.content
           }
         />
-        <Testimonials testimonials={indexAssets.testimonials} />
+        {/* <Testimonials testimonials={indexAssets.testimonials} /> */}
         <SignupCta
           logo={data.contentfulMeta.logo.file.url}
           text={indexAssets.emailSignUpText.internal.content}
