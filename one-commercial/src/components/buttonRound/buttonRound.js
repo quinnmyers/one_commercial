@@ -24,7 +24,7 @@ class ButtonRound extends React.Component {
   render() {
     let button
     if (this.props.type === 'link') {
-      button = (
+      button = (<a href={`//${this.props.action}`} target="_blank" style={{ color: this.props.color }}>
         <button
           className={style.buttonRound}
           style={{
@@ -35,10 +35,10 @@ class ButtonRound extends React.Component {
             fontSize: `${this.props.fsize}rem`,
           }}
         >
-          <a href={this.props.action} style={{ color: this.props.color }}>
-            {this.props.innerText}
-          </a>{' '}
-        </button>
+
+          {this.props.innerText}
+          {' '}
+        </button>   </a>
       )
     } else if (this.props.type === 'function') {
       button = (
