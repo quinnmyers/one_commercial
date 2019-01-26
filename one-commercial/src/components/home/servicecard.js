@@ -11,6 +11,7 @@ const ServiceCard = ({ name, icon, alt, description }) => (
         src={icon}
         alt={alt}
       />
+
       <p>{description}</p>
     </Link>
   </div>

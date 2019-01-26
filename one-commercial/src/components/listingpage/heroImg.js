@@ -19,11 +19,15 @@ class Hero extends Component {
   render() {
     // const { heroBackgroundImage, heroTextTop, heroTextBottom } = this.props
     return (
-      <div
-        className="listing__index__hero"
-        style={{ backgroundImage: `url("${this.props.heroBackgroundImage}")` }}
-      >
-        <Content>
+      <Content>
+        <div
+          className="listing__index__hero"
+          style={{
+            backgroundImage: `url("${this.props.heroBackgroundImage}")`,
+            backgroundPosition: `center`,
+            backgroundSize: `cover`,
+          }}
+        >
           <div
             className="listing__index__hero__content"
             style={{ width: '100%' }}
@@ -47,8 +51,8 @@ class Hero extends Component {
               </h2>
             </div>
           </div>
-        </Content>
-      </div>
+        </div>
+      </Content>
     )
   }
 }

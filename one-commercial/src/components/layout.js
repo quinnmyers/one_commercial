@@ -5,6 +5,7 @@ import { StaticQuery, graphql, Link } from 'gatsby'
 
 //components
 import Footer from './layout/footer/footer'
+import Content from './content'
 
 import './layout.css'
 import './main.sass'
@@ -132,57 +133,41 @@ class Layout extends React.Component {
         </Helmet>
         <div>
           <div className="header" ref={div => (this.siteHeader = div)}>
-            <div className="header__container">
-              <Link to={'/'}>
-                <div
-                  className="header__container__brand"
-                  onClick={this.testFunction}
-                >
-                  <img
-                    className="company--logo"
-                    src={data.contentfulMeta.logo.file.url}
-                    alt=""
-                  />
-                  {/* <Img fluid={siteLogo} className="company--logo" /> */}
-                </div>
-              </Link>
+            <Content>
+              <div className="header__container">
+                <Link to={'/'}>
+                  <div
+                    className="header__container__brand"
+                    onClick={this.testFunction}
+                  >
+                    <img
+                      className="company--logo"
+                      src={data.contentfulMeta.logo.file.url}
+                      alt=""
+                    />
+                    {/* <Img fluid={siteLogo} className="company--logo" /> */}
+                  </div>
+                </Link>
 
-              <div className="header__container__nav">
-                <div className="header__container__nav__spacer" />
-                <nav>
-                  {this.state.navItems.map((navitem, index) => (
-                    <div key={index}>
-                      <Link
-                        to={
-                          navitem.name.toLowerCase() !==
-                          navitem.page.toLowerCase()
-                            ? this.buildNavLink(navitem.name)
-                            : `/${navitem.page}/`
-                        }
-                        activeClassName="active"
-                        className={`navitem__submenu`}
-                        ref={`${navitem.name}--submenu`}
-                        onClick={this.subMenuClickHandler.bind(
-                          this,
-                          navitem.name
-                        )}
-                        onMouseEnter={this.styleSubMenu.bind(
-                          this,
-                          navitem.name,
-                          true
-                        )}
-                        onMouseLeave={this.styleSubMenu.bind(
-                          this,
-                          navitem.name,
-                          false
-                        )}
-                      >
-                        {navitem.name}
-                      </Link>
-                      {navitem.hasOwnProperty('subMenu') ? (
-                        <ul
+                <div className="header__container__nav">
+                  <div className="header__container__nav__spacer" />
+                  <nav>
+                    {this.state.navItems.map((navitem, index) => (
+                      <div key={index}>
+                        <Link
+                          to={
+                            navitem.name.toLowerCase() !==
+                            navitem.page.toLowerCase()
+                              ? this.buildNavLink(navitem.name)
+                              : `/${navitem.page}/`
+                          }
+                          activeClassName="active"
                           className={`navitem__submenu`}
                           ref={`${navitem.name}--submenu`}
+                          onClick={this.subMenuClickHandler.bind(
+                            this,
+                            navitem.name
+                          )}
                           onMouseEnter={this.styleSubMenu.bind(
                             this,
                             navitem.name,
@@ -194,43 +179,64 @@ class Layout extends React.Component {
                             false
                           )}
                         >
-                          {navitem.subMenu.map((subitem, index) => (
-                            <li className="navitem__submenu__item" key={index}>
-                              <Link to={`/${subitem.page}/`}>
-                                {' '}
-                                {subitem.name}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      ) : (
-                        ''
-                      )}
+                          {navitem.name}
+                        </Link>
+                        {navitem.hasOwnProperty('subMenu') ? (
+                          <ul
+                            className={`navitem__submenu`}
+                            ref={`${navitem.name}--submenu`}
+                            onMouseEnter={this.styleSubMenu.bind(
+                              this,
+                              navitem.name,
+                              true
+                            )}
+                            onMouseLeave={this.styleSubMenu.bind(
+                              this,
+                              navitem.name,
+                              false
+                            )}
+                          >
+                            {navitem.subMenu.map((subitem, index) => (
+                              <li
+                                className="navitem__submenu__item"
+                                key={index}
+                              >
+                                <Link to={`/${subitem.page}/`}>
+                                  {' '}
+                                  {subitem.name}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          ''
+                        )}
+                      </div>
+                    ))}
+                  </nav>
+                  <div className="mobile__hamburger">
+                    <div
+                      className="mobile__hamburger__hamburger"
+                      onClick={this.handleClick.bind(this)}
+                      ref={div => (this.hamburgerMenu = div)}
+                    >
+                      <span
+                        className="line lineOne"
+                        ref={span => (this.hamburgerLine = span)}
+                      />
+                      <span
+                        className="line lineTwo"
+                        ref={span => (this.hamburgerLine = span)}
+                      />
+                      <span
+                        className="line lineThree"
+                        ref={span => (this.hamburgerLine = span)}
+                      />
                     </div>
-                  ))}
-                </nav>
-                <div className="mobile__hamburger">
-                  <div
-                    className="mobile__hamburger__hamburger"
-                    onClick={this.handleClick.bind(this)}
-                    ref={div => (this.hamburgerMenu = div)}
-                  >
-                    <span
-                      className="line lineOne"
-                      ref={span => (this.hamburgerLine = span)}
-                    />
-                    <span
-                      className="line lineTwo"
-                      ref={span => (this.hamburgerLine = span)}
-                    />
-                    <span
-                      className="line lineThree"
-                      ref={span => (this.hamburgerLine = span)}
-                    />
                   </div>
                 </div>
               </div>
-            </div>
+            </Content>
           </div>
           <div className="header__container__mobilenav" ref={this.mobileNav}>
             <nav>
