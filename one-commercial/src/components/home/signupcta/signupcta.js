@@ -57,6 +57,9 @@ class SignUpCta extends Component {
                     noValidate
                   >
                     <div id="mc_embed_signup_scroll">
+                      <label htmlFor="mce-EMAIL" className="visuallyhidden">
+                        Email Sign up
+                        </label>
                       <input
                         type="email"
                         defaultValue

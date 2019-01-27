@@ -115,7 +115,7 @@ class Layout extends React.Component {
       }
     }
   }
-  componentWillMount() {}
+  componentWillMount() { }
   render() {
     const { children, data } = this.props
     console.log(data.contentfulMeta.logo.file.url)
@@ -140,7 +140,7 @@ class Layout extends React.Component {
                     className="header__container__brand"
                     onClick={this.testFunction}
                   >
-                    <img
+                    <img aria-label="company logo a green box readind One Commercial"
                       className="company--logo"
                       src={data.contentfulMeta.logo.file.url}
                       alt=""
@@ -157,7 +157,7 @@ class Layout extends React.Component {
                         <Link
                           to={
                             navitem.name.toLowerCase() !==
-                            navitem.page.toLowerCase()
+                              navitem.page.toLowerCase()
                               ? this.buildNavLink(navitem.name)
                               : `/${navitem.page}/`
                           }
@@ -209,8 +209,8 @@ class Layout extends React.Component {
                             ))}
                           </ul>
                         ) : (
-                          ''
-                        )}
+                            ''
+                          )}
                       </div>
                     ))}
                   </nav>
@@ -269,8 +269,8 @@ class Layout extends React.Component {
                       <li />
                     </ul>
                   ) : (
-                    ''
-                  )}
+                      ''
+                    )}
                 </div>
               ))}
             </nav>

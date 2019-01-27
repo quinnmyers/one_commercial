@@ -94,6 +94,13 @@ class listing extends React.Component {
               .replace(/<\/?p[^>]*>/g, '')
               .substring(0, 100)}
           />
+          <meta property="og:title" content={`${listing.name} From One Commercial`} />
+          <meta property="og:description" content={listing.propertyDescription.childContentfulRichText.html
+            .replace(/<p[^>]*>/g, '')
+            .replace(/<\/?p[^>]*>/g, '')
+            .substring(0, 100)} />
+          <meta property="og:image" content={listing.mainImage} />
+
         </Helmet>
         <Hero
           heroBackgroundImage={listing.mainImage.file.url}
@@ -112,7 +119,7 @@ class listing extends React.Component {
                       }}
                     />
                     <p>
-                      &nbsp;{listing.city} {listing.state}
+                      &nbsp;{listing.city} {listing.state} {listing.zipCode}
                     </p>
                   </div>
                 </div>
@@ -210,6 +217,7 @@ export const query = graphql`
       }
       city
       state
+      zipCode
       propertyDescription {
         childContentfulRichText {
           html
