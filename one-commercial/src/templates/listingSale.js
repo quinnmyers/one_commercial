@@ -64,7 +64,7 @@ class listing extends React.Component {
   }
 
   // life cycle hooks
-  componentWillMount() {}
+  componentWillMount() { }
   componentDidMount() {
     this.listingData(this.props.data.contentfulPropertyForSale)
   }
@@ -100,7 +100,7 @@ class listing extends React.Component {
                       }}
                     />
                     <p>
-                      &nbsp;{listing.city} {listing.state}
+                      &nbsp;{listing.city} {listing.state} {listing.zipCode}
                     </p>
                   </div>
                 </div>
@@ -117,7 +117,7 @@ class listing extends React.Component {
                 <GoogleMap
                   address={`${listing.address.childContentfulRichText.html} ${
                     listing.city
-                  } ${listing.state}`}
+                    } ${listing.state}`}
                 />
                 <h3 className={style.body__left__share}>
                   Share {listing.name}
@@ -199,6 +199,7 @@ export const query = graphql`
       }
       city
       state
+      zipCode
       propertyDescription {
         childContentfulRichText {
           html
