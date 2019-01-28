@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
 import Layout from '../components/layout'
@@ -9,14 +10,16 @@ import style from '../components/styles/services/services.module.sass'
 class Services extends Component {
   state = {}
   componentDidMount() {
-    if (this.props.location.state.hasOwnProperty('toID')) {
-      setTimeout(() => {
-        document
-          .getElementById(this.props.location.state.toID)
-          .scrollIntoView({ block: 'end', behavior: 'smooth' })
-      }, 150)
-    } else {
-      return
+    if (this.props.location.state) {
+      if (this.props.location.state.hasOwnProperty('toID')) {
+        setTimeout(() => {
+          document
+            .getElementById(this.props.location.state.toID)
+            .scrollIntoView({ block: 'end', behavior: 'smooth' })
+        }, 150)
+      } else {
+        return
+      }
     }
   }
   render() {
