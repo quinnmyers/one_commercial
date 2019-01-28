@@ -3,9 +3,10 @@
 
 .footer
   display: flex
-  // height: 400px
-  // background: lightskyblue
-  // margin-top: 500px
+  justify-content: center
+  align-self: center 
+  justify-self: center
+  width: 100%
   padding: 50px 0px
   height: auto
   @include tablet
@@ -13,8 +14,8 @@
   &__container 
     display: flex
     justify-content: space-between
-    padding: 0px 15px
-    // height: 100%
+    width: 100%
+    position: relative
     @include tablet-phone
       flex-wrap: wrap-reverse
       padding: 20px 0px
@@ -29,12 +30,15 @@
       line-height: 1.2em
       color: $grey
     &__left
+      display: flex 
+      height: 100%
       max-width: 20%
       @include edgesnap 
         padding: 0px 15px
         max-width: 35%
       @include tablet-phone
         max-width: 100%
+        display: none !important
     &__center
       max-width: 220px
       @include tablet-phone

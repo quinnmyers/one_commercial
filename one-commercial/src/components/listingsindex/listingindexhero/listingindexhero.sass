@@ -37,22 +37,29 @@
       p 
         max-width: 50%
         line-height: 1.1em
-        font-size: 0.925em
+        font-size: 1.05em
+        letter-spacing: 0.02em
         font-weight: $light
         @include edgesnap 
           max-width: 66%
-        @include phone-large 
-          font-size: 1.3em 
+        @media(max-width: 800px)
+          font-size: 1.4em
+        @media(max-width: 550px)
+          font-size: 1.6em
           max-width: 80%
       h2 
         font-size: 1.9em
         letter-spacing: .005em
         margin-bottom: 0.6em
-        @include phone-large 
-          font-size: 2.8em
+        @media(max-width: 800px)
+          font-size: 2.4em
+        @media(max-width: 550px)
+          font-size: 2.6em
       h3 
         font-size: 1.5em
         letter-spacing: .003em
         margin-bottom: 0.45em
-        @include phone-large 
-          font-size: 2.15em
+        @media(max-width: 800px)
+          font-size: 1.9em
+        @media(max-width: 550px)
+          font-size: 2.1em

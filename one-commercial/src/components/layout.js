@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql, Link } from 'gatsby'
+import Img from 'gatsby-image'
 
 //components
 import Footer from './layout/footer/footer'
@@ -115,10 +116,9 @@ class Layout extends React.Component {
       }
     }
   }
-  componentWillMount() { }
+  componentWillMount() {}
   render() {
     const { children, data } = this.props
-    console.log(data.contentfulMeta.logo.file.url)
 
     return (
       <div>
@@ -140,11 +140,13 @@ class Layout extends React.Component {
                     className="header__container__brand"
                     onClick={this.testFunction}
                   >
-                    <img aria-label="company logo a green box readind One Commercial"
+                    <img
+                      aria-label="company logo a green box readind One Commercial"
                       className="company--logo"
                       src={data.contentfulMeta.logo.file.url}
                       alt=""
                     />
+                    {/* <Img fluid={data.contentfulMeta.logo.fluid} /> */}
                     {/* <Img fluid={siteLogo} className="company--logo" /> */}
                   </div>
                 </Link>
@@ -157,7 +159,7 @@ class Layout extends React.Component {
                         <Link
                           to={
                             navitem.name.toLowerCase() !==
-                              navitem.page.toLowerCase()
+                            navitem.page.toLowerCase()
                               ? this.buildNavLink(navitem.name)
                               : `/${navitem.page}/`
                           }
@@ -209,8 +211,8 @@ class Layout extends React.Component {
                             ))}
                           </ul>
                         ) : (
-                            ''
-                          )}
+                          ''
+                        )}
                       </div>
                     ))}
                   </nav>
@@ -269,8 +271,8 @@ class Layout extends React.Component {
                       <li />
                     </ul>
                   ) : (
-                      ''
-                    )}
+                    ''
+                  )}
                 </div>
               ))}
             </nav>
@@ -281,17 +283,21 @@ class Layout extends React.Component {
           >
             {children}
           </div>
-          <Footer
-            address={
-              this.props.data.contentfulMeta.address.childContentfulRichText
-                .html
-            }
-            phone={this.props.data.contentfulMeta.phoneNumber}
-            logo={data.contentfulMeta.logo.file.url}
-            email={this.props.data.contentfulMeta.email}
-            socialMedia={this.props.data.contentfulMeta.socialMediaAccounts}
-            footerLeftText={this.props.data.contentfulMeta.footerLeftText}
-          />
+          <div className="footer__section">
+            <Content>
+              <Footer
+                address={
+                  this.props.data.contentfulMeta.address.childContentfulRichText
+                    .html
+                }
+                phone={this.props.data.contentfulMeta.phoneNumber}
+                logo={data.contentfulMeta.logo.file.url}
+                email={this.props.data.contentfulMeta.email}
+                socialMedia={this.props.data.contentfulMeta.socialMediaAccounts}
+                footerLeftText={this.props.data.contentfulMeta.footerLeftText}
+              />
+            </Content>
+          </div>
         </div>
       </div>
     )
