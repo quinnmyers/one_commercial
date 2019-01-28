@@ -8,16 +8,16 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'GatsbyJS',
-        short_name: 'GatsbyJS',
+        name: 'One Commercial',
+        short_name: 'One Comm',
         start_url: '/',
         background_color: '#fff',
         theme_color: '#38E86F',
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
         display: 'standalone',
-        icon: 'src/images/one__comm__logo__square.png', // This path is relative to the root of the site.
-      },
+        icon: 'src/images/favicon.png', // This path is relative to the root of the site.
+      }
     },
     'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
@@ -43,18 +43,6 @@ module.exports = {
     'gatsby-image',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
-        start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
-        display: 'minimal-ui',
-        icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
-      },
-    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
