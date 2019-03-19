@@ -54,6 +54,7 @@ class IndexPage extends Component {
           subHeader={indexAssets.heroSubheader}
           buttonText={indexAssets.heroButtonText}
           buttonLink="services"
+          color="white"
         />
         {/* <ServicesCta
           underHeroHeader={indexAssets.underHeroTextBlockBold}

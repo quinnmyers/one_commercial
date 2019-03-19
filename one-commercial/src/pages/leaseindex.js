@@ -39,6 +39,7 @@ class LeaseIndex extends Component {
           subHeader={liQuery.heroSubheader}
           buttonText={liQuery.heroButtonText}
           buttonLink="saleindex"
+          color="white"
         />
         {liPQuery.propertiesForLease.map(property => (
           <PropertyPreview
@@ -47,7 +48,11 @@ class LeaseIndex extends Component {
             name={property.name}
             address={property.address.childContentfulRichText.html}
             image={property.mainImage.fluid}
-            pricePerSquareFoot={property.displayPricePerSquareFoot ? property.pricePerSquareFoot : " contact for price"}
+            pricePerSquareFoot={
+              property.displayPricePerSquareFoot
+                ? property.pricePerSquareFoot
+                : ' contact for price'
+            }
             category={property.category}
             buildinglotSize={property.buildinglotSize}
             measurementUnit={property.measurementUnit}

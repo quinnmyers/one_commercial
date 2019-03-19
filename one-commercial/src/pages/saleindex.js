@@ -39,6 +39,7 @@ class SaleIndex extends Component {
           subHeader={liQuery.heroSubheader}
           buttonText={liQuery.heroButtonText}
           buttonLink="leaseindex"
+          color="white"
         />
         {liPQuery.propertiesForSale.map(property => (
           // <p>i am a prop {property.name}</p>
